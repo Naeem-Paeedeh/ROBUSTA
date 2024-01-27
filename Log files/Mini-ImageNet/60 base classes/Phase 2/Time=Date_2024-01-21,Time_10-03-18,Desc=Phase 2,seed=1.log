@@ -1,0 +1,1683 @@
+2024-01-21 10:03:18,725:INFO:BaseTask_Sup:336: ('\nVersion Information: \n\tPyTorch: %s\n\tTorchVision: %s', '2.0.1+cu117', '0.15.2+cu117')
+2024-01-21 10:03:18,797:INFO:BaseTask_Sup:369: class_permutation is loaded from the permutation file "data/index_list/mini_imagenet/num_base_classes=60,num_tasks=9,num_shots=5,seed=1/class_permutation.txt".
+2024-01-21 10:03:20,703:WARNING:BaseTask_Sup:240: tqdm_enabled is set to False as the program is not running in the debug mode!
+2024-01-21 10:03:22,867:INFO:BaseTask_Sup:566: The network was trained for 156 epochs, 0 iterations in phase self_supervised_learning
+2024-01-21 10:03:22,968:INFO:BaseTask_Sup:651: We start from epoch 0, iteration 0
+2024-01-21 10:03:22,968:INFO:BaseTask_Sup:663: File "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_1,60_classes/P1,start_time=Date_2024-01-19,Time_15-50-41,seed=1-Best_Model.pt" is loaded
+2024-01-21 10:03:23,025:INFO:BaseTask_Sup:285: --------------------------------------------------------------------- The given arguments ---------------------------------------------------------------------
+2024-01-21 10:03:23,026:INFO:BaseTask_Sup:309: experiment_description = "Phase 2"
+2024-01-21 10:03:23,026:INFO:BaseTask_Sup:309: phase = "supervised_learning"
+2024-01-21 10:03:23,026:INFO:BaseTask_Sup:303: Device = "cuda:0"
+2024-01-21 10:03:23,026:INFO:BaseTask_Sup:307: seed = 1
+2024-01-21 10:03:23,026:INFO:BaseTask_Sup:307: is_incremental = False
+2024-01-21 10:03:23,026:INFO:BaseTask_Sup:307: debugging = False
+2024-01-21 10:03:23,026:INFO:BaseTask_Sup:307: tqdm_enabled = False
+2024-01-21 10:03:23,026:INFO:BaseTask_Sup:307: resume = False
+2024-01-21 10:03:23,026:INFO:BaseTask_Sup:309: time_str = "Date_2024-01-21,Time_10-03-18"
+2024-01-21 10:03:23,026:INFO:BaseTask_Sup:307: image_size = 224
+2024-01-21 10:03:23,026:INFO:BaseTask_Sup:307: in_channels = 3
+2024-01-21 10:03:23,026:INFO:BaseTask_Sup:307: batch_size_base = 230
+2024-01-21 10:03:23,026:INFO:BaseTask_Sup:307: batch_size_test = 230
+2024-01-21 10:03:23,026:INFO:BaseTask_Sup:307: batch_size_new = 0
+2024-01-21 10:03:23,026:INFO:BaseTask_Sup:307: batch_size_fine_tuning = 0
+2024-01-21 10:03:23,026:INFO:BaseTask_Sup:309: settings_file = "Experiments/Mini-ImageNet/60_base_classes/phase=2,seed=1.toml"
+2024-01-21 10:03:23,026:INFO:BaseTask_Sup:309: directory_permutation_files = "data/index_list/mini_imagenet/num_base_classes=60,num_tasks=9,num_shots=5,seed=1"
+2024-01-21 10:03:23,026:INFO:BaseTask_Sup:299: The network was previously trained for 0 epochs.
+2024-01-21 10:03:23,026:INFO:BaseTask_Sup:301: The network was previously trained for 0 iterations.
+2024-01-21 10:03:23,026:INFO:BaseTask_Sup:307: dino = False
+2024-01-21 10:03:23,026:INFO:BaseTask_Sup:307: debugging_env = False
+2024-01-21 10:03:23,026:INFO:BaseTask_Sup:309: model_type = "CCT-14/7x2"
+2024-01-21 10:03:23,026:INFO:BaseTask_Sup:307: prediction_net_list = []
+2024-01-21 10:03:23,026:INFO:BaseTask_Sup:314: 
+configs_arch:  {
+  model_type = "CCT-14/7x2"
+  use_BatchNorm = True
+  use_BatchNorm_for_patch_embeddings = True
+  temperature_stochastic_classifier = 16.0
+  temperature_cosine_classifier = 10.0
+  PositionalEmbeddingType = "Learnable"
+  dropout_rate_classifier_head = 0.0
+  number_of_the_first_layers_to_be_frozen = 0
+  classifer_head_type = "Stochastic"
+}
+2024-01-21 10:03:23,026:INFO:BaseTask_Sup:314: 
+configs_dataset:  {
+  dataroot = "/scratch/gx83/np9254/Datasets/FSCIL/CEC/"
+  dataset_name = "mini_imagenet"
+  num_workers = 8
+  total_classes = 100
+  num_base_classes = 60
+  num_tasks = 9
+  num_shots = 5
+  drop_last_base = True
+  num_ways = 5
+}
+2024-01-21 10:03:23,026:INFO:BaseTask_Sup:314: 
+configs_train:  {
+  num_epochs = 1000
+  num_epochs_no_progress_detection = 30
+  display_freq = 100
+  evaluation_stochastic = True
+  optimizer = {
+    optimizer_name = "AdamW"
+    lr = 0.01
+    lr_backbone = 1e-05
+    momentum = 0.9
+    momentum2 = 0.999
+    nesterov = True
+    weight_decay = 3e-06
+  }  
+  scheduler = {
+    name = "ReduceLROnPlateau"
+    mode = "max"
+    factor = 0.25
+    patience = 10
+    cooldown = 0
+    min_lr = 3e-05
+    verbose = True
+  }  
+}
+2024-01-21 10:03:23,026:INFO:BaseTask_Sup:314: 
+configs_logger:  {
+  display_freq = 1
+  moving_average_capacity = 200
+  log_file = "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/Time=Date_2024-01-21,Time_10-03-18,Desc=Phase 2,seed=1.log"
+}
+2024-01-21 10:03:23,026:INFO:BaseTask_Sup:314: 
+configs_save:  {
+  save_freq_epoch = 50
+  save_freq_iter = 2000
+  time_interval_to_save = 60
+  root = "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes"
+  input_file = "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_1,60_classes/P1,start_time=Date_2024-01-19,Time_15-50-41,seed=1-Best_Model.pt"
+  output_file = "P1P2,start_time=Date_2024-01-21,Time_10-03-18"
+}
+2024-01-21 10:03:23,026:INFO:BaseTask_Sup:314: 
+configs_FSCIL:  {
+  start_from_task = 0
+  randomize_selected_classes = False
+}
+2024-01-21 10:03:23,026:INFO:BaseTask_Sup:316: --------------------------------------------------------------------------------
+2024-01-21 10:03:23,270:INFO:BaseTask_Sup:150: The session file "data/index_list/mini_imagenet/num_base_classes=60,num_tasks=9,num_shots=5,seed=1/train_samples_for_task=1.txt" is loaded!
+2024-01-21 10:03:23,453:INFO:BaseTask_Sup:150: The session file "data/index_list/mini_imagenet/num_base_classes=60,num_tasks=9,num_shots=5,seed=1/test_samples_for_task=1.txt" is loaded!
+2024-01-21 10:03:23,509:INFO:BaseTask_Sup:315: --------------------------------------------------
+2024-01-21 10:05:34,327:INFO:BaseTask_Sup:365: Epoch = 1
+2024-01-21 10:05:34,330:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 1.6277001188351559
+2024-01-21 10:05:45,738:INFO:BaseTask_Sup:763: -> test acc. of task 0: 67.95%
+2024-01-21 10:05:45,745:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 10:05:46,024:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 10:05:46,201:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 10:05:46,358:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 10:05:46,359:INFO:BaseTask_Sup:376: The best test accuracy was 67.95% at epoch 1
+2024-01-21 10:05:46,359:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 22 seconds!
+2024-01-21 10:05:46,359:INFO:BaseTask_Sup:378: The training took 2 minutes and 22 seconds from the beginning!
+2024-01-21 10:05:46,360:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 15 hours, 38 minutes, and 27 seconds
+2024-01-21 10:05:46,360:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 10:05:46,360:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 10:07:51,799:INFO:BaseTask_Sup:365: Epoch = 2
+2024-01-21 10:07:51,801:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 1.3796850514411927
+2024-01-21 10:08:03,426:INFO:BaseTask_Sup:763: -> test acc. of task 0: 70.12%
+2024-01-21 10:08:03,437:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 10:08:03,686:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 10:08:03,873:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 10:08:04,060:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 10:08:04,062:INFO:BaseTask_Sup:376: The best test accuracy was 70.12% at epoch 2
+2024-01-21 10:08:04,062:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 10:08:04,062:INFO:BaseTask_Sup:378: The training took 4 minutes and 40 seconds from the beginning!
+2024-01-21 10:08:04,062:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 14 hours, 53 minutes, and 15 seconds
+2024-01-21 10:08:04,062:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 10:08:04,062:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 10:10:09,340:INFO:BaseTask_Sup:365: Epoch = 3
+2024-01-21 10:10:09,342:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 1.2899971401691437
+2024-01-21 10:10:20,784:INFO:BaseTask_Sup:763: -> test acc. of task 0: 70.72%
+2024-01-21 10:10:20,792:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 10:10:21,033:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 10:10:21,229:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 10:10:21,418:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 10:10:21,419:INFO:BaseTask_Sup:376: The best test accuracy was 70.72% at epoch 3
+2024-01-21 10:10:21,419:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 10:10:21,419:INFO:BaseTask_Sup:378: The training took 6 minutes and 57 seconds from the beginning!
+2024-01-21 10:10:21,419:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 14 hours, 34 minutes, and 45 seconds
+2024-01-21 10:10:21,419:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 10:10:21,419:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 10:12:26,726:INFO:BaseTask_Sup:365: Epoch = 4
+2024-01-21 10:12:26,729:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 1.235864381492138
+2024-01-21 10:12:38,110:INFO:BaseTask_Sup:763: -> test acc. of task 0: 72.03%
+2024-01-21 10:12:38,119:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 10:12:38,371:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 10:12:38,547:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 10:12:38,735:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 10:12:38,736:INFO:BaseTask_Sup:376: The best test accuracy was 72.03% at epoch 4
+2024-01-21 10:12:38,736:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 10:12:38,736:INFO:BaseTask_Sup:378: The training took 9 minutes and 15 seconds from the beginning!
+2024-01-21 10:12:38,736:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 14 hours, 24 minutes, and 11 seconds
+2024-01-21 10:12:38,736:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 10:12:38,736:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 10:14:43,738:INFO:BaseTask_Sup:365: Epoch = 5
+2024-01-21 10:14:43,740:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 1.1931609603762627
+2024-01-21 10:14:55,143:INFO:BaseTask_Sup:763: -> test acc. of task 0: 72.97%
+2024-01-21 10:14:55,151:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 10:14:55,401:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 10:14:55,587:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 10:14:55,780:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 10:14:55,781:INFO:BaseTask_Sup:376: The best test accuracy was 72.97% at epoch 5
+2024-01-21 10:14:55,781:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 10:14:55,781:INFO:BaseTask_Sup:378: The training took 11 minutes and 32 seconds from the beginning!
+2024-01-21 10:14:55,781:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 14 hours, 16 minutes, and 2 seconds
+2024-01-21 10:14:55,781:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 10:14:55,781:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 10:17:00,927:INFO:BaseTask_Sup:365: Epoch = 6
+2024-01-21 10:17:00,928:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 1.1624110913276673
+2024-01-21 10:17:11,776:INFO:BaseTask_Sup:763: -> test acc. of task 0: 73.02%
+2024-01-21 10:17:11,787:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 10:17:12,052:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 10:17:12,241:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 10:17:12,425:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 10:17:12,426:INFO:BaseTask_Sup:376: The best test accuracy was 73.02% at epoch 6
+2024-01-21 10:17:12,426:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 16 seconds!
+2024-01-21 10:17:12,426:INFO:BaseTask_Sup:378: The training took 13 minutes and 48 seconds from the beginning!
+2024-01-21 10:17:12,426:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 14 hours, 8 minutes, and 43 seconds
+2024-01-21 10:17:12,426:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 10:17:12,426:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 10:19:18,024:INFO:BaseTask_Sup:365: Epoch = 7
+2024-01-21 10:19:18,027:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 1.1321697586774826
+2024-01-21 10:19:28,298:INFO:BaseTask_Sup:763: -> test acc. of task 0: 73.45%
+2024-01-21 10:19:28,305:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 10:19:28,548:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 10:19:28,753:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 10:19:28,960:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 10:19:28,961:INFO:BaseTask_Sup:376: The best test accuracy was 73.45% at epoch 7
+2024-01-21 10:19:28,961:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 16 seconds!
+2024-01-21 10:19:28,961:INFO:BaseTask_Sup:378: The training took 16 minutes and 5 seconds from the beginning!
+2024-01-21 10:19:28,961:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 14 hours, 2 minutes, and 36 seconds
+2024-01-21 10:19:28,961:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 10:19:28,961:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 10:21:34,119:INFO:BaseTask_Sup:365: Epoch = 8
+2024-01-21 10:21:34,120:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 1.1146508103609085
+2024-01-21 10:21:44,736:INFO:BaseTask_Sup:763: -> test acc. of task 0: 73.77%
+2024-01-21 10:21:44,743:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 10:21:44,986:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 10:21:45,197:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 10:21:45,403:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 10:21:45,404:INFO:BaseTask_Sup:376: The best test accuracy was 73.77% at epoch 8
+2024-01-21 10:21:45,405:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 16 seconds!
+2024-01-21 10:21:45,405:INFO:BaseTask_Sup:378: The training took 18 minutes and 21 seconds from the beginning!
+2024-01-21 10:21:45,405:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 13 hours, 57 minutes, and 14 seconds
+2024-01-21 10:21:45,405:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 10:21:45,405:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 10:23:50,815:INFO:BaseTask_Sup:365: Epoch = 9
+2024-01-21 10:23:50,817:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 1.0846366345882417
+2024-01-21 10:24:01,859:INFO:BaseTask_Sup:763: -> test acc. of task 0: 74.20%
+2024-01-21 10:24:01,867:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 10:24:02,120:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 10:24:02,325:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 10:24:02,667:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 10:24:02,668:INFO:BaseTask_Sup:376: The best test accuracy was 74.20% at epoch 9
+2024-01-21 10:24:02,668:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 10:24:02,668:INFO:BaseTask_Sup:378: The training took 20 minutes and 39 seconds from the beginning!
+2024-01-21 10:24:02,668:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 13 hours, 54 minutes, and 5 seconds
+2024-01-21 10:24:02,668:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 10:24:02,668:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 10:26:08,195:INFO:BaseTask_Sup:365: Epoch = 10
+2024-01-21 10:26:08,198:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 1.0568399327993392
+2024-01-21 10:26:18,810:INFO:BaseTask_Sup:763: -> test acc. of task 0: 74.68%
+2024-01-21 10:26:18,818:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 10:26:19,053:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 10:26:19,251:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 10:26:19,452:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 10:26:19,453:INFO:BaseTask_Sup:376: The best test accuracy was 74.68% at epoch 10
+2024-01-21 10:26:19,453:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 16 seconds!
+2024-01-21 10:26:19,453:INFO:BaseTask_Sup:378: The training took 22 minutes and 55 seconds from the beginning!
+2024-01-21 10:26:19,453:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 13 hours, 50 minutes, and 18 seconds
+2024-01-21 10:26:19,453:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 10:26:19,453:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 10:28:24,672:INFO:BaseTask_Sup:365: Epoch = 11
+2024-01-21 10:28:24,674:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 1.042064553797245
+2024-01-21 10:28:35,338:INFO:BaseTask_Sup:763: -> test acc. of task 0: 74.98%
+2024-01-21 10:28:35,344:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 10:28:35,582:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 10:28:35,769:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 10:28:36,080:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 10:28:36,082:INFO:BaseTask_Sup:376: The best test accuracy was 74.98% at epoch 11
+2024-01-21 10:28:36,082:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 16 seconds!
+2024-01-21 10:28:36,082:INFO:BaseTask_Sup:378: The training took 25 minutes and 12 seconds from the beginning!
+2024-01-21 10:28:36,082:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 13 hours, 46 minutes, and 33 seconds
+2024-01-21 10:28:36,082:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 10:28:36,082:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 10:30:41,407:INFO:BaseTask_Sup:365: Epoch = 12
+2024-01-21 10:30:41,410:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 1.0194870367646218
+2024-01-21 10:30:52,407:INFO:BaseTask_Sup:763: -> test acc. of task 0: 75.25%
+2024-01-21 10:30:52,415:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 10:30:52,667:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 10:30:52,929:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 10:30:53,124:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 10:30:53,125:INFO:BaseTask_Sup:376: The best test accuracy was 75.25% at epoch 12
+2024-01-21 10:30:53,126:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 10:30:53,126:INFO:BaseTask_Sup:378: The training took 27 minutes and 29 seconds from the beginning!
+2024-01-21 10:30:53,126:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 13 hours, 43 minutes, and 38 seconds
+2024-01-21 10:30:53,126:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 10:30:53,126:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 10:32:58,359:INFO:BaseTask_Sup:365: Epoch = 13
+2024-01-21 10:32:58,362:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 1.0117140662670137
+2024-01-21 10:33:09,305:INFO:BaseTask_Sup:763: -> test acc. of task 0: 75.47%
+2024-01-21 10:33:09,311:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 10:33:09,641:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 10:33:09,841:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 10:33:10,037:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 10:33:10,038:INFO:BaseTask_Sup:376: The best test accuracy was 75.47% at epoch 13
+2024-01-21 10:33:10,038:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 16 seconds!
+2024-01-21 10:33:10,038:INFO:BaseTask_Sup:378: The training took 29 minutes and 46 seconds from the beginning!
+2024-01-21 10:33:10,038:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 13 hours, 40 minutes, and 38 seconds
+2024-01-21 10:33:10,038:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 10:33:10,038:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 10:35:15,479:INFO:BaseTask_Sup:365: Epoch = 14
+2024-01-21 10:35:15,480:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 1.005598121881485
+2024-01-21 10:35:26,019:INFO:BaseTask_Sup:763: -> test acc. of task 0: 75.63%
+2024-01-21 10:35:26,024:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 10:35:26,264:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 10:35:26,473:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 10:35:26,681:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 10:35:26,682:INFO:BaseTask_Sup:376: The best test accuracy was 75.63% at epoch 14
+2024-01-21 10:35:26,682:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 16 seconds!
+2024-01-21 10:35:26,682:INFO:BaseTask_Sup:378: The training took 32 minutes and 3 seconds from the beginning!
+2024-01-21 10:35:26,682:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 13 hours, 37 minutes, and 26 seconds
+2024-01-21 10:35:26,682:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 10:35:26,682:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 10:37:32,000:INFO:BaseTask_Sup:365: Epoch = 15
+2024-01-21 10:37:32,002:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.9814134433865547
+2024-01-21 10:37:43,015:INFO:BaseTask_Sup:763: -> test acc. of task 0: 75.78%
+2024-01-21 10:37:43,023:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 10:37:43,268:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 10:37:43,554:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 10:37:43,763:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 10:37:43,764:INFO:BaseTask_Sup:376: The best test accuracy was 75.78% at epoch 15
+2024-01-21 10:37:43,764:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 10:37:43,764:INFO:BaseTask_Sup:378: The training took 34 minutes and 20 seconds from the beginning!
+2024-01-21 10:37:43,764:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 13 hours, 34 minutes, and 50 seconds
+2024-01-21 10:37:43,764:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 10:37:43,764:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 10:39:49,279:INFO:BaseTask_Sup:365: Epoch = 16
+2024-01-21 10:39:49,283:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.9589637917280197
+2024-01-21 10:39:59,928:INFO:BaseTask_Sup:763: -> test acc. of task 0: 75.63%
+2024-01-21 10:39:59,937:INFO:BaseTask_Sup:376: The best test accuracy was 75.78% at epoch 15
+2024-01-21 10:39:59,938:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 16 seconds!
+2024-01-21 10:39:59,938:INFO:BaseTask_Sup:378: The training took 36 minutes and 36 seconds from the beginning!
+2024-01-21 10:39:59,938:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 13 hours, 31 minutes, and 20 seconds
+2024-01-21 10:39:59,938:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 1/30
+2024-01-21 10:39:59,938:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 10:42:05,553:INFO:BaseTask_Sup:365: Epoch = 17
+2024-01-21 10:42:05,555:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.9461796700954437
+2024-01-21 10:42:16,426:INFO:BaseTask_Sup:763: -> test acc. of task 0: 76.27%
+2024-01-21 10:42:16,433:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 10:42:16,684:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 10:42:16,888:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 10:42:17,068:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 10:42:17,069:INFO:BaseTask_Sup:376: The best test accuracy was 76.27% at epoch 17
+2024-01-21 10:42:17,069:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 10:42:17,069:INFO:BaseTask_Sup:378: The training took 38 minutes and 53 seconds from the beginning!
+2024-01-21 10:42:17,069:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 13 hours, 28 minutes, and 54 seconds
+2024-01-21 10:42:17,069:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 10:42:17,069:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 10:44:23,100:INFO:BaseTask_Sup:365: Epoch = 18
+2024-01-21 10:44:23,103:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.9365646201372146
+2024-01-21 10:44:34,083:INFO:BaseTask_Sup:763: -> test acc. of task 0: 76.65%
+2024-01-21 10:44:34,093:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 10:44:34,352:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 10:44:34,553:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 10:44:34,737:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 10:44:34,738:INFO:BaseTask_Sup:376: The best test accuracy was 76.65% at epoch 18
+2024-01-21 10:44:34,738:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 10:44:34,738:INFO:BaseTask_Sup:378: The training took 41 minutes and 11 seconds from the beginning!
+2024-01-21 10:44:34,738:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 13 hours, 26 minutes, and 59 seconds
+2024-01-21 10:44:34,738:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 10:44:34,738:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 10:46:40,626:INFO:BaseTask_Sup:365: Epoch = 19
+2024-01-21 10:46:40,628:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.9180398941040039
+2024-01-21 10:46:52,002:INFO:BaseTask_Sup:763: -> test acc. of task 0: 77.15%
+2024-01-21 10:46:52,008:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 10:46:52,259:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 10:46:52,457:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 10:46:52,633:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 10:46:52,634:INFO:BaseTask_Sup:376: The best test accuracy was 77.15% at epoch 19
+2024-01-21 10:46:52,635:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 10:46:52,635:INFO:BaseTask_Sup:378: The training took 43 minutes and 29 seconds from the beginning!
+2024-01-21 10:46:52,635:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 13 hours, 25 minutes, and 13 seconds
+2024-01-21 10:46:52,635:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 10:46:52,635:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 10:48:58,317:INFO:BaseTask_Sup:365: Epoch = 20
+2024-01-21 10:48:58,324:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.9116154557466507
+2024-01-21 10:49:09,570:INFO:BaseTask_Sup:763: -> test acc. of task 0: 76.70%
+2024-01-21 10:49:09,580:INFO:BaseTask_Sup:376: The best test accuracy was 77.15% at epoch 19
+2024-01-21 10:49:09,580:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 16 seconds!
+2024-01-21 10:49:09,580:INFO:BaseTask_Sup:378: The training took 45 minutes and 46 seconds from the beginning!
+2024-01-21 10:49:09,580:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 13 hours, 22 minutes, and 37 seconds
+2024-01-21 10:49:09,581:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 1/30
+2024-01-21 10:49:09,581:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 10:51:15,415:INFO:BaseTask_Sup:365: Epoch = 21
+2024-01-21 10:51:15,417:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.8992388653755188
+2024-01-21 10:51:26,868:INFO:BaseTask_Sup:763: -> test acc. of task 0: 77.00%
+2024-01-21 10:51:26,876:INFO:BaseTask_Sup:376: The best test accuracy was 77.15% at epoch 19
+2024-01-21 10:51:26,876:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 10:51:26,877:INFO:BaseTask_Sup:378: The training took 48 minutes and 3 seconds from the beginning!
+2024-01-21 10:51:26,877:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 13 hours, 20 minutes, and 19 seconds
+2024-01-21 10:51:26,877:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 2/30
+2024-01-21 10:51:26,877:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 10:53:32,684:INFO:BaseTask_Sup:365: Epoch = 22
+2024-01-21 10:53:32,686:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.8925150838494301
+2024-01-21 10:53:44,374:INFO:BaseTask_Sup:763: -> test acc. of task 0: 77.10%
+2024-01-21 10:53:44,380:INFO:BaseTask_Sup:376: The best test accuracy was 77.15% at epoch 19
+2024-01-21 10:53:44,380:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 10:53:44,381:INFO:BaseTask_Sup:378: The training took 50 minutes and 20 seconds from the beginning!
+2024-01-21 10:53:44,381:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 13 hours, 18 minutes, and 11 seconds
+2024-01-21 10:53:44,381:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 3/30
+2024-01-21 10:53:44,381:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 10:55:50,124:INFO:BaseTask_Sup:365: Epoch = 23
+2024-01-21 10:55:50,126:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.8704524019360542
+2024-01-21 10:56:01,613:INFO:BaseTask_Sup:763: -> test acc. of task 0: 77.37%
+2024-01-21 10:56:01,620:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 10:56:01,883:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 10:56:02,086:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 10:56:02,286:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 10:56:02,287:INFO:BaseTask_Sup:376: The best test accuracy was 77.37% at epoch 23
+2024-01-21 10:56:02,288:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 10:56:02,288:INFO:BaseTask_Sup:378: The training took 52 minutes and 38 seconds from the beginning!
+2024-01-21 10:56:02,288:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 13 hours, 16 minutes, and 19 seconds
+2024-01-21 10:56:02,288:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 10:56:02,288:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 10:58:08,339:INFO:BaseTask_Sup:365: Epoch = 24
+2024-01-21 10:58:08,341:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.8665700089931488
+2024-01-21 10:58:19,888:INFO:BaseTask_Sup:763: -> test acc. of task 0: 77.28%
+2024-01-21 10:58:19,896:INFO:BaseTask_Sup:376: The best test accuracy was 77.37% at epoch 23
+2024-01-21 10:58:19,896:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 10:58:19,896:INFO:BaseTask_Sup:378: The training took 54 minutes and 56 seconds from the beginning!
+2024-01-21 10:58:19,896:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 13 hours, 14 minutes, and 13 seconds
+2024-01-21 10:58:19,896:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 1/30
+2024-01-21 10:58:19,896:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 11:00:25,780:INFO:BaseTask_Sup:365: Epoch = 25
+2024-01-21 11:00:25,787:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.861467382311821
+2024-01-21 11:00:37,434:INFO:BaseTask_Sup:763: -> test acc. of task 0: 77.55%
+2024-01-21 11:00:37,443:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 11:00:37,694:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 11:00:37,896:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 11:00:38,104:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 11:00:38,105:INFO:BaseTask_Sup:376: The best test accuracy was 77.55% at epoch 25
+2024-01-21 11:00:38,106:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 18 seconds!
+2024-01-21 11:00:38,106:INFO:BaseTask_Sup:378: The training took 57 minutes and 14 seconds from the beginning!
+2024-01-21 11:00:38,106:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 13 hours, 12 minutes, and 29 seconds
+2024-01-21 11:00:38,106:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 11:00:38,106:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 11:02:44,064:INFO:BaseTask_Sup:365: Epoch = 26
+2024-01-21 11:02:44,065:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.8487315127253532
+2024-01-21 11:02:55,637:INFO:BaseTask_Sup:763: -> test acc. of task 0: 77.58%
+2024-01-21 11:02:55,641:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 11:02:55,860:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 11:02:56,047:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 11:02:56,225:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 11:02:56,226:INFO:BaseTask_Sup:376: The best test accuracy was 77.58% at epoch 26
+2024-01-21 11:02:56,226:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 18 seconds!
+2024-01-21 11:02:56,226:INFO:BaseTask_Sup:378: The training took 59 minutes and 32 seconds from the beginning!
+2024-01-21 11:02:56,226:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 13 hours, 10 minutes, and 39 seconds
+2024-01-21 11:02:56,226:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 11:02:56,226:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 11:05:02,210:INFO:BaseTask_Sup:365: Epoch = 27
+2024-01-21 11:05:02,211:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.8395550158619881
+2024-01-21 11:05:13,733:INFO:BaseTask_Sup:763: -> test acc. of task 0: 77.78%
+2024-01-21 11:05:13,740:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 11:05:13,989:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 11:05:14,191:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 11:05:14,392:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 11:05:14,393:INFO:BaseTask_Sup:376: The best test accuracy was 77.78% at epoch 27
+2024-01-21 11:05:14,393:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 18 seconds!
+2024-01-21 11:05:14,393:INFO:BaseTask_Sup:378: The training took 1 hour, 1 minute, and 50 seconds from the beginning!
+2024-01-21 11:05:14,393:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 13 hours, 8 minutes, and 49 seconds
+2024-01-21 11:05:14,393:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 11:05:14,393:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 11:07:21,024:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 11:07:21,237:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 11:07:21,509:INFO:BaseTask_Sup:509: 
+A snapshot is saved to "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Epoch=28.pt" <--------
+2024-01-21 11:07:21,510:INFO:BaseTask_Sup:365: Epoch = 28
+2024-01-21 11:07:21,511:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.8301071467995643
+2024-01-21 11:07:33,353:INFO:BaseTask_Sup:763: -> test acc. of task 0: 77.87%
+2024-01-21 11:07:33,360:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 11:07:33,660:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 11:07:34,046:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 11:07:34,253:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 11:07:34,254:INFO:BaseTask_Sup:376: The best test accuracy was 77.87% at epoch 28
+2024-01-21 11:07:34,254:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 19 seconds!
+2024-01-21 11:07:34,254:INFO:BaseTask_Sup:378: The training took 1 hour, 4 minutes, and 10 seconds from the beginning!
+2024-01-21 11:07:34,254:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 13 hours, 7 minutes, and 55 seconds
+2024-01-21 11:07:34,254:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 11:07:34,254:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 11:09:40,075:INFO:BaseTask_Sup:365: Epoch = 29
+2024-01-21 11:09:40,078:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.8214540711045265
+2024-01-21 11:09:51,837:INFO:BaseTask_Sup:763: -> test acc. of task 0: 78.08%
+2024-01-21 11:09:51,843:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 11:09:52,088:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 11:09:52,286:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 11:09:52,497:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 11:09:52,499:INFO:BaseTask_Sup:376: The best test accuracy was 78.08% at epoch 29
+2024-01-21 11:09:52,499:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 18 seconds!
+2024-01-21 11:09:52,499:INFO:BaseTask_Sup:378: The training took 1 hour, 6 minutes, and 28 seconds from the beginning!
+2024-01-21 11:09:52,499:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 13 hours, 6 minutes, and 2 seconds
+2024-01-21 11:09:52,499:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 11:09:52,499:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 11:11:58,540:INFO:BaseTask_Sup:365: Epoch = 30
+2024-01-21 11:11:58,547:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.8111417886614799
+2024-01-21 11:12:10,032:INFO:BaseTask_Sup:763: -> test acc. of task 0: 77.90%
+2024-01-21 11:12:10,040:INFO:BaseTask_Sup:376: The best test accuracy was 78.08% at epoch 29
+2024-01-21 11:12:10,040:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 11:12:10,040:INFO:BaseTask_Sup:378: The training took 1 hour, 8 minutes, and 46 seconds from the beginning!
+2024-01-21 11:12:10,040:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 13 hours, 3 minutes, and 44 seconds
+2024-01-21 11:12:10,040:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 1/30
+2024-01-21 11:12:10,040:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 11:14:16,049:INFO:BaseTask_Sup:365: Epoch = 31
+2024-01-21 11:14:16,051:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.7942325127124786
+2024-01-21 11:14:27,925:INFO:BaseTask_Sup:763: -> test acc. of task 0: 78.33%
+2024-01-21 11:14:27,930:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 11:14:28,168:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 11:14:28,386:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 11:14:28,597:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 11:14:28,598:INFO:BaseTask_Sup:376: The best test accuracy was 78.33% at epoch 31
+2024-01-21 11:14:28,598:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 18 seconds!
+2024-01-21 11:14:28,598:INFO:BaseTask_Sup:378: The training took 1 hour, 11 minutes, and 5 seconds from the beginning!
+2024-01-21 11:14:28,598:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 13 hours, 1 minute, and 58 seconds
+2024-01-21 11:14:28,598:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 11:14:28,598:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 11:16:34,889:INFO:BaseTask_Sup:365: Epoch = 32
+2024-01-21 11:16:34,891:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.7858825522661209
+2024-01-21 11:16:46,605:INFO:BaseTask_Sup:763: -> test acc. of task 0: 78.03%
+2024-01-21 11:16:46,609:INFO:BaseTask_Sup:376: The best test accuracy was 78.33% at epoch 31
+2024-01-21 11:16:46,610:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 18 seconds!
+2024-01-21 11:16:46,610:INFO:BaseTask_Sup:378: The training took 1 hour, 13 minutes, and 23 seconds from the beginning!
+2024-01-21 11:16:46,610:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 12 hours, 59 minutes, and 53 seconds
+2024-01-21 11:16:46,610:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 1/30
+2024-01-21 11:16:46,610:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 11:18:52,312:INFO:BaseTask_Sup:365: Epoch = 33
+2024-01-21 11:18:52,314:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.7856792864203453
+2024-01-21 11:19:04,017:INFO:BaseTask_Sup:763: -> test acc. of task 0: 78.48%
+2024-01-21 11:19:04,024:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 11:19:04,289:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 11:19:04,502:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 11:19:04,688:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 11:19:04,690:INFO:BaseTask_Sup:376: The best test accuracy was 78.48% at epoch 33
+2024-01-21 11:19:04,690:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 18 seconds!
+2024-01-21 11:19:04,690:INFO:BaseTask_Sup:378: The training took 1 hour, 15 minutes, and 41 seconds from the beginning!
+2024-01-21 11:19:04,690:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 12 hours, 57 minutes, and 50 seconds
+2024-01-21 11:19:04,690:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 11:19:04,690:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 11:21:10,757:INFO:BaseTask_Sup:365: Epoch = 34
+2024-01-21 11:21:10,759:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.7792534711956978
+2024-01-21 11:21:22,577:INFO:BaseTask_Sup:763: -> test acc. of task 0: 78.78%
+2024-01-21 11:21:22,586:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 11:21:22,837:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 11:21:23,049:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 11:21:23,264:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 11:21:23,265:INFO:BaseTask_Sup:376: The best test accuracy was 78.78% at epoch 34
+2024-01-21 11:21:23,265:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 18 seconds!
+2024-01-21 11:21:23,265:INFO:BaseTask_Sup:378: The training took 1 hour, 17 minutes, and 59 seconds from the beginning!
+2024-01-21 11:21:23,266:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 12 hours, 56 minutes, and 0 seconds
+2024-01-21 11:21:23,266:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 11:21:23,266:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 11:23:29,371:INFO:BaseTask_Sup:365: Epoch = 35
+2024-01-21 11:23:29,379:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.7766646671295167
+2024-01-21 11:23:41,096:INFO:BaseTask_Sup:763: -> test acc. of task 0: 78.78%
+2024-01-21 11:23:41,103:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 11:23:41,353:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 11:23:41,559:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 11:23:41,772:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 11:23:41,773:INFO:BaseTask_Sup:376: The best test accuracy was 78.78% at epoch 35
+2024-01-21 11:23:41,774:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 18 seconds!
+2024-01-21 11:23:41,774:INFO:BaseTask_Sup:378: The training took 1 hour, 20 minutes, and 18 seconds from the beginning!
+2024-01-21 11:23:41,774:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 12 hours, 54 minutes, and 6 seconds
+2024-01-21 11:23:41,774:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 11:23:41,774:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 11:25:47,656:INFO:BaseTask_Sup:365: Epoch = 36
+2024-01-21 11:25:47,657:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.768197535276413
+2024-01-21 11:25:59,298:INFO:BaseTask_Sup:763: -> test acc. of task 0: 78.83%
+2024-01-21 11:25:59,306:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 11:25:59,557:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 11:25:59,765:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 11:25:59,979:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 11:25:59,980:INFO:BaseTask_Sup:376: The best test accuracy was 78.83% at epoch 36
+2024-01-21 11:25:59,981:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 18 seconds!
+2024-01-21 11:25:59,981:INFO:BaseTask_Sup:378: The training took 1 hour, 22 minutes, and 36 seconds from the beginning!
+2024-01-21 11:25:59,981:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 12 hours, 52 minutes, and 3 seconds
+2024-01-21 11:25:59,981:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 11:25:59,981:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 11:28:06,223:INFO:BaseTask_Sup:365: Epoch = 37
+2024-01-21 11:28:06,225:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.7635216563940048
+2024-01-21 11:28:18,154:INFO:BaseTask_Sup:763: -> test acc. of task 0: 78.92%
+2024-01-21 11:28:18,160:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 11:28:18,533:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 11:28:18,724:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 11:28:18,937:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 11:28:18,938:INFO:BaseTask_Sup:376: The best test accuracy was 78.92% at epoch 37
+2024-01-21 11:28:18,938:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 18 seconds!
+2024-01-21 11:28:18,938:INFO:BaseTask_Sup:378: The training took 1 hour, 24 minutes, and 55 seconds from the beginning!
+2024-01-21 11:28:18,938:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 12 hours, 50 minutes, and 18 seconds
+2024-01-21 11:28:18,938:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 11:28:18,938:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 11:30:25,047:INFO:BaseTask_Sup:365: Epoch = 38
+2024-01-21 11:30:25,048:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.7544807752966881
+2024-01-21 11:30:36,593:INFO:BaseTask_Sup:763: -> test acc. of task 0: 79.02%
+2024-01-21 11:30:36,601:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 11:30:36,862:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 11:30:37,075:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 11:30:37,292:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 11:30:37,293:INFO:BaseTask_Sup:376: The best test accuracy was 79.02% at epoch 38
+2024-01-21 11:30:37,293:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 18 seconds!
+2024-01-21 11:30:37,293:INFO:BaseTask_Sup:378: The training took 1 hour, 27 minutes, and 13 seconds from the beginning!
+2024-01-21 11:30:37,293:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 12 hours, 48 minutes, and 17 seconds
+2024-01-21 11:30:37,293:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 11:30:37,293:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 11:32:43,403:INFO:BaseTask_Sup:365: Epoch = 39
+2024-01-21 11:32:43,405:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.7443529865145684
+2024-01-21 11:32:55,003:INFO:BaseTask_Sup:763: -> test acc. of task 0: 78.93%
+2024-01-21 11:32:55,013:INFO:BaseTask_Sup:376: The best test accuracy was 79.02% at epoch 38
+2024-01-21 11:32:55,013:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 11:32:55,013:INFO:BaseTask_Sup:378: The training took 1 hour, 29 minutes, and 31 seconds from the beginning!
+2024-01-21 11:32:55,013:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 12 hours, 45 minutes, and 59 seconds
+2024-01-21 11:32:55,013:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 1/30
+2024-01-21 11:32:55,013:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 11:35:00,874:INFO:BaseTask_Sup:365: Epoch = 40
+2024-01-21 11:35:00,881:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.7429484370350837
+2024-01-21 11:35:12,672:INFO:BaseTask_Sup:763: -> test acc. of task 0: 79.20%
+2024-01-21 11:35:12,677:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 11:35:12,927:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 11:35:13,108:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 11:35:13,327:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 11:35:13,328:INFO:BaseTask_Sup:376: The best test accuracy was 79.20% at epoch 40
+2024-01-21 11:35:13,328:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 18 seconds!
+2024-01-21 11:35:13,328:INFO:BaseTask_Sup:378: The training took 1 hour, 31 minutes, and 49 seconds from the beginning!
+2024-01-21 11:35:13,328:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 12 hours, 43 minutes, and 55 seconds
+2024-01-21 11:35:13,328:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 11:35:13,328:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 11:37:19,310:INFO:BaseTask_Sup:365: Epoch = 41
+2024-01-21 11:37:19,312:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.7301558238267899
+2024-01-21 11:37:30,868:INFO:BaseTask_Sup:763: -> test acc. of task 0: 79.25%
+2024-01-21 11:37:30,874:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 11:37:31,126:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 11:37:31,317:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 11:37:31,532:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 11:37:31,533:INFO:BaseTask_Sup:376: The best test accuracy was 79.25% at epoch 41
+2024-01-21 11:37:31,533:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 18 seconds!
+2024-01-21 11:37:31,533:INFO:BaseTask_Sup:378: The training took 1 hour, 34 minutes, and 8 seconds from the beginning!
+2024-01-21 11:37:31,533:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 12 hours, 41 minutes, and 48 seconds
+2024-01-21 11:37:31,533:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 11:37:31,533:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 11:39:37,600:INFO:BaseTask_Sup:365: Epoch = 42
+2024-01-21 11:39:37,602:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.7240257731080055
+2024-01-21 11:39:49,135:INFO:BaseTask_Sup:763: -> test acc. of task 0: 79.18%
+2024-01-21 11:39:49,143:INFO:BaseTask_Sup:376: The best test accuracy was 79.25% at epoch 41
+2024-01-21 11:39:49,144:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 11:39:49,144:INFO:BaseTask_Sup:378: The training took 1 hour, 36 minutes, and 25 seconds from the beginning!
+2024-01-21 11:39:49,144:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 12 hours, 39 minutes, and 27 seconds
+2024-01-21 11:39:49,144:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 1/30
+2024-01-21 11:39:49,144:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 11:41:55,163:INFO:BaseTask_Sup:365: Epoch = 43
+2024-01-21 11:41:55,165:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.7184566795825958
+2024-01-21 11:42:06,849:INFO:BaseTask_Sup:763: -> test acc. of task 0: 79.28%
+2024-01-21 11:42:06,857:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 11:42:07,116:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 11:42:07,332:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 11:42:07,547:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 11:42:07,548:INFO:BaseTask_Sup:376: The best test accuracy was 79.28% at epoch 43
+2024-01-21 11:42:07,548:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 18 seconds!
+2024-01-21 11:42:07,549:INFO:BaseTask_Sup:378: The training took 1 hour, 38 minutes, and 44 seconds from the beginning!
+2024-01-21 11:42:07,549:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 12 hours, 37 minutes, and 24 seconds
+2024-01-21 11:42:07,549:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 11:42:07,549:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 11:44:13,599:INFO:BaseTask_Sup:365: Epoch = 44
+2024-01-21 11:44:13,601:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.7141698223352432
+2024-01-21 11:44:25,403:INFO:BaseTask_Sup:763: -> test acc. of task 0: 79.27%
+2024-01-21 11:44:25,409:INFO:BaseTask_Sup:376: The best test accuracy was 79.28% at epoch 43
+2024-01-21 11:44:25,409:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 11:44:25,409:INFO:BaseTask_Sup:378: The training took 1 hour, 41 minutes, and 1 second from the beginning!
+2024-01-21 11:44:25,409:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 12 hours, 35 minutes, and 8 seconds
+2024-01-21 11:44:25,409:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 1/30
+2024-01-21 11:44:25,409:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 11:46:31,297:INFO:BaseTask_Sup:365: Epoch = 45
+2024-01-21 11:46:31,304:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.7140835699439049
+2024-01-21 11:46:42,999:INFO:BaseTask_Sup:763: -> test acc. of task 0: 79.62%
+2024-01-21 11:46:43,004:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 11:46:43,251:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 11:46:43,471:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 11:46:43,683:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 11:46:43,684:INFO:BaseTask_Sup:376: The best test accuracy was 79.62% at epoch 45
+2024-01-21 11:46:43,684:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 18 seconds!
+2024-01-21 11:46:43,684:INFO:BaseTask_Sup:378: The training took 1 hour, 43 minutes, and 20 seconds from the beginning!
+2024-01-21 11:46:43,684:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 12 hours, 33 minutes, and 1 second
+2024-01-21 11:46:43,684:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 11:46:43,684:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 11:48:49,445:INFO:BaseTask_Sup:365: Epoch = 46
+2024-01-21 11:48:49,447:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.7005097568035126
+2024-01-21 11:49:01,153:INFO:BaseTask_Sup:763: -> test acc. of task 0: 79.33%
+2024-01-21 11:49:01,160:INFO:BaseTask_Sup:376: The best test accuracy was 79.62% at epoch 45
+2024-01-21 11:49:01,160:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 11:49:01,160:INFO:BaseTask_Sup:378: The training took 1 hour, 45 minutes, and 37 seconds from the beginning!
+2024-01-21 11:49:01,160:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 12 hours, 30 minutes, and 37 seconds
+2024-01-21 11:49:01,160:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 1/30
+2024-01-21 11:49:01,160:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 11:51:07,138:INFO:BaseTask_Sup:365: Epoch = 47
+2024-01-21 11:51:07,140:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.7014529982209206
+2024-01-21 11:51:18,869:INFO:BaseTask_Sup:763: -> test acc. of task 0: 79.45%
+2024-01-21 11:51:18,875:INFO:BaseTask_Sup:376: The best test accuracy was 79.62% at epoch 45
+2024-01-21 11:51:18,876:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 11:51:18,876:INFO:BaseTask_Sup:378: The training took 1 hour, 47 minutes, and 55 seconds from the beginning!
+2024-01-21 11:51:18,876:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 12 hours, 28 minutes, and 18 seconds
+2024-01-21 11:51:18,876:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 2/30
+2024-01-21 11:51:18,876:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 11:53:24,834:INFO:BaseTask_Sup:365: Epoch = 48
+2024-01-21 11:53:24,836:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.6983534583449363
+2024-01-21 11:53:36,678:INFO:BaseTask_Sup:763: -> test acc. of task 0: 79.42%
+2024-01-21 11:53:36,685:INFO:BaseTask_Sup:376: The best test accuracy was 79.62% at epoch 45
+2024-01-21 11:53:36,685:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 11:53:36,685:INFO:BaseTask_Sup:378: The training took 1 hour, 50 minutes, and 13 seconds from the beginning!
+2024-01-21 11:53:36,686:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 12 hours, 26 minutes, and 1 second
+2024-01-21 11:53:36,686:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 3/30
+2024-01-21 11:53:36,686:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 11:55:42,574:INFO:BaseTask_Sup:365: Epoch = 49
+2024-01-21 11:55:42,576:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.6817677789926528
+2024-01-21 11:55:54,279:INFO:BaseTask_Sup:763: -> test acc. of task 0: 79.57%
+2024-01-21 11:55:54,283:INFO:BaseTask_Sup:376: The best test accuracy was 79.62% at epoch 45
+2024-01-21 11:55:54,283:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 11:55:54,283:INFO:BaseTask_Sup:378: The training took 1 hour, 52 minutes, and 30 seconds from the beginning!
+2024-01-21 11:55:54,283:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 12 hours, 23 minutes, and 40 seconds
+2024-01-21 11:55:54,283:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 4/30
+2024-01-21 11:55:54,283:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 11:58:00,841:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 11:58:01,038:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 11:58:01,481:INFO:BaseTask_Sup:509: 
+A snapshot is saved to "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Epoch=50.pt" <--------
+2024-01-21 11:58:01,482:INFO:BaseTask_Sup:365: Epoch = 50
+2024-01-21 11:58:01,486:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.6729176640510559
+2024-01-21 11:58:13,239:INFO:BaseTask_Sup:763: -> test acc. of task 0: 79.42%
+2024-01-21 11:58:13,244:INFO:BaseTask_Sup:376: The best test accuracy was 79.62% at epoch 45
+2024-01-21 11:58:13,244:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 18 seconds!
+2024-01-21 11:58:13,244:INFO:BaseTask_Sup:378: The training took 1 hour, 54 minutes, and 49 seconds from the beginning!
+2024-01-21 11:58:13,244:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 12 hours, 21 minutes, and 44 seconds
+2024-01-21 11:58:13,244:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 5/30
+2024-01-21 11:58:13,244:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 12:00:19,195:INFO:BaseTask_Sup:365: Epoch = 51
+2024-01-21 12:00:19,197:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.673312126994133
+2024-01-21 12:00:30,822:INFO:BaseTask_Sup:763: -> test acc. of task 0: 79.43%
+2024-01-21 12:00:30,826:INFO:BaseTask_Sup:376: The best test accuracy was 79.62% at epoch 45
+2024-01-21 12:00:30,826:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 12:00:30,826:INFO:BaseTask_Sup:378: The training took 1 hour, 57 minutes, and 7 seconds from the beginning!
+2024-01-21 12:00:30,826:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 12 hours, 19 minutes, and 23 seconds
+2024-01-21 12:00:30,826:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 6/30
+2024-01-21 12:00:30,826:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 12:02:36,903:INFO:BaseTask_Sup:365: Epoch = 52
+2024-01-21 12:02:36,905:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.6634639662504196
+2024-01-21 12:02:48,496:INFO:BaseTask_Sup:763: -> test acc. of task 0: 79.60%
+2024-01-21 12:02:48,504:INFO:BaseTask_Sup:376: The best test accuracy was 79.62% at epoch 45
+2024-01-21 12:02:48,505:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 12:02:48,505:INFO:BaseTask_Sup:378: The training took 1 hour, 59 minutes, and 24 seconds from the beginning!
+2024-01-21 12:02:48,505:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 12 hours, 17 minutes, and 3 seconds
+2024-01-21 12:02:48,505:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 7/30
+2024-01-21 12:02:48,505:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 12:04:54,355:INFO:BaseTask_Sup:365: Epoch = 53
+2024-01-21 12:04:54,357:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.6675714996457099
+2024-01-21 12:05:06,672:INFO:BaseTask_Sup:763: -> test acc. of task 0: 79.32%
+2024-01-21 12:05:06,677:INFO:BaseTask_Sup:376: The best test accuracy was 79.62% at epoch 45
+2024-01-21 12:05:06,677:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 18 seconds!
+2024-01-21 12:05:06,678:INFO:BaseTask_Sup:378: The training took 2 hours, 1 minute, and 43 seconds from the beginning!
+2024-01-21 12:05:06,678:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 12 hours, 14 minutes, and 52 seconds
+2024-01-21 12:05:06,678:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 8/30
+2024-01-21 12:05:06,678:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 12:07:12,735:INFO:BaseTask_Sup:365: Epoch = 54
+2024-01-21 12:07:12,738:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.6580559584498406
+2024-01-21 12:07:24,485:INFO:BaseTask_Sup:763: -> test acc. of task 0: 79.68%
+2024-01-21 12:07:24,492:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 12:07:24,740:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 12:07:24,957:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 12:07:25,144:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 12:07:25,145:INFO:BaseTask_Sup:376: The best test accuracy was 79.68% at epoch 54
+2024-01-21 12:07:25,145:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 18 seconds!
+2024-01-21 12:07:25,145:INFO:BaseTask_Sup:378: The training took 2 hours, 4 minutes, and 1 second from the beginning!
+2024-01-21 12:07:25,145:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 12 hours, 12 minutes, and 46 seconds
+2024-01-21 12:07:25,145:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 12:07:25,145:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 12:09:31,051:INFO:BaseTask_Sup:365: Epoch = 55
+2024-01-21 12:09:31,058:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.6498541270196437
+2024-01-21 12:09:42,838:INFO:BaseTask_Sup:763: -> test acc. of task 0: 79.67%
+2024-01-21 12:09:42,844:INFO:BaseTask_Sup:376: The best test accuracy was 79.68% at epoch 54
+2024-01-21 12:09:42,844:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 12:09:42,844:INFO:BaseTask_Sup:378: The training took 2 hours, 6 minutes, and 19 seconds from the beginning!
+2024-01-21 12:09:42,845:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 12 hours, 10 minutes, and 26 seconds
+2024-01-21 12:09:42,845:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 1/30
+2024-01-21 12:09:42,845:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 12:11:48,601:INFO:BaseTask_Sup:365: Epoch = 56
+2024-01-21 12:11:48,603:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.6492863816022872
+2024-01-21 12:12:00,117:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.00%
+2024-01-21 12:12:00,125:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 12:12:00,388:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 12:12:00,609:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 12:12:00,822:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 12:12:00,823:INFO:BaseTask_Sup:376: The best test accuracy was 80.00% at epoch 56
+2024-01-21 12:12:00,823:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 12:12:00,823:INFO:BaseTask_Sup:378: The training took 2 hours, 8 minutes, and 37 seconds from the beginning!
+2024-01-21 12:12:00,823:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 12 hours, 8 minutes, and 11 seconds
+2024-01-21 12:12:00,824:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 12:12:00,824:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 12:14:06,793:INFO:BaseTask_Sup:365: Epoch = 57
+2024-01-21 12:14:06,795:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.6396169069409371
+2024-01-21 12:14:18,471:INFO:BaseTask_Sup:763: -> test acc. of task 0: 79.80%
+2024-01-21 12:14:18,476:INFO:BaseTask_Sup:376: The best test accuracy was 80.00% at epoch 56
+2024-01-21 12:14:18,476:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 12:14:18,476:INFO:BaseTask_Sup:378: The training took 2 hours, 10 minutes, and 54 seconds from the beginning!
+2024-01-21 12:14:18,476:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 12 hours, 5 minutes, and 51 seconds
+2024-01-21 12:14:18,476:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 1/30
+2024-01-21 12:14:18,476:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 12:16:24,398:INFO:BaseTask_Sup:365: Epoch = 58
+2024-01-21 12:16:24,400:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.6388125427067279
+2024-01-21 12:16:36,297:INFO:BaseTask_Sup:763: -> test acc. of task 0: 79.87%
+2024-01-21 12:16:36,304:INFO:BaseTask_Sup:376: The best test accuracy was 80.00% at epoch 56
+2024-01-21 12:16:36,304:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 12:16:36,305:INFO:BaseTask_Sup:378: The training took 2 hours, 13 minutes, and 12 seconds from the beginning!
+2024-01-21 12:16:36,305:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 12 hours, 3 minutes, and 34 seconds
+2024-01-21 12:16:36,305:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 2/30
+2024-01-21 12:16:36,305:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 12:18:42,056:INFO:BaseTask_Sup:365: Epoch = 59
+2024-01-21 12:18:42,059:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.6200089332461357
+2024-01-21 12:18:53,460:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.07%
+2024-01-21 12:18:53,467:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 12:18:53,720:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 12:18:53,942:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 12:18:54,152:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 12:18:54,153:INFO:BaseTask_Sup:376: The best test accuracy was 80.07% at epoch 59
+2024-01-21 12:18:54,153:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 12:18:54,153:INFO:BaseTask_Sup:378: The training took 2 hours, 15 minutes, and 30 seconds from the beginning!
+2024-01-21 12:18:54,153:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 12 hours, 1 minute, and 16 seconds
+2024-01-21 12:18:54,153:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 12:18:54,153:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 12:21:00,021:INFO:BaseTask_Sup:365: Epoch = 60
+2024-01-21 12:21:00,028:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.62736815482378
+2024-01-21 12:21:11,711:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.12%
+2024-01-21 12:21:11,718:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 12:21:11,961:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 12:21:12,175:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 12:21:12,384:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 12:21:12,385:INFO:BaseTask_Sup:376: The best test accuracy was 80.12% at epoch 60
+2024-01-21 12:21:12,385:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 18 seconds!
+2024-01-21 12:21:12,385:INFO:BaseTask_Sup:378: The training took 2 hours, 17 minutes, and 48 seconds from the beginning!
+2024-01-21 12:21:12,385:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 11 hours, 59 minutes, and 5 seconds
+2024-01-21 12:21:12,386:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 12:21:12,386:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 12:23:18,053:INFO:BaseTask_Sup:365: Epoch = 61
+2024-01-21 12:23:18,055:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.6225134436786175
+2024-01-21 12:23:29,670:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.17%
+2024-01-21 12:23:29,674:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 12:23:29,929:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 12:23:30,125:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 12:23:30,337:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 12:23:30,338:INFO:BaseTask_Sup:376: The best test accuracy was 80.17% at epoch 61
+2024-01-21 12:23:30,338:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 12:23:30,338:INFO:BaseTask_Sup:378: The training took 2 hours, 20 minutes, and 6 seconds from the beginning!
+2024-01-21 12:23:30,338:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 11 hours, 56 minutes, and 50 seconds
+2024-01-21 12:23:30,338:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 12:23:30,338:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 12:25:35,945:INFO:BaseTask_Sup:365: Epoch = 62
+2024-01-21 12:25:35,946:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.622454376667738
+2024-01-21 12:25:47,423:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.22%
+2024-01-21 12:25:47,430:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 12:25:47,692:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 12:25:47,913:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 12:25:48,124:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 12:25:48,125:INFO:BaseTask_Sup:376: The best test accuracy was 80.22% at epoch 62
+2024-01-21 12:25:48,125:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 12:25:48,125:INFO:BaseTask_Sup:378: The training took 2 hours, 22 minutes, and 24 seconds from the beginning!
+2024-01-21 12:25:48,125:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 11 hours, 54 minutes, and 31 seconds
+2024-01-21 12:25:48,125:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 12:25:48,125:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 12:27:54,155:INFO:BaseTask_Sup:365: Epoch = 63
+2024-01-21 12:27:54,157:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.6164055916666985
+2024-01-21 12:28:05,499:INFO:BaseTask_Sup:763: -> test acc. of task 0: 79.95%
+2024-01-21 12:28:05,502:INFO:BaseTask_Sup:376: The best test accuracy was 80.22% at epoch 62
+2024-01-21 12:28:05,502:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 12:28:05,502:INFO:BaseTask_Sup:378: The training took 2 hours, 24 minutes, and 41 seconds from the beginning!
+2024-01-21 12:28:05,502:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 11 hours, 52 minutes, and 7 seconds
+2024-01-21 12:28:05,502:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 1/30
+2024-01-21 12:28:05,502:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 12:30:11,404:INFO:BaseTask_Sup:365: Epoch = 64
+2024-01-21 12:30:11,407:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.6076228286325932
+2024-01-21 12:30:23,116:INFO:BaseTask_Sup:763: -> test acc. of task 0: 79.95%
+2024-01-21 12:30:23,121:INFO:BaseTask_Sup:376: The best test accuracy was 80.22% at epoch 62
+2024-01-21 12:30:23,121:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 12:30:23,121:INFO:BaseTask_Sup:378: The training took 2 hours, 26 minutes, and 59 seconds from the beginning!
+2024-01-21 12:30:23,122:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 11 hours, 49 minutes, and 46 seconds
+2024-01-21 12:30:23,122:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 2/30
+2024-01-21 12:30:23,122:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 12:32:28,838:INFO:BaseTask_Sup:365: Epoch = 65
+2024-01-21 12:32:28,845:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.5983966453373433
+2024-01-21 12:32:40,426:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.03%
+2024-01-21 12:32:40,433:INFO:BaseTask_Sup:376: The best test accuracy was 80.22% at epoch 62
+2024-01-21 12:32:40,434:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 12:32:40,434:INFO:BaseTask_Sup:378: The training took 2 hours, 29 minutes, and 16 seconds from the beginning!
+2024-01-21 12:32:40,434:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 11 hours, 47 minutes, and 21 seconds
+2024-01-21 12:32:40,434:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 3/30
+2024-01-21 12:32:40,434:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 12:34:46,029:INFO:BaseTask_Sup:365: Epoch = 66
+2024-01-21 12:34:46,030:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.6004217134416103
+2024-01-21 12:34:57,484:INFO:BaseTask_Sup:763: -> test acc. of task 0: 79.98%
+2024-01-21 12:34:57,493:INFO:BaseTask_Sup:376: The best test accuracy was 80.22% at epoch 62
+2024-01-21 12:34:57,493:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 12:34:57,493:INFO:BaseTask_Sup:378: The training took 2 hours, 31 minutes, and 33 seconds from the beginning!
+2024-01-21 12:34:57,493:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 11 hours, 44 minutes, and 53 seconds
+2024-01-21 12:34:57,494:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 4/30
+2024-01-21 12:34:57,494:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 12:37:03,340:INFO:BaseTask_Sup:365: Epoch = 67
+2024-01-21 12:37:03,342:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.5985098847746849
+2024-01-21 12:37:14,986:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.23%
+2024-01-21 12:37:14,990:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 12:37:15,226:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 12:37:15,421:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 12:37:15,612:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 12:37:15,613:INFO:BaseTask_Sup:376: The best test accuracy was 80.23% at epoch 67
+2024-01-21 12:37:15,613:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 18 seconds!
+2024-01-21 12:37:15,613:INFO:BaseTask_Sup:378: The training took 2 hours, 33 minutes, and 52 seconds from the beginning!
+2024-01-21 12:37:15,613:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 11 hours, 42 minutes, and 40 seconds
+2024-01-21 12:37:15,613:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 12:37:15,613:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 12:39:21,722:INFO:BaseTask_Sup:365: Epoch = 68
+2024-01-21 12:39:21,724:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.5947568701207637
+2024-01-21 12:39:33,616:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.23%
+2024-01-21 12:39:33,624:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 12:39:33,888:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 12:39:34,105:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 12:39:34,321:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 12:39:34,322:INFO:BaseTask_Sup:376: The best test accuracy was 80.23% at epoch 68
+2024-01-21 12:39:34,322:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 18 seconds!
+2024-01-21 12:39:34,322:INFO:BaseTask_Sup:378: The training took 2 hours, 36 minutes, and 10 seconds from the beginning!
+2024-01-21 12:39:34,322:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 11 hours, 40 minutes, and 35 seconds
+2024-01-21 12:39:34,323:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 12:39:34,323:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 12:41:40,587:INFO:BaseTask_Sup:365: Epoch = 69
+2024-01-21 12:41:40,590:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.586343699246645
+2024-01-21 12:41:52,421:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.18%
+2024-01-21 12:41:52,427:INFO:BaseTask_Sup:376: The best test accuracy was 80.23% at epoch 68
+2024-01-21 12:41:52,427:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 18 seconds!
+2024-01-21 12:41:52,427:INFO:BaseTask_Sup:378: The training took 2 hours, 38 minutes, and 28 seconds from the beginning!
+2024-01-21 12:41:52,427:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 11 hours, 38 minutes, and 21 seconds
+2024-01-21 12:41:52,427:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 1/30
+2024-01-21 12:41:52,428:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 12:43:58,417:INFO:BaseTask_Sup:365: Epoch = 70
+2024-01-21 12:43:58,422:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.5843942327797413
+2024-01-21 12:44:10,490:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.23%
+2024-01-21 12:44:10,497:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 12:44:10,759:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 12:44:10,979:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 12:44:11,195:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 12:44:11,196:INFO:BaseTask_Sup:376: The best test accuracy was 80.23% at epoch 70
+2024-01-21 12:44:11,196:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 18 seconds!
+2024-01-21 12:44:11,196:INFO:BaseTask_Sup:378: The training took 2 hours, 40 minutes, and 47 seconds from the beginning!
+2024-01-21 12:44:11,196:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 11 hours, 36 minutes, and 16 seconds
+2024-01-21 12:44:11,196:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 12:44:11,197:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 12:46:17,441:INFO:BaseTask_Sup:365: Epoch = 71
+2024-01-21 12:46:17,443:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.5881571279466152
+2024-01-21 12:46:29,211:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.28%
+2024-01-21 12:46:29,218:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 12:46:29,524:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 12:46:29,745:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 12:46:29,963:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 12:46:29,964:INFO:BaseTask_Sup:376: The best test accuracy was 80.28% at epoch 71
+2024-01-21 12:46:29,965:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 18 seconds!
+2024-01-21 12:46:29,965:INFO:BaseTask_Sup:378: The training took 2 hours, 43 minutes, and 6 seconds from the beginning!
+2024-01-21 12:46:29,965:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 11 hours, 34 minutes, and 10 seconds
+2024-01-21 12:46:29,965:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 12:46:29,965:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 12:48:36,015:INFO:BaseTask_Sup:365: Epoch = 72
+2024-01-21 12:48:36,016:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.5771653738617897
+2024-01-21 12:48:47,638:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.23%
+2024-01-21 12:48:47,645:INFO:BaseTask_Sup:376: The best test accuracy was 80.28% at epoch 71
+2024-01-21 12:48:47,645:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 12:48:47,645:INFO:BaseTask_Sup:378: The training took 2 hours, 45 minutes, and 24 seconds from the beginning!
+2024-01-21 12:48:47,645:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 11 hours, 31 minutes, and 51 seconds
+2024-01-21 12:48:47,645:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 1/30
+2024-01-21 12:48:47,645:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 12:50:53,518:INFO:BaseTask_Sup:365: Epoch = 73
+2024-01-21 12:50:53,520:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.5744734285771846
+2024-01-21 12:51:05,069:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.17%
+2024-01-21 12:51:05,073:INFO:BaseTask_Sup:376: The best test accuracy was 80.28% at epoch 71
+2024-01-21 12:51:05,073:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 12:51:05,073:INFO:BaseTask_Sup:378: The training took 2 hours, 47 minutes, and 41 seconds from the beginning!
+2024-01-21 12:51:05,073:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 11 hours, 29 minutes, and 28 seconds
+2024-01-21 12:51:05,073:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 2/30
+2024-01-21 12:51:05,073:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 12:53:11,133:INFO:BaseTask_Sup:365: Epoch = 74
+2024-01-21 12:53:11,136:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.567977983802557
+2024-01-21 12:53:22,615:INFO:BaseTask_Sup:763: -> test acc. of task 0: 79.98%
+2024-01-21 12:53:22,620:INFO:BaseTask_Sup:376: The best test accuracy was 80.28% at epoch 71
+2024-01-21 12:53:22,620:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 12:53:22,620:INFO:BaseTask_Sup:378: The training took 2 hours, 49 minutes, and 59 seconds from the beginning!
+2024-01-21 12:53:22,620:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 11 hours, 27 minutes, and 6 seconds
+2024-01-21 12:53:22,620:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 3/30
+2024-01-21 12:53:22,621:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 12:55:28,472:INFO:BaseTask_Sup:365: Epoch = 75
+2024-01-21 12:55:28,480:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.5654326574504376
+2024-01-21 12:55:40,428:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.28%
+2024-01-21 12:55:40,435:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 12:55:40,678:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 12:55:40,866:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 12:55:41,053:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 12:55:41,054:INFO:BaseTask_Sup:376: The best test accuracy was 80.28% at epoch 75
+2024-01-21 12:55:41,054:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 18 seconds!
+2024-01-21 12:55:41,054:INFO:BaseTask_Sup:378: The training took 2 hours, 52 minutes, and 17 seconds from the beginning!
+2024-01-21 12:55:41,054:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 11 hours, 24 minutes, and 56 seconds
+2024-01-21 12:55:41,054:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 12:55:41,054:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 12:57:47,092:INFO:BaseTask_Sup:365: Epoch = 76
+2024-01-21 12:57:47,095:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.5696003623306751
+2024-01-21 12:57:58,864:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.33%
+2024-01-21 12:57:58,872:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 12:57:59,133:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 12:57:59,354:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 12:57:59,557:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 12:57:59,558:INFO:BaseTask_Sup:376: The best test accuracy was 80.33% at epoch 76
+2024-01-21 12:57:59,558:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 18 seconds!
+2024-01-21 12:57:59,558:INFO:BaseTask_Sup:378: The training took 2 hours, 54 minutes, and 36 seconds from the beginning!
+2024-01-21 12:57:59,558:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 11 hours, 22 minutes, and 46 seconds
+2024-01-21 12:57:59,558:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 12:57:59,558:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 13:00:06,076:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 13:00:06,291:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 13:00:06,538:INFO:BaseTask_Sup:509: 
+A snapshot is saved to "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Epoch=77.pt" <--------
+2024-01-21 13:00:06,539:INFO:BaseTask_Sup:365: Epoch = 77
+2024-01-21 13:00:06,539:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.556127086430788
+2024-01-21 13:00:18,167:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.12%
+2024-01-21 13:00:18,176:INFO:BaseTask_Sup:376: The best test accuracy was 80.33% at epoch 76
+2024-01-21 13:00:18,176:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 18 seconds!
+2024-01-21 13:00:18,176:INFO:BaseTask_Sup:378: The training took 2 hours, 56 minutes, and 54 seconds from the beginning!
+2024-01-21 13:00:18,176:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 11 hours, 20 minutes, and 38 seconds
+2024-01-21 13:00:18,176:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 1/30
+2024-01-21 13:00:18,176:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 13:02:24,160:INFO:BaseTask_Sup:365: Epoch = 78
+2024-01-21 13:02:24,162:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.5478269974887371
+2024-01-21 13:02:36,050:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.28%
+2024-01-21 13:02:36,056:INFO:BaseTask_Sup:376: The best test accuracy was 80.33% at epoch 76
+2024-01-21 13:02:36,056:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 13:02:36,056:INFO:BaseTask_Sup:378: The training took 2 hours, 59 minutes, and 12 seconds from the beginning!
+2024-01-21 13:02:36,056:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 11 hours, 18 minutes, and 20 seconds
+2024-01-21 13:02:36,056:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 2/30
+2024-01-21 13:02:36,057:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 13:04:41,993:INFO:BaseTask_Sup:365: Epoch = 79
+2024-01-21 13:04:41,996:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.5531482386589051
+2024-01-21 13:04:53,559:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.13%
+2024-01-21 13:04:53,566:INFO:BaseTask_Sup:376: The best test accuracy was 80.33% at epoch 76
+2024-01-21 13:04:53,566:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 13:04:53,566:INFO:BaseTask_Sup:378: The training took 3 hours, 1 minute, and 30 seconds from the beginning!
+2024-01-21 13:04:53,567:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 11 hours, 15 minutes, and 58 seconds
+2024-01-21 13:04:53,567:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 3/30
+2024-01-21 13:04:53,567:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 13:06:59,265:INFO:BaseTask_Sup:365: Epoch = 80
+2024-01-21 13:06:59,272:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.544159033447504
+2024-01-21 13:07:10,962:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.68%
+2024-01-21 13:07:10,969:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 13:07:11,213:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 13:07:11,399:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 13:07:11,627:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 13:07:11,628:INFO:BaseTask_Sup:376: The best test accuracy was 80.68% at epoch 80
+2024-01-21 13:07:11,628:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 18 seconds!
+2024-01-21 13:07:11,628:INFO:BaseTask_Sup:378: The training took 3 hours, 3 minutes, and 48 seconds from the beginning!
+2024-01-21 13:07:11,628:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 11 hours, 13 minutes, and 43 seconds
+2024-01-21 13:07:11,628:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 13:07:11,628:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 13:09:17,583:INFO:BaseTask_Sup:365: Epoch = 81
+2024-01-21 13:09:17,585:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.5404156903922558
+2024-01-21 13:09:29,342:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.27%
+2024-01-21 13:09:29,350:INFO:BaseTask_Sup:376: The best test accuracy was 80.68% at epoch 80
+2024-01-21 13:09:29,351:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 13:09:29,351:INFO:BaseTask_Sup:378: The training took 3 hours, 6 minutes, and 5 seconds from the beginning!
+2024-01-21 13:09:29,351:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 11 hours, 11 minutes, and 24 seconds
+2024-01-21 13:09:29,351:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 1/30
+2024-01-21 13:09:29,351:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 13:11:35,238:INFO:BaseTask_Sup:365: Epoch = 82
+2024-01-21 13:11:35,240:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.54624541670084
+2024-01-21 13:11:46,747:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.57%
+2024-01-21 13:11:46,755:INFO:BaseTask_Sup:376: The best test accuracy was 80.68% at epoch 80
+2024-01-21 13:11:46,755:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 13:11:46,756:INFO:BaseTask_Sup:378: The training took 3 hours, 8 minutes, and 23 seconds from the beginning!
+2024-01-21 13:11:46,756:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 11 hours, 9 minutes, and 1 second
+2024-01-21 13:11:46,756:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 2/30
+2024-01-21 13:11:46,756:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 13:13:52,597:INFO:BaseTask_Sup:365: Epoch = 83
+2024-01-21 13:13:52,599:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.5329820404946805
+2024-01-21 13:14:04,190:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.23%
+2024-01-21 13:14:04,198:INFO:BaseTask_Sup:376: The best test accuracy was 80.68% at epoch 80
+2024-01-21 13:14:04,198:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 13:14:04,198:INFO:BaseTask_Sup:378: The training took 3 hours, 10 minutes, and 40 seconds from the beginning!
+2024-01-21 13:14:04,198:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 11 hours, 6 minutes, and 38 seconds
+2024-01-21 13:14:04,198:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 3/30
+2024-01-21 13:14:04,198:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 13:16:10,163:INFO:BaseTask_Sup:365: Epoch = 84
+2024-01-21 13:16:10,166:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.5397995206713676
+2024-01-21 13:16:21,920:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.35%
+2024-01-21 13:16:21,927:INFO:BaseTask_Sup:376: The best test accuracy was 80.68% at epoch 80
+2024-01-21 13:16:21,927:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 13:16:21,927:INFO:BaseTask_Sup:378: The training took 3 hours, 12 minutes, and 58 seconds from the beginning!
+2024-01-21 13:16:21,927:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 11 hours, 4 minutes, and 19 seconds
+2024-01-21 13:16:21,927:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 4/30
+2024-01-21 13:16:21,927:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 13:18:27,897:INFO:BaseTask_Sup:365: Epoch = 85
+2024-01-21 13:18:27,903:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.5265168592333793
+2024-01-21 13:18:39,490:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.65%
+2024-01-21 13:18:39,495:INFO:BaseTask_Sup:376: The best test accuracy was 80.68% at epoch 80
+2024-01-21 13:18:39,496:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 13:18:39,496:INFO:BaseTask_Sup:378: The training took 3 hours, 15 minutes, and 15 seconds from the beginning!
+2024-01-21 13:18:39,496:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 11 hours, 1 minute, and 59 seconds
+2024-01-21 13:18:39,496:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 5/30
+2024-01-21 13:18:39,496:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 13:20:45,387:INFO:BaseTask_Sup:365: Epoch = 86
+2024-01-21 13:20:45,389:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.5191147162020207
+2024-01-21 13:20:57,042:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.53%
+2024-01-21 13:20:57,051:INFO:BaseTask_Sup:376: The best test accuracy was 80.68% at epoch 80
+2024-01-21 13:20:57,051:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 13:20:57,051:INFO:BaseTask_Sup:378: The training took 3 hours, 17 minutes, and 33 seconds from the beginning!
+2024-01-21 13:20:57,051:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 10 hours, 59 minutes, and 38 seconds
+2024-01-21 13:20:57,051:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 6/30
+2024-01-21 13:20:57,051:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 13:23:02,873:INFO:BaseTask_Sup:365: Epoch = 87
+2024-01-21 13:23:02,875:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.5204840424656868
+2024-01-21 13:23:14,542:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.38%
+2024-01-21 13:23:14,549:INFO:BaseTask_Sup:376: The best test accuracy was 80.68% at epoch 80
+2024-01-21 13:23:14,549:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 13:23:14,549:INFO:BaseTask_Sup:378: The training took 3 hours, 19 minutes, and 51 seconds from the beginning!
+2024-01-21 13:23:14,549:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 10 hours, 57 minutes, and 17 seconds
+2024-01-21 13:23:14,549:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 7/30
+2024-01-21 13:23:14,549:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 13:25:20,443:INFO:BaseTask_Sup:365: Epoch = 88
+2024-01-21 13:25:20,445:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.5168220336735249
+2024-01-21 13:25:32,085:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.52%
+2024-01-21 13:25:32,090:INFO:BaseTask_Sup:376: The best test accuracy was 80.68% at epoch 80
+2024-01-21 13:25:32,090:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 13:25:32,090:INFO:BaseTask_Sup:378: The training took 3 hours, 22 minutes, and 8 seconds from the beginning!
+2024-01-21 13:25:32,090:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 10 hours, 54 minutes, and 56 seconds
+2024-01-21 13:25:32,090:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 8/30
+2024-01-21 13:25:32,090:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 13:27:37,970:INFO:BaseTask_Sup:365: Epoch = 89
+2024-01-21 13:27:37,973:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.5157867030799389
+2024-01-21 13:27:49,640:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.40%
+2024-01-21 13:27:49,646:INFO:BaseTask_Sup:376: The best test accuracy was 80.68% at epoch 80
+2024-01-21 13:27:49,646:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 13:27:49,646:INFO:BaseTask_Sup:378: The training took 3 hours, 24 minutes, and 26 seconds from the beginning!
+2024-01-21 13:27:49,646:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 10 hours, 52 minutes, and 35 seconds
+2024-01-21 13:27:49,646:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 9/30
+2024-01-21 13:27:49,646:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 13:29:55,534:INFO:BaseTask_Sup:365: Epoch = 90
+2024-01-21 13:29:55,541:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.5069382855296135
+2024-01-21 13:30:07,568:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.65%
+2024-01-21 13:30:07,575:INFO:BaseTask_Sup:376: The best test accuracy was 80.68% at epoch 80
+2024-01-21 13:30:07,575:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 13:30:07,575:INFO:BaseTask_Sup:378: The training took 3 hours, 26 minutes, and 44 seconds from the beginning!
+2024-01-21 13:30:07,575:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 10 hours, 50 minutes, and 18 seconds
+2024-01-21 13:30:07,575:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 10/30
+2024-01-21 13:30:07,575:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 13:32:13,485:INFO:BaseTask_Sup:365: Epoch = 91
+2024-01-21 13:32:13,486:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.5060052606463432
+2024-01-21 13:32:25,704:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.25%
+2024-01-21 13:32:25,712:INFO:BaseTask_Sup:376: The best test accuracy was 80.68% at epoch 80
+2024-01-21 13:32:25,712:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 18 seconds!
+2024-01-21 13:32:25,712:INFO:BaseTask_Sup:378: The training took 3 hours, 29 minutes, and 2 seconds from the beginning!
+2024-01-21 13:32:25,712:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 10 hours, 48 minutes, and 4 seconds
+2024-01-21 13:32:25,713:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 11/30
+2024-01-21 13:32:25,713:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 13:34:31,832:INFO:BaseTask_Sup:365: Epoch = 92
+2024-01-21 13:34:31,834:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.4997478097677231
+2024-01-21 13:34:43,945:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.53%
+2024-01-21 13:34:43,953:INFO:BaseTask_Sup:376: The best test accuracy was 80.68% at epoch 80
+2024-01-21 13:34:43,953:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 18 seconds!
+2024-01-21 13:34:43,953:INFO:BaseTask_Sup:378: The training took 3 hours, 31 minutes, and 20 seconds from the beginning!
+2024-01-21 13:34:43,954:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 10 hours, 45 minutes, and 50 seconds
+2024-01-21 13:34:43,954:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 12/30
+2024-01-21 13:34:43,954:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 13:36:49,894:INFO:BaseTask_Sup:365: Epoch = 93
+2024-01-21 13:36:49,896:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.4939195790886879
+2024-01-21 13:37:01,631:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.47%
+2024-01-21 13:37:01,636:INFO:BaseTask_Sup:376: The best test accuracy was 80.68% at epoch 80
+2024-01-21 13:37:01,636:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 13:37:01,636:INFO:BaseTask_Sup:378: The training took 3 hours, 33 minutes, and 38 seconds from the beginning!
+2024-01-21 13:37:01,636:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 10 hours, 43 minutes, and 31 seconds
+2024-01-21 13:37:01,636:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 13/30
+2024-01-21 13:37:01,636:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 13:39:07,675:INFO:BaseTask_Sup:365: Epoch = 94
+2024-01-21 13:39:07,679:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.49498690098524095
+2024-01-21 13:39:19,356:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.63%
+2024-01-21 13:39:19,364:INFO:BaseTask_Sup:376: The best test accuracy was 80.68% at epoch 80
+2024-01-21 13:39:19,364:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 13:39:19,364:INFO:BaseTask_Sup:378: The training took 3 hours, 35 minutes, and 55 seconds from the beginning!
+2024-01-21 13:39:19,364:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 10 hours, 41 minutes, and 12 seconds
+2024-01-21 13:39:19,364:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 14/30
+2024-01-21 13:39:19,364:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 13:41:25,197:INFO:BaseTask_Sup:365: Epoch = 95
+2024-01-21 13:41:25,202:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.4884802868962288
+2024-01-21 13:41:36,918:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.63%
+2024-01-21 13:41:36,925:INFO:BaseTask_Sup:376: The best test accuracy was 80.68% at epoch 80
+2024-01-21 13:41:36,926:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 13:41:36,926:INFO:BaseTask_Sup:378: The training took 3 hours, 38 minutes, and 13 seconds from the beginning!
+2024-01-21 13:41:36,926:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 10 hours, 38 minutes, and 52 seconds
+2024-01-21 13:41:36,926:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 15/30
+2024-01-21 13:41:36,926:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 13:43:42,709:INFO:BaseTask_Sup:365: Epoch = 96
+2024-01-21 13:43:42,711:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.48480526253581047
+2024-01-21 13:43:54,067:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.63%
+2024-01-21 13:43:54,074:INFO:BaseTask_Sup:376: The best test accuracy was 80.68% at epoch 80
+2024-01-21 13:43:54,074:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 13:43:54,074:INFO:BaseTask_Sup:378: The training took 3 hours, 40 minutes, and 30 seconds from the beginning!
+2024-01-21 13:43:54,075:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 10 hours, 36 minutes, and 27 seconds
+2024-01-21 13:43:54,075:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 16/30
+2024-01-21 13:43:54,075:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 13:46:00,014:INFO:BaseTask_Sup:365: Epoch = 97
+2024-01-21 13:46:00,016:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.4791375109553337
+2024-01-21 13:46:11,913:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.50%
+2024-01-21 13:46:11,922:INFO:BaseTask_Sup:376: The best test accuracy was 80.68% at epoch 80
+2024-01-21 13:46:11,922:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 13:46:11,922:INFO:BaseTask_Sup:378: The training took 3 hours, 42 minutes, and 48 seconds from the beginning!
+2024-01-21 13:46:11,923:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 10 hours, 34 minutes, and 10 seconds
+2024-01-21 13:46:11,923:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 17/30
+2024-01-21 13:46:11,923:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 13:48:17,885:INFO:BaseTask_Sup:365: Epoch = 98
+2024-01-21 13:48:17,886:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.4781345111131668
+2024-01-21 13:48:29,409:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.80%
+2024-01-21 13:48:29,417:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 13:48:29,685:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 13:48:29,884:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 13:48:30,083:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 13:48:30,084:INFO:BaseTask_Sup:376: The best test accuracy was 80.80% at epoch 98
+2024-01-21 13:48:30,084:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 18 seconds!
+2024-01-21 13:48:30,084:INFO:BaseTask_Sup:378: The training took 3 hours, 45 minutes, and 6 seconds from the beginning!
+2024-01-21 13:48:30,084:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 10 hours, 31 minutes, and 55 seconds
+2024-01-21 13:48:30,084:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 13:48:30,084:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 13:50:35,909:INFO:BaseTask_Sup:365: Epoch = 99
+2024-01-21 13:50:35,912:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.47569847404956817
+2024-01-21 13:50:47,598:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.85%
+2024-01-21 13:50:47,606:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 13:50:47,848:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 13:50:48,070:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 13:50:48,288:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 13:50:48,289:INFO:BaseTask_Sup:376: The best test accuracy was 80.85% at epoch 99
+2024-01-21 13:50:48,289:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 18 seconds!
+2024-01-21 13:50:48,289:INFO:BaseTask_Sup:378: The training took 3 hours, 47 minutes, and 24 seconds from the beginning!
+2024-01-21 13:50:48,289:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 10 hours, 29 minutes, and 41 seconds
+2024-01-21 13:50:48,289:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 13:50:48,289:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 13:52:54,945:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 13:52:55,142:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 13:52:55,413:INFO:BaseTask_Sup:509: 
+A snapshot is saved to "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Epoch=100.pt" <--------
+2024-01-21 13:52:55,415:INFO:BaseTask_Sup:365: Epoch = 100
+2024-01-21 13:52:55,418:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.4667489376664162
+2024-01-21 13:53:07,129:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.67%
+2024-01-21 13:53:07,136:INFO:BaseTask_Sup:376: The best test accuracy was 80.85% at epoch 99
+2024-01-21 13:53:07,136:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 18 seconds!
+2024-01-21 13:53:07,136:INFO:BaseTask_Sup:378: The training took 3 hours, 49 minutes, and 43 seconds from the beginning!
+2024-01-21 13:53:07,136:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 10 hours, 27 minutes, and 32 seconds
+2024-01-21 13:53:07,136:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 1/30
+2024-01-21 13:53:07,136:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 13:55:13,173:INFO:BaseTask_Sup:365: Epoch = 101
+2024-01-21 13:55:13,175:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.4696388539671898
+2024-01-21 13:55:24,961:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.97%
+2024-01-21 13:55:24,969:INFO:BaseTask_Sup:374: This is the new best model!
+2024-01-21 13:55:25,220:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 13:55:25,438:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 13:55:25,656:INFO:BaseTask_Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"! <--------
+2024-01-21 13:55:25,658:INFO:BaseTask_Sup:376: The best test accuracy was 80.97% at epoch 101
+2024-01-21 13:55:25,658:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 18 seconds!
+2024-01-21 13:55:25,658:INFO:BaseTask_Sup:378: The training took 3 hours, 52 minutes, and 2 seconds from the beginning!
+2024-01-21 13:55:25,658:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 10 hours, 25 minutes, and 20 seconds
+2024-01-21 13:55:25,658:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 0/30
+2024-01-21 13:55:25,658:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 13:57:31,490:INFO:BaseTask_Sup:365: Epoch = 102
+2024-01-21 13:57:31,492:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.46482527077198027
+2024-01-21 13:57:43,325:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.53%
+2024-01-21 13:57:43,334:INFO:BaseTask_Sup:376: The best test accuracy was 80.97% at epoch 101
+2024-01-21 13:57:43,334:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 13:57:43,334:INFO:BaseTask_Sup:378: The training took 3 hours, 54 minutes, and 19 seconds from the beginning!
+2024-01-21 13:57:43,334:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 10 hours, 23 minutes, and 1 second
+2024-01-21 13:57:43,334:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 1/30
+2024-01-21 13:57:43,334:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 13:59:48,990:INFO:BaseTask_Sup:365: Epoch = 103
+2024-01-21 13:59:48,992:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.46236079767346383
+2024-01-21 14:00:00,800:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.53%
+2024-01-21 14:00:00,806:INFO:BaseTask_Sup:376: The best test accuracy was 80.97% at epoch 101
+2024-01-21 14:00:00,806:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 14:00:00,806:INFO:BaseTask_Sup:378: The training took 3 hours, 56 minutes, and 37 seconds from the beginning!
+2024-01-21 14:00:00,806:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 10 hours, 20 minutes, and 40 seconds
+2024-01-21 14:00:00,806:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 2/30
+2024-01-21 14:00:00,806:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 14:02:06,227:INFO:BaseTask_Sup:365: Epoch = 104
+2024-01-21 14:02:06,230:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.45909652233123777
+2024-01-21 14:02:17,806:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.67%
+2024-01-21 14:02:17,813:INFO:BaseTask_Sup:376: The best test accuracy was 80.97% at epoch 101
+2024-01-21 14:02:17,813:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 14:02:17,813:INFO:BaseTask_Sup:378: The training took 3 hours, 58 minutes, and 54 seconds from the beginning!
+2024-01-21 14:02:17,813:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 10 hours, 18 minutes, and 15 seconds
+2024-01-21 14:02:17,813:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 3/30
+2024-01-21 14:02:17,813:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 14:04:23,285:INFO:BaseTask_Sup:365: Epoch = 105
+2024-01-21 14:04:23,292:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.457936584353447
+2024-01-21 14:04:35,214:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.72%
+2024-01-21 14:04:35,222:INFO:BaseTask_Sup:376: The best test accuracy was 80.97% at epoch 101
+2024-01-21 14:04:35,222:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 14:04:35,222:INFO:BaseTask_Sup:378: The training took 4 hours, 1 minute, and 11 seconds from the beginning!
+2024-01-21 14:04:35,222:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 10 hours, 15 minutes, and 54 seconds
+2024-01-21 14:04:35,222:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 4/30
+2024-01-21 14:04:35,222:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 14:06:40,795:INFO:BaseTask_Sup:365: Epoch = 106
+2024-01-21 14:06:40,798:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.4536355882883072
+2024-01-21 14:06:52,891:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.78%
+2024-01-21 14:06:52,898:INFO:BaseTask_Sup:376: The best test accuracy was 80.97% at epoch 101
+2024-01-21 14:06:52,898:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 14:06:52,898:INFO:BaseTask_Sup:378: The training took 4 hours, 3 minutes, and 29 seconds from the beginning!
+2024-01-21 14:06:52,898:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 10 hours, 13 minutes, and 35 seconds
+2024-01-21 14:06:52,898:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 5/30
+2024-01-21 14:06:52,898:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 14:08:58,560:INFO:BaseTask_Sup:365: Epoch = 107
+2024-01-21 14:08:58,562:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.45084488183259963
+2024-01-21 14:09:10,084:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.78%
+2024-01-21 14:09:10,092:INFO:BaseTask_Sup:376: The best test accuracy was 80.97% at epoch 101
+2024-01-21 14:09:10,092:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 14:09:10,093:INFO:BaseTask_Sup:378: The training took 4 hours, 5 minutes, and 46 seconds from the beginning!
+2024-01-21 14:09:10,093:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 10 hours, 11 minutes, and 11 seconds
+2024-01-21 14:09:10,093:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 6/30
+2024-01-21 14:09:10,093:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 14:11:15,550:INFO:BaseTask_Sup:365: Epoch = 108
+2024-01-21 14:11:15,552:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.44631467789411544
+2024-01-21 14:11:27,049:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.62%
+2024-01-21 14:11:27,053:INFO:BaseTask_Sup:376: The best test accuracy was 80.97% at epoch 101
+2024-01-21 14:11:27,053:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 16 seconds!
+2024-01-21 14:11:27,054:INFO:BaseTask_Sup:378: The training took 4 hours, 8 minutes, and 3 seconds from the beginning!
+2024-01-21 14:11:27,054:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 10 hours, 8 minutes, and 47 seconds
+2024-01-21 14:11:27,054:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 7/30
+2024-01-21 14:11:27,054:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 14:13:32,635:INFO:BaseTask_Sup:365: Epoch = 109
+2024-01-21 14:13:32,638:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.45185699313879013
+2024-01-21 14:13:44,079:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.85%
+2024-01-21 14:13:44,084:INFO:BaseTask_Sup:376: The best test accuracy was 80.97% at epoch 101
+2024-01-21 14:13:44,084:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 14:13:44,084:INFO:BaseTask_Sup:378: The training took 4 hours, 10 minutes, and 20 seconds from the beginning!
+2024-01-21 14:13:44,084:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 10 hours, 6 minutes, and 22 seconds
+2024-01-21 14:13:44,084:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 8/30
+2024-01-21 14:13:44,084:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 14:15:49,497:INFO:BaseTask_Sup:365: Epoch = 110
+2024-01-21 14:15:49,504:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.44790880113840104
+2024-01-21 14:16:01,358:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.63%
+2024-01-21 14:16:01,363:INFO:BaseTask_Sup:376: The best test accuracy was 80.97% at epoch 101
+2024-01-21 14:16:01,363:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 14:16:01,363:INFO:BaseTask_Sup:378: The training took 4 hours, 12 minutes, and 37 seconds from the beginning!
+2024-01-21 14:16:01,363:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 10 hours, 4 minutes, and 0 seconds
+2024-01-21 14:16:01,363:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 9/30
+2024-01-21 14:16:01,363:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 14:18:06,853:INFO:BaseTask_Sup:365: Epoch = 111
+2024-01-21 14:18:06,854:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.43440105378627775
+2024-01-21 14:18:18,508:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.32%
+2024-01-21 14:18:18,516:INFO:BaseTask_Sup:376: The best test accuracy was 80.97% at epoch 101
+2024-01-21 14:18:18,517:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 14:18:18,517:INFO:BaseTask_Sup:378: The training took 4 hours, 14 minutes, and 55 seconds from the beginning!
+2024-01-21 14:18:18,517:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 10 hours, 1 minute, and 37 seconds
+2024-01-21 14:18:18,517:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 10/30
+2024-01-21 14:18:18,517:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 14:20:24,088:INFO:BaseTask_Sup:365: Epoch = 112
+2024-01-21 14:20:24,090:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.43347813248634337
+2024-01-21 14:20:35,978:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.77%
+2024-01-21 14:20:35,986:INFO:BaseTask_Sup:376: The best test accuracy was 80.97% at epoch 101
+2024-01-21 14:20:35,986:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 14:20:35,986:INFO:BaseTask_Sup:378: The training took 4 hours, 17 minutes, and 12 seconds from the beginning!
+2024-01-21 14:20:35,986:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 9 hours, 59 minutes, and 17 seconds
+2024-01-21 14:20:35,986:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 11/30
+2024-01-21 14:20:35,986:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 14:22:41,559:INFO:BaseTask_Sup:365: Epoch = 113
+2024-01-21 14:22:41,560:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.43868775546550753
+2024-01-21 14:22:53,279:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.60%
+2024-01-21 14:22:53,288:INFO:BaseTask_Sup:376: The best test accuracy was 80.97% at epoch 101
+2024-01-21 14:22:53,288:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 14:22:53,288:INFO:BaseTask_Sup:378: The training took 4 hours, 19 minutes, and 29 seconds from the beginning!
+2024-01-21 14:22:53,288:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 9 hours, 56 minutes, and 55 seconds
+2024-01-21 14:22:53,288:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 12/30
+2024-01-21 14:22:53,288:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 14:24:58,696:INFO:BaseTask_Sup:365: Epoch = 114
+2024-01-21 14:24:58,702:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.4360435724258423
+2024-01-21 14:25:10,473:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.67%
+2024-01-21 14:25:10,478:INFO:BaseTask_Sup:376: The best test accuracy was 80.97% at epoch 101
+2024-01-21 14:25:10,478:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 14:25:10,478:INFO:BaseTask_Sup:378: The training took 4 hours, 21 minutes, and 46 seconds from the beginning!
+2024-01-21 14:25:10,478:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 9 hours, 54 minutes, and 33 seconds
+2024-01-21 14:25:10,478:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 13/30
+2024-01-21 14:25:10,478:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 14:27:15,891:INFO:BaseTask_Sup:365: Epoch = 115
+2024-01-21 14:27:15,898:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.4356891843676567
+2024-01-21 14:27:27,399:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.63%
+2024-01-21 14:27:27,407:INFO:BaseTask_Sup:376: The best test accuracy was 80.97% at epoch 101
+2024-01-21 14:27:27,407:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 16 seconds!
+2024-01-21 14:27:27,407:INFO:BaseTask_Sup:378: The training took 4 hours, 24 minutes, and 3 seconds from the beginning!
+2024-01-21 14:27:27,407:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 9 hours, 52 minutes, and 9 seconds
+2024-01-21 14:27:27,407:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 14/30
+2024-01-21 14:27:27,408:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 14:29:32,899:INFO:BaseTask_Sup:365: Epoch = 116
+2024-01-21 14:29:32,901:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.4202717506885529
+2024-01-21 14:29:44,597:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.67%
+2024-01-21 14:29:44,604:INFO:BaseTask_Sup:376: The best test accuracy was 80.97% at epoch 101
+2024-01-21 14:29:44,605:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 14:29:44,605:INFO:BaseTask_Sup:378: The training took 4 hours, 26 minutes, and 21 seconds from the beginning!
+2024-01-21 14:29:44,605:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 9 hours, 49 minutes, and 46 seconds
+2024-01-21 14:29:44,605:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 15/30
+2024-01-21 14:29:44,605:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 14:31:50,309:INFO:BaseTask_Sup:365: Epoch = 117
+2024-01-21 14:31:50,311:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.42388734623789787
+2024-01-21 14:32:01,873:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.47%
+2024-01-21 14:32:01,882:INFO:BaseTask_Sup:376: The best test accuracy was 80.97% at epoch 101
+2024-01-21 14:32:01,882:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 14:32:01,882:INFO:BaseTask_Sup:378: The training took 4 hours, 28 minutes, and 38 seconds from the beginning!
+2024-01-21 14:32:01,882:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 9 hours, 47 minutes, and 25 seconds
+2024-01-21 14:32:01,882:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 16/30
+2024-01-21 14:32:01,882:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 14:34:07,317:INFO:BaseTask_Sup:365: Epoch = 118
+2024-01-21 14:34:07,319:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.42602551490068435
+2024-01-21 14:34:18,959:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.57%
+2024-01-21 14:34:18,965:INFO:BaseTask_Sup:376: The best test accuracy was 80.97% at epoch 101
+2024-01-21 14:34:18,965:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 14:34:18,965:INFO:BaseTask_Sup:378: The training took 4 hours, 30 minutes, and 55 seconds from the beginning!
+2024-01-21 14:34:18,966:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 9 hours, 45 minutes, and 2 seconds
+2024-01-21 14:34:18,966:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 17/30
+2024-01-21 14:34:18,966:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 14:36:24,543:INFO:BaseTask_Sup:365: Epoch = 119
+2024-01-21 14:36:24,546:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.42038187995553017
+2024-01-21 14:36:36,045:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.75%
+2024-01-21 14:36:36,054:INFO:BaseTask_Sup:376: The best test accuracy was 80.97% at epoch 101
+2024-01-21 14:36:36,054:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 14:36:36,054:INFO:BaseTask_Sup:378: The training took 4 hours, 33 minutes, and 12 seconds from the beginning!
+2024-01-21 14:36:36,054:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 9 hours, 42 minutes, and 39 seconds
+2024-01-21 14:36:36,054:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 18/30
+2024-01-21 14:36:36,054:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 14:38:41,547:INFO:BaseTask_Sup:365: Epoch = 120
+2024-01-21 14:38:41,554:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.41693622305989264
+2024-01-21 14:38:53,292:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.60%
+2024-01-21 14:38:53,300:INFO:BaseTask_Sup:376: The best test accuracy was 80.97% at epoch 101
+2024-01-21 14:38:53,301:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 14:38:53,301:INFO:BaseTask_Sup:378: The training took 4 hours, 35 minutes, and 29 seconds from the beginning!
+2024-01-21 14:38:53,301:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 9 hours, 40 minutes, and 18 seconds
+2024-01-21 14:38:53,301:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 19/30
+2024-01-21 14:38:53,301:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 14:40:58,896:INFO:BaseTask_Sup:365: Epoch = 121
+2024-01-21 14:40:58,898:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.41850321635603904
+2024-01-21 14:41:10,575:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.62%
+2024-01-21 14:41:10,583:INFO:BaseTask_Sup:376: The best test accuracy was 80.97% at epoch 101
+2024-01-21 14:41:10,583:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 14:41:10,583:INFO:BaseTask_Sup:378: The training took 4 hours, 37 minutes, and 47 seconds from the beginning!
+2024-01-21 14:41:10,583:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 9 hours, 37 minutes, and 57 seconds
+2024-01-21 14:41:10,583:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 20/30
+2024-01-21 14:41:10,584:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 14:43:16,216:INFO:BaseTask_Sup:365: Epoch = 122
+2024-01-21 14:43:16,217:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.4161427056789398
+2024-01-21 14:43:28,078:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.68%
+2024-01-21 14:43:28,087:INFO:BaseTask_Sup:376: The best test accuracy was 80.97% at epoch 101
+2024-01-21 14:43:28,087:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 14:43:28,087:INFO:BaseTask_Sup:378: The training took 4 hours, 40 minutes, and 4 seconds from the beginning!
+2024-01-21 14:43:28,087:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 9 hours, 35 minutes, and 37 seconds
+2024-01-21 14:43:28,087:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 21/30
+2024-01-21 14:43:28,087:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 14:45:33,722:INFO:BaseTask_Sup:365: Epoch = 123
+2024-01-21 14:45:33,725:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.41427005708217624
+2024-01-21 14:45:45,335:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.87%
+2024-01-21 14:45:45,340:INFO:BaseTask_Sup:376: The best test accuracy was 80.97% at epoch 101
+2024-01-21 14:45:45,340:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 14:45:45,340:INFO:BaseTask_Sup:378: The training took 4 hours, 42 minutes, and 21 seconds from the beginning!
+2024-01-21 14:45:45,340:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 9 hours, 33 minutes, and 16 seconds
+2024-01-21 14:45:45,340:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 22/30
+2024-01-21 14:45:45,340:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 14:47:50,702:INFO:BaseTask_Sup:365: Epoch = 124
+2024-01-21 14:47:50,706:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.41836732149124145
+2024-01-21 14:48:02,386:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.55%
+2024-01-21 14:48:02,394:INFO:BaseTask_Sup:376: The best test accuracy was 80.97% at epoch 101
+2024-01-21 14:48:02,394:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 14:48:02,394:INFO:BaseTask_Sup:378: The training took 4 hours, 44 minutes, and 38 seconds from the beginning!
+2024-01-21 14:48:02,394:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 9 hours, 30 minutes, and 54 seconds
+2024-01-21 14:48:02,394:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 23/30
+2024-01-21 14:48:02,395:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 14:50:08,057:INFO:BaseTask_Sup:365: Epoch = 125
+2024-01-21 14:50:08,064:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.41590716272592543
+2024-01-21 14:50:19,519:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.92%
+2024-01-21 14:50:19,524:INFO:BaseTask_Sup:376: The best test accuracy was 80.97% at epoch 101
+2024-01-21 14:50:19,525:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 14:50:19,525:INFO:BaseTask_Sup:378: The training took 4 hours, 46 minutes, and 56 seconds from the beginning!
+2024-01-21 14:50:19,525:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 9 hours, 28 minutes, and 32 seconds
+2024-01-21 14:50:19,525:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 24/30
+2024-01-21 14:50:19,525:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 14:52:24,785:INFO:BaseTask_Sup:365: Epoch = 126
+2024-01-21 14:52:24,786:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.40450216248631476
+2024-01-21 14:52:36,240:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.55%
+2024-01-21 14:52:36,245:INFO:BaseTask_Sup:376: The best test accuracy was 80.97% at epoch 101
+2024-01-21 14:52:36,245:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 16 seconds!
+2024-01-21 14:52:36,245:INFO:BaseTask_Sup:378: The training took 4 hours, 49 minutes, and 12 seconds from the beginning!
+2024-01-21 14:52:36,245:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 9 hours, 26 minutes, and 7 seconds
+2024-01-21 14:52:36,246:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 25/30
+2024-01-21 14:52:36,246:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 14:54:48,379:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 14:54:48,565:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 14:54:48,788:INFO:BaseTask_Sup:509: 
+A snapshot is saved to "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Epoch=127.pt" <--------
+2024-01-21 14:54:48,789:INFO:BaseTask_Sup:365: Epoch = 127
+2024-01-21 14:54:48,790:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.4037629760801792
+2024-01-21 14:55:00,525:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.92%
+2024-01-21 14:55:00,533:INFO:BaseTask_Sup:376: The best test accuracy was 80.97% at epoch 101
+2024-01-21 14:55:00,534:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 24 seconds!
+2024-01-21 14:55:00,534:INFO:BaseTask_Sup:378: The training took 4 hours, 51 minutes, and 37 seconds from the beginning!
+2024-01-21 14:55:00,534:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 9 hours, 24 minutes, and 34 seconds
+2024-01-21 14:55:00,534:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 26/30
+2024-01-21 14:55:00,534:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 14:57:06,054:INFO:BaseTask_Sup:365: Epoch = 128
+2024-01-21 14:57:06,058:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.40253552705049517
+2024-01-21 14:57:17,739:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.58%
+2024-01-21 14:57:17,746:INFO:BaseTask_Sup:376: The best test accuracy was 80.97% at epoch 101
+2024-01-21 14:57:17,746:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 14:57:17,746:INFO:BaseTask_Sup:378: The training took 4 hours, 53 minutes, and 54 seconds from the beginning!
+2024-01-21 14:57:17,746:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 9 hours, 22 minutes, and 13 seconds
+2024-01-21 14:57:17,746:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 27/30
+2024-01-21 14:57:17,746:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 14:59:23,312:INFO:BaseTask_Sup:365: Epoch = 129
+2024-01-21 14:59:23,315:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.40019533947110175
+2024-01-21 14:59:34,879:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.77%
+2024-01-21 14:59:34,886:INFO:BaseTask_Sup:376: The best test accuracy was 80.97% at epoch 101
+2024-01-21 14:59:34,886:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 14:59:34,887:INFO:BaseTask_Sup:378: The training took 4 hours, 56 minutes, and 11 seconds from the beginning!
+2024-01-21 14:59:34,887:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 9 hours, 19 minutes, and 51 seconds
+2024-01-21 14:59:34,887:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 28/30
+2024-01-21 14:59:34,887:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 15:01:40,895:INFO:BaseTask_Sup:365: Epoch = 130
+2024-01-21 15:01:40,898:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.4005520997941494
+2024-01-21 15:01:52,476:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.52%
+2024-01-21 15:01:52,486:INFO:BaseTask_Sup:376: The best test accuracy was 80.97% at epoch 101
+2024-01-21 15:01:52,486:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 15:01:52,486:INFO:BaseTask_Sup:378: The training took 4 hours, 58 minutes, and 28 seconds from the beginning!
+2024-01-21 15:01:52,486:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 9 hours, 17 minutes, and 32 seconds
+2024-01-21 15:01:52,486:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 29/30
+2024-01-21 15:01:52,486:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 15:03:57,912:INFO:BaseTask_Sup:365: Epoch = 131
+2024-01-21 15:03:57,917:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.3927290739864111
+2024-01-21 15:04:09,759:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.63%
+2024-01-21 15:04:09,767:INFO:BaseTask_Sup:376: The best test accuracy was 80.97% at epoch 101
+2024-01-21 15:04:09,767:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 17 seconds!
+2024-01-21 15:04:09,767:INFO:BaseTask_Sup:378: The training took 5 hours and 46 seconds from the beginning!
+2024-01-21 15:04:09,767:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 9 hours, 15 minutes, and 11 seconds
+2024-01-21 15:04:09,768:INFO:BaseTask_Sup:385: Number of epochs with no-progress = 30/30
+2024-01-21 15:04:09,768:INFO:BaseTask_Sup:387: --------------------------------------------------
+2024-01-21 15:06:15,248:INFO:BaseTask_Sup:365: Epoch = 132
+2024-01-21 15:06:15,251:INFO:BaseTask_Sup:367: Mean average loss for the last 200 iterations: 0.39414992146193983
+2024-01-21 15:06:26,712:INFO:BaseTask_Sup:763: -> test acc. of task 0: 80.45%
+2024-01-21 15:06:26,720:INFO:BaseTask_Sup:376: The best test accuracy was 80.97% at epoch 101
+2024-01-21 15:06:26,720:INFO:BaseTask_Sup:377: This epoch took 2 minutes and 16 seconds!
+2024-01-21 15:06:26,720:INFO:BaseTask_Sup:378: The training took 5 hours, 3 minutes, and 3 seconds from the beginning!
+2024-01-21 15:06:26,721:INFO:BaseTask_Sup:557: Estimated remaining time: 1 day, 9 hours, 12 minutes, and 48 seconds
+2024-01-21 15:06:26,721:INFO:BaseTask_Sup:382: The training is stopped due to the lack of progress!
+2024-01-21 15:06:26,721:INFO:BaseTask_Sup:389: The best test accuracy was 80.97% at epoch 101
+2024-01-21 15:06:26,955:INFO:BaseTask_Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Last.pt"! <--------
+2024-01-21 15:06:27,137:INFO:BaseTask_Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1,Task-ID=0-Last.pt"! <--------
+2024-01-21 15:06:27,138:INFO:BaseTask_Sup:391: Supervised learning phase is finished.

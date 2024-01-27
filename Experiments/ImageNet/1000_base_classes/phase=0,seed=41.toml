@@ -1,0 +1,83 @@
+# This is the pretraining phase for CUB-100 experiments.
+experiment_description = "Phase 0 - Pretrain the model on the ImageNet with CE loss and stochastic classifier"
+phase = "supervised_learning"
+device = "cuda:0"
+seed = 41
+batch_size_base = 400
+batch_size_test = 400
+batch_size_new = 0
+image_size = 224
+in_channels = 3
+tqdm_enabled = true
+resume = true
+
+
+[configs_arch]
+  model_type = 'CCT-21/7x2'
+  use_BatchNorm = true
+  use_BatchNorm_for_patch_embeddings = true
+  temperature_stochastic_classifier = 16.0
+  temperature_cosine_classifier = 10.0      # Initial value of Tau in eq. (1) of the "Prototype Rectification for Few-Shot Learning" paper.
+  PositionalEmbeddingType = 'Learnable'     # Learnable, SinCos
+  dropout_rate_classifier_head = 0.0
+  number_of_the_first_layers_to_be_frozen = 0
+  classifer_head_type = 'Stochastic'        # 'Stochastic', 'Cosine', or 'Linear'
+
+
+[configs_FSCIL]
+  start_from_task = 0
+  randomize_selected_classes = false
+  
+
+[configs_dataset]
+  dataroot = "/g/data/wb00/ImageNet/ILSVRC2012/raw-data"
+  dataset_name = "imagenet"   # 'mini_imagenet', 'cifar100', or 'cub200'
+  num_workers = 12
+  total_classes = 1000
+  num_base_classes = 1000
+  num_tasks = 0
+  num_shots = 0
+  drop_last_base=true
+
+
+[configs_train]
+  num_epochs = 1000
+  num_epochs_no_progress_detection = 10
+  display_freq = 1
+  evaluation_stochastic = true
+  
+  [configs_train.optimizer]
+    optimizer_name = 'SGD' # SGD, Adam, AdamW, or Rprop.
+    lr = 0.1
+    lr_backbone = 0.1
+    momentum = 0.9
+    momentum2 = 0.999   # For Adam
+    nesterov = true     # For SGD
+    weight_decay = 1e-6
+
+  [configs_train.scheduler]
+    name = "ReduceLROnPlateau"
+    mode = "max"
+    factor = 0.25
+    patience = 4
+    cooldown = 0
+    min_lr = 1e-6
+    verbose = true
+
+
+[configs_logger]
+  display_interval = 30.0
+  display_freq = 1
+  moving_average_capacity = 200
+
+
+[configs_save]
+  save_freq_epoch = 1
+  save_freq_iter = 2000
+  time_interval_to_save = 1000
+  root = "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0"
+  # First 48 hours
+  # input_file = ""
+  # Part 2, Second 48 hours training
+  input_file = "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-29,Time_10-54-10,seed=41-Best_Model.pt"
+  output_file = "P0"

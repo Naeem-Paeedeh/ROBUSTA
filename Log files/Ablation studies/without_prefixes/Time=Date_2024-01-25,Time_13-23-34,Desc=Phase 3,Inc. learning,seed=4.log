@@ -1,0 +1,316 @@
+2024-01-25 13:23:34,877:INFO:Inc_Learning:339: ('\nVersion Information: \n\tPyTorch: %s\n\tTorchVision: %s', '2.0.1+cu117', '0.15.2+cu117')
+2024-01-25 13:23:34,906:INFO:Inc_Learning:372: class_permutation is loaded from the permutation file "data/index_list/mini_imagenet/num_base_classes=60,num_tasks=9,num_shots=5,seed=4/class_permutation.txt".
+2024-01-25 13:23:36,856:WARNING:Inc_Learning:239: tqdm_enabled is set to False as the program is not running in the debug mode!
+2024-01-25 13:23:37,171:INFO:Inc_Learning:569: The network was trained for 101 epochs, 0 iterations in phase supervised_learning
+2024-01-25 13:23:37,218:INFO:Inc_Learning:646: We have loaded the head parameters from the saved file.
+2024-01-25 13:23:37,218:INFO:Inc_Learning:654: We start from epoch 0, iteration 0
+2024-01-25 13:23:37,218:INFO:Inc_Learning:666: File "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt" is loaded
+2024-01-25 13:23:37,271:INFO:Inc_Learning:288: --------------------------------------------------------------------- The given arguments ---------------------------------------------------------------------
+2024-01-25 13:23:37,271:INFO:Inc_Learning:312: experiment_description = "Phase 3,Inc. learning"
+2024-01-25 13:23:37,271:INFO:Inc_Learning:312: phase = "incremental_learning"
+2024-01-25 13:23:37,271:INFO:Inc_Learning:306: Device = "cuda:0"
+2024-01-25 13:23:37,271:INFO:Inc_Learning:310: seed = 4
+2024-01-25 13:23:37,271:INFO:Inc_Learning:310: is_incremental = True
+2024-01-25 13:23:37,271:INFO:Inc_Learning:310: debugging = False
+2024-01-25 13:23:37,271:INFO:Inc_Learning:310: tqdm_enabled = False
+2024-01-25 13:23:37,271:INFO:Inc_Learning:310: resume = False
+2024-01-25 13:23:37,271:INFO:Inc_Learning:312: time_str = "Date_2024-01-25,Time_13-23-34"
+2024-01-25 13:23:37,271:INFO:Inc_Learning:310: image_size = 224
+2024-01-25 13:23:37,271:INFO:Inc_Learning:310: in_channels = 3
+2024-01-25 13:23:37,271:INFO:Inc_Learning:310: batch_size_base = 200
+2024-01-25 13:23:37,271:INFO:Inc_Learning:310: batch_size_test = 200
+2024-01-25 13:23:37,272:INFO:Inc_Learning:310: batch_size_new = 0
+2024-01-25 13:23:37,272:INFO:Inc_Learning:310: batch_size_fine_tuning = 0
+2024-01-25 13:23:37,272:INFO:Inc_Learning:312: settings_file = "Experiments/ablation studies/without_prefixes/phase=3,seed=4.toml"
+2024-01-25 13:23:37,272:INFO:Inc_Learning:312: directory_permutation_files = "data/index_list/mini_imagenet/num_base_classes=60,num_tasks=9,num_shots=5,seed=4"
+2024-01-25 13:23:37,272:INFO:Inc_Learning:302: The network was previously trained for 0 epochs.
+2024-01-25 13:23:37,272:INFO:Inc_Learning:304: The network was previously trained for 0 iterations.
+2024-01-25 13:23:37,272:INFO:Inc_Learning:310: dino = False
+2024-01-25 13:23:37,272:INFO:Inc_Learning:310: debugging_env = False
+2024-01-25 13:23:37,272:INFO:Inc_Learning:312: model_type = "CCT-14/7x2"
+2024-01-25 13:23:37,272:INFO:Inc_Learning:310: prediction_net_list = []
+2024-01-25 13:23:37,272:INFO:Inc_Learning:317: 
+configs_arch:  {
+  model_type = "CCT-14/7x2"
+  use_BatchNorm = True
+  use_BatchNorm_for_patch_embeddings = True
+  temperature_stochastic_classifier = 16.0
+  temperature_cosine_classifier = 10.0
+  PositionalEmbeddingType = "Learnable"
+  dropout_rate_classifier_head = 0.0
+  number_of_the_first_layers_to_be_frozen = 0
+  classifer_head_type = "Stochastic"
+}
+2024-01-25 13:23:37,272:INFO:Inc_Learning:317: 
+configs_dataset:  {
+  dataroot = "/scratch/gx83/np9254/Datasets/FSCIL/CEC/"
+  dataset_name = "mini_imagenet"
+  num_workers = 10
+  total_classes = 100
+  num_base_classes = 60
+  num_tasks = 9
+  num_shots = 5
+  drop_last_base = True
+  num_ways = 5
+}
+2024-01-25 13:23:37,272:INFO:Inc_Learning:317: 
+configs_logger:  {
+  display_interval = 0.5
+  display_freq = 50
+  moving_average_capacity = 50
+  log_file = "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Ablation_studies/without_prefixes/Time=Date_2024-01-25,Time_13-23-34,Desc=Phase 3,Inc. learning,seed=4.log"
+}
+2024-01-25 13:23:37,272:INFO:Inc_Learning:317: 
+configs_save:  {
+  save_freq_epoch = 10
+  save_freq_iter = 2000
+  time_interval_to_save = 60
+  root = "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Ablation_studies/without_prefixes"
+  input_file = "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_2,60_classes/P1P2,start_time=Date_2024-01-21,Time_10-03-18,seed=1-Best_Model.pt"
+  output_file = "P1P2P3,start_time=Date_2024-01-25,Time_13-23-34"
+}
+2024-01-25 13:23:37,272:INFO:Inc_Learning:317: 
+configs_FSCIL:  {
+  num_epochs = [0, 1, 1, 1, 1, 1, 1, 1, 1]
+  update_mu = True
+  freeze_backbone = False
+  prefixes_are_enabled = False
+  start_from_task = 0
+  randomize_selected_classes = False
+  configs_PEFT = {
+    prefix_or_prompt = None
+  }  
+  optimizer = {
+    optimizer_name = "AdamW"
+    lr_head = [0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01]
+    lr_prefixes_or_prompts = [0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01]
+    lr = [1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05]
+    lr_backbone = [1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05]
+    momentum = 0.9
+    momentum2 = 0.999
+    dampening = 0
+    nesterov = True
+    weight_decay = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+  }  
+  scheduler = {
+    name = "ReduceLROnPlateau"
+    mode = "min"
+    factor = 0.25
+    patience = 5
+    cooldown = 0
+    min_lr = 0
+    verbose = True
+    moving_average_capacity = 10
+  }  
+  evaluation = {
+    ignore_logits_for_other_tasks = True
+    stochastic = True
+  }  
+}
+2024-01-25 13:23:37,272:INFO:Inc_Learning:319: --------------------------------------------------------------------------------
+2024-01-25 13:23:37,448:INFO:Inc_Learning:150: The session file "data/index_list/mini_imagenet/num_base_classes=60,num_tasks=9,num_shots=5,seed=4/train_samples_for_task=1.txt" is loaded!
+2024-01-25 13:23:37,475:INFO:Inc_Learning:150: The session file "data/index_list/mini_imagenet/num_base_classes=60,num_tasks=9,num_shots=5,seed=4/test_samples_for_task=1.txt" is loaded!
+2024-01-25 13:23:37,522:INFO:Inc_Learning:682: The incremental learning phase for task 0 is started ...
+2024-01-25 13:23:37,631:INFO:Inc_Learning:150: The session file "data/index_list/mini_imagenet/num_base_classes=60,num_tasks=9,num_shots=5,seed=4/train_samples_for_task=1.txt" is loaded!
+2024-01-25 13:23:37,654:INFO:Inc_Learning:150: The session file "data/index_list/mini_imagenet/num_base_classes=60,num_tasks=9,num_shots=5,seed=4/test_samples_for_task=1.txt" is loaded!
+2024-01-25 13:23:37,684:INFO:Inc_Learning:465: Evaluating the test set after task 0 ...
+2024-01-25 13:23:51,803:INFO:Inc_Learning:518: Evaluation Accuracy (oracle) after task 0:  80.82%
+2024-01-25 13:23:51,804:INFO:Inc_Learning:536: Accuracy (Oracle) for task 0 =  80.82%
+2024-01-25 13:23:51,822:INFO:Inc_Learning:693: The incremental learning phase for task 0 is finished!
+2024-01-25 13:23:51,823:INFO:Inc_Learning:557: Estimated remaining time: 57 seconds
+2024-01-25 13:23:51,823:INFO:Inc_Learning:682: The incremental learning phase for task 1 is started ...
+2024-01-25 13:23:51,904:INFO:Inc_Learning:150: The session file "data/index_list/mini_imagenet/num_base_classes=60,num_tasks=9,num_shots=5,seed=4/train_samples_for_task=2.txt" is loaded!
+2024-01-25 13:23:51,929:INFO:Inc_Learning:150: The session file "data/index_list/mini_imagenet/num_base_classes=60,num_tasks=9,num_shots=5,seed=4/test_samples_for_task=2.txt" is loaded!
+2024-01-25 13:23:52,906:INFO:Inc_Learning:187: Epoch: 1/1
+2024-01-25 13:23:54,069:INFO:Inc_Learning:230: Epoch 1/1 Train Accuracy:  84.00%
+2024-01-25 13:23:54,069:INFO:Inc_Learning:231: Epoch 1/1 Average Loss: 0.28563207387924194 / MA Loss: 0.28563207387924194
+2024-01-25 13:23:54,103:INFO:Inc_Learning:465: Evaluating the test set after task 1 ...
+2024-01-25 13:24:13,170:INFO:Inc_Learning:518: Evaluation Accuracy (oracle) after task 1:  79.60%
+2024-01-25 13:24:13,180:INFO:Inc_Learning:529: Evaluation Accuracy after task 1:  75.42%
+2024-01-25 13:24:13,180:INFO:Inc_Learning:530: Accuracy of task-id detection after task 1:  91.51%
+2024-01-25 13:24:13,180:INFO:Inc_Learning:536: Accuracy (Oracle) for task 0 =  80.75%
+2024-01-25 13:24:13,180:INFO:Inc_Learning:540: Accuracy of task 0 =  78.32%
+2024-01-25 13:24:13,181:INFO:Inc_Learning:536: Accuracy (Oracle) for task 1 =  65.80%
+2024-01-25 13:24:13,181:INFO:Inc_Learning:540: Accuracy of task 1 =  40.60%
+2024-01-25 13:24:13,194:INFO:Inc_Learning:693: The incremental learning phase for task 1 is finished!
+2024-01-25 13:24:13,194:INFO:Inc_Learning:557: Estimated remaining time: 1 minute and 23 seconds
+2024-01-25 13:24:13,194:INFO:Inc_Learning:682: The incremental learning phase for task 2 is started ...
+2024-01-25 13:24:13,280:INFO:Inc_Learning:150: The session file "data/index_list/mini_imagenet/num_base_classes=60,num_tasks=9,num_shots=5,seed=4/train_samples_for_task=3.txt" is loaded!
+2024-01-25 13:24:13,306:INFO:Inc_Learning:150: The session file "data/index_list/mini_imagenet/num_base_classes=60,num_tasks=9,num_shots=5,seed=4/test_samples_for_task=3.txt" is loaded!
+2024-01-25 13:24:14,367:INFO:Inc_Learning:187: Epoch: 1/1
+2024-01-25 13:24:15,465:INFO:Inc_Learning:230: Epoch 1/1 Train Accuracy:  92.00%
+2024-01-25 13:24:15,466:INFO:Inc_Learning:231: Epoch 1/1 Average Loss: 0.39872559905052185 / MA Loss: 0.39872559905052185
+2024-01-25 13:24:15,499:INFO:Inc_Learning:465: Evaluating the test set after task 2 ...
+2024-01-25 13:24:35,891:INFO:Inc_Learning:518: Evaluation Accuracy (oracle) after task 2:  78.69%
+2024-01-25 13:24:35,891:INFO:Inc_Learning:529: Evaluation Accuracy after task 2:  70.86%
+2024-01-25 13:24:35,892:INFO:Inc_Learning:530: Accuracy of task-id detection after task 2:  86.09%
+2024-01-25 13:24:35,892:INFO:Inc_Learning:536: Accuracy (Oracle) for task 0 =  80.30%
+2024-01-25 13:24:35,892:INFO:Inc_Learning:540: Accuracy of task 0 =  77.48%
+2024-01-25 13:24:35,892:INFO:Inc_Learning:536: Accuracy (Oracle) for task 1 =  64.80%
+2024-01-25 13:24:35,892:INFO:Inc_Learning:540: Accuracy of task 1 =  37.20%
+2024-01-25 13:24:35,892:INFO:Inc_Learning:536: Accuracy (Oracle) for task 2 =  73.20%
+2024-01-25 13:24:35,893:INFO:Inc_Learning:540: Accuracy of task 2 =  25.00%
+2024-01-25 13:24:35,910:INFO:Inc_Learning:693: The incremental learning phase for task 2 is finished!
+2024-01-25 13:24:35,910:INFO:Inc_Learning:557: Estimated remaining time: 1 minute and 27 seconds
+2024-01-25 13:24:35,910:INFO:Inc_Learning:682: The incremental learning phase for task 3 is started ...
+2024-01-25 13:24:35,994:INFO:Inc_Learning:150: The session file "data/index_list/mini_imagenet/num_base_classes=60,num_tasks=9,num_shots=5,seed=4/train_samples_for_task=4.txt" is loaded!
+2024-01-25 13:24:36,021:INFO:Inc_Learning:150: The session file "data/index_list/mini_imagenet/num_base_classes=60,num_tasks=9,num_shots=5,seed=4/test_samples_for_task=4.txt" is loaded!
+2024-01-25 13:24:36,992:INFO:Inc_Learning:187: Epoch: 1/1
+2024-01-25 13:24:37,919:INFO:Inc_Learning:230: Epoch 1/1 Train Accuracy:  88.00%
+2024-01-25 13:24:37,920:INFO:Inc_Learning:231: Epoch 1/1 Average Loss: 0.3595350682735443 / MA Loss: 0.3595350682735443
+2024-01-25 13:24:37,948:INFO:Inc_Learning:465: Evaluating the test set after task 3 ...
+2024-01-25 13:24:59,807:INFO:Inc_Learning:518: Evaluation Accuracy (oracle) after task 3:  78.35%
+2024-01-25 13:24:59,808:INFO:Inc_Learning:529: Evaluation Accuracy after task 3:  67.40%
+2024-01-25 13:24:59,808:INFO:Inc_Learning:530: Accuracy of task-id detection after task 3:  81.20%
+2024-01-25 13:24:59,808:INFO:Inc_Learning:536: Accuracy (Oracle) for task 0 =  79.97%
+2024-01-25 13:24:59,808:INFO:Inc_Learning:540: Accuracy of task 0 =  75.97%
+2024-01-25 13:24:59,808:INFO:Inc_Learning:536: Accuracy (Oracle) for task 1 =  65.40%
+2024-01-25 13:24:59,809:INFO:Inc_Learning:540: Accuracy of task 1 =  34.20%
+2024-01-25 13:24:59,809:INFO:Inc_Learning:536: Accuracy (Oracle) for task 2 =  73.40%
+2024-01-25 13:24:59,809:INFO:Inc_Learning:540: Accuracy of task 2 =  22.80%
+2024-01-25 13:24:59,809:INFO:Inc_Learning:536: Accuracy (Oracle) for task 3 =  76.80%
+2024-01-25 13:24:59,809:INFO:Inc_Learning:540: Accuracy of task 3 =  42.40%
+2024-01-25 13:24:59,820:INFO:Inc_Learning:693: The incremental learning phase for task 3 is finished!
+2024-01-25 13:24:59,820:INFO:Inc_Learning:557: Estimated remaining time: 1 minute and 22 seconds
+2024-01-25 13:24:59,820:INFO:Inc_Learning:682: The incremental learning phase for task 4 is started ...
+2024-01-25 13:24:59,905:INFO:Inc_Learning:150: The session file "data/index_list/mini_imagenet/num_base_classes=60,num_tasks=9,num_shots=5,seed=4/train_samples_for_task=5.txt" is loaded!
+2024-01-25 13:24:59,933:INFO:Inc_Learning:150: The session file "data/index_list/mini_imagenet/num_base_classes=60,num_tasks=9,num_shots=5,seed=4/test_samples_for_task=5.txt" is loaded!
+2024-01-25 13:25:00,932:INFO:Inc_Learning:187: Epoch: 1/1
+2024-01-25 13:25:01,876:INFO:Inc_Learning:230: Epoch 1/1 Train Accuracy:  92.00%
+2024-01-25 13:25:01,877:INFO:Inc_Learning:231: Epoch 1/1 Average Loss: 0.13816528022289276 / MA Loss: 0.13816528022289276
+2024-01-25 13:25:01,911:INFO:Inc_Learning:465: Evaluating the test set after task 4 ...
+2024-01-25 13:25:25,065:INFO:Inc_Learning:518: Evaluation Accuracy (oracle) after task 4:  77.56%
+2024-01-25 13:25:25,067:INFO:Inc_Learning:529: Evaluation Accuracy after task 4:  63.68%
+2024-01-25 13:25:25,067:INFO:Inc_Learning:530: Accuracy of task-id detection after task 4:  76.51%
+2024-01-25 13:25:25,068:INFO:Inc_Learning:536: Accuracy (Oracle) for task 0 =  79.10%
+2024-01-25 13:25:25,068:INFO:Inc_Learning:540: Accuracy of task 0 =  73.92%
+2024-01-25 13:25:25,068:INFO:Inc_Learning:536: Accuracy (Oracle) for task 1 =  65.00%
+2024-01-25 13:25:25,068:INFO:Inc_Learning:540: Accuracy of task 1 =  32.80%
+2024-01-25 13:25:25,068:INFO:Inc_Learning:536: Accuracy (Oracle) for task 2 =  74.00%
+2024-01-25 13:25:25,069:INFO:Inc_Learning:540: Accuracy of task 2 =  21.60%
+2024-01-25 13:25:25,069:INFO:Inc_Learning:536: Accuracy (Oracle) for task 3 =  76.20%
+2024-01-25 13:25:25,069:INFO:Inc_Learning:540: Accuracy of task 3 =  40.60%
+2024-01-25 13:25:25,069:INFO:Inc_Learning:536: Accuracy (Oracle) for task 4 =  76.60%
+2024-01-25 13:25:25,069:INFO:Inc_Learning:540: Accuracy of task 4 =  36.80%
+2024-01-25 13:25:25,087:INFO:Inc_Learning:693: The incremental learning phase for task 4 is finished!
+2024-01-25 13:25:25,087:INFO:Inc_Learning:557: Estimated remaining time: 1 minute and 11 seconds
+2024-01-25 13:25:25,088:INFO:Inc_Learning:682: The incremental learning phase for task 5 is started ...
+2024-01-25 13:25:25,172:INFO:Inc_Learning:150: The session file "data/index_list/mini_imagenet/num_base_classes=60,num_tasks=9,num_shots=5,seed=4/train_samples_for_task=6.txt" is loaded!
+2024-01-25 13:25:25,201:INFO:Inc_Learning:150: The session file "data/index_list/mini_imagenet/num_base_classes=60,num_tasks=9,num_shots=5,seed=4/test_samples_for_task=6.txt" is loaded!
+2024-01-25 13:25:26,414:INFO:Inc_Learning:187: Epoch: 1/1
+2024-01-25 13:25:27,407:INFO:Inc_Learning:230: Epoch 1/1 Train Accuracy:  76.00%
+2024-01-25 13:25:27,407:INFO:Inc_Learning:231: Epoch 1/1 Average Loss: 0.3780115246772766 / MA Loss: 0.3780115246772766
+2024-01-25 13:25:27,433:INFO:Inc_Learning:465: Evaluating the test set after task 5 ...
+2024-01-25 13:25:51,837:INFO:Inc_Learning:518: Evaluation Accuracy (oracle) after task 5:  76.80%
+2024-01-25 13:25:51,838:INFO:Inc_Learning:529: Evaluation Accuracy after task 5:  60.00%
+2024-01-25 13:25:51,838:INFO:Inc_Learning:530: Accuracy of task-id detection after task 5:  72.07%
+2024-01-25 13:25:51,838:INFO:Inc_Learning:536: Accuracy (Oracle) for task 0 =  78.40%
+2024-01-25 13:25:51,839:INFO:Inc_Learning:540: Accuracy of task 0 =  71.85%
+2024-01-25 13:25:51,839:INFO:Inc_Learning:536: Accuracy (Oracle) for task 1 =  63.40%
+2024-01-25 13:25:51,839:INFO:Inc_Learning:540: Accuracy of task 1 =  29.80%
+2024-01-25 13:25:51,839:INFO:Inc_Learning:536: Accuracy (Oracle) for task 2 =  73.60%
+2024-01-25 13:25:51,839:INFO:Inc_Learning:540: Accuracy of task 2 =  20.40%
+2024-01-25 13:25:51,839:INFO:Inc_Learning:536: Accuracy (Oracle) for task 3 =  76.20%
+2024-01-25 13:25:51,839:INFO:Inc_Learning:540: Accuracy of task 3 =  41.20%
+2024-01-25 13:25:51,840:INFO:Inc_Learning:536: Accuracy (Oracle) for task 4 =  75.80%
+2024-01-25 13:25:51,840:INFO:Inc_Learning:540: Accuracy of task 4 =  33.20%
+2024-01-25 13:25:51,840:INFO:Inc_Learning:536: Accuracy (Oracle) for task 5 =  75.80%
+2024-01-25 13:25:51,840:INFO:Inc_Learning:540: Accuracy of task 5 =  33.20%
+2024-01-25 13:25:51,851:INFO:Inc_Learning:693: The incremental learning phase for task 5 is finished!
+2024-01-25 13:25:51,851:INFO:Inc_Learning:557: Estimated remaining time: 57 seconds
+2024-01-25 13:25:51,851:INFO:Inc_Learning:682: The incremental learning phase for task 6 is started ...
+2024-01-25 13:25:51,936:INFO:Inc_Learning:150: The session file "data/index_list/mini_imagenet/num_base_classes=60,num_tasks=9,num_shots=5,seed=4/train_samples_for_task=7.txt" is loaded!
+2024-01-25 13:25:51,965:INFO:Inc_Learning:150: The session file "data/index_list/mini_imagenet/num_base_classes=60,num_tasks=9,num_shots=5,seed=4/test_samples_for_task=7.txt" is loaded!
+2024-01-25 13:25:53,073:INFO:Inc_Learning:187: Epoch: 1/1
+2024-01-25 13:25:53,935:INFO:Inc_Learning:230: Epoch 1/1 Train Accuracy:  84.00%
+2024-01-25 13:25:53,935:INFO:Inc_Learning:231: Epoch 1/1 Average Loss: 0.40682482719421387 / MA Loss: 0.40682482719421387
+2024-01-25 13:25:53,972:INFO:Inc_Learning:465: Evaluating the test set after task 6 ...
+2024-01-25 13:26:19,926:INFO:Inc_Learning:518: Evaluation Accuracy (oracle) after task 6:  75.93%
+2024-01-25 13:26:19,927:INFO:Inc_Learning:529: Evaluation Accuracy after task 6:  56.14%
+2024-01-25 13:26:19,927:INFO:Inc_Learning:530: Accuracy of task-id detection after task 6:  67.24%
+2024-01-25 13:26:19,927:INFO:Inc_Learning:536: Accuracy (Oracle) for task 0 =  77.60%
+2024-01-25 13:26:19,927:INFO:Inc_Learning:540: Accuracy of task 0 =  70.03%
+2024-01-25 13:26:19,927:INFO:Inc_Learning:536: Accuracy (Oracle) for task 1 =  61.40%
+2024-01-25 13:26:19,927:INFO:Inc_Learning:540: Accuracy of task 1 =  27.20%
+2024-01-25 13:26:19,928:INFO:Inc_Learning:536: Accuracy (Oracle) for task 2 =  72.80%
+2024-01-25 13:26:19,928:INFO:Inc_Learning:540: Accuracy of task 2 =  19.20%
+2024-01-25 13:26:19,928:INFO:Inc_Learning:536: Accuracy (Oracle) for task 3 =  75.60%
+2024-01-25 13:26:19,928:INFO:Inc_Learning:540: Accuracy of task 3 =  41.20%
+2024-01-25 13:26:19,928:INFO:Inc_Learning:536: Accuracy (Oracle) for task 4 =  77.00%
+2024-01-25 13:26:19,928:INFO:Inc_Learning:540: Accuracy of task 4 =  32.20%
+2024-01-25 13:26:19,928:INFO:Inc_Learning:536: Accuracy (Oracle) for task 5 =  76.00%
+2024-01-25 13:26:19,929:INFO:Inc_Learning:540: Accuracy of task 5 =  33.00%
+2024-01-25 13:26:19,929:INFO:Inc_Learning:536: Accuracy (Oracle) for task 6 =  72.80%
+2024-01-25 13:26:19,929:INFO:Inc_Learning:540: Accuracy of task 6 =  17.40%
+2024-01-25 13:26:19,946:INFO:Inc_Learning:693: The incremental learning phase for task 6 is finished!
+2024-01-25 13:26:19,946:INFO:Inc_Learning:557: Estimated remaining time: 40 seconds
+2024-01-25 13:26:19,946:INFO:Inc_Learning:682: The incremental learning phase for task 7 is started ...
+2024-01-25 13:26:20,031:INFO:Inc_Learning:150: The session file "data/index_list/mini_imagenet/num_base_classes=60,num_tasks=9,num_shots=5,seed=4/train_samples_for_task=8.txt" is loaded!
+2024-01-25 13:26:20,063:INFO:Inc_Learning:150: The session file "data/index_list/mini_imagenet/num_base_classes=60,num_tasks=9,num_shots=5,seed=4/test_samples_for_task=8.txt" is loaded!
+2024-01-25 13:26:21,136:INFO:Inc_Learning:187: Epoch: 1/1
+2024-01-25 13:26:22,103:INFO:Inc_Learning:230: Epoch 1/1 Train Accuracy:  88.00%
+2024-01-25 13:26:22,104:INFO:Inc_Learning:231: Epoch 1/1 Average Loss: 0.31884801387786865 / MA Loss: 0.31884801387786865
+2024-01-25 13:26:22,134:INFO:Inc_Learning:465: Evaluating the test set after task 7 ...
+2024-01-25 13:26:49,235:INFO:Inc_Learning:518: Evaluation Accuracy (oracle) after task 7:  75.55%
+2024-01-25 13:26:49,235:INFO:Inc_Learning:529: Evaluation Accuracy after task 7:  53.87%
+2024-01-25 13:26:49,235:INFO:Inc_Learning:530: Accuracy of task-id detection after task 7:  64.58%
+2024-01-25 13:26:49,236:INFO:Inc_Learning:536: Accuracy (Oracle) for task 0 =  77.15%
+2024-01-25 13:26:49,236:INFO:Inc_Learning:540: Accuracy of task 0 =  67.45%
+2024-01-25 13:26:49,236:INFO:Inc_Learning:536: Accuracy (Oracle) for task 1 =  59.80%
+2024-01-25 13:26:49,236:INFO:Inc_Learning:540: Accuracy of task 1 =  23.20%
+2024-01-25 13:26:49,236:INFO:Inc_Learning:536: Accuracy (Oracle) for task 2 =  72.40%
+2024-01-25 13:26:49,236:INFO:Inc_Learning:540: Accuracy of task 2 =  17.40%
+2024-01-25 13:26:49,237:INFO:Inc_Learning:536: Accuracy (Oracle) for task 3 =  74.20%
+2024-01-25 13:26:49,237:INFO:Inc_Learning:540: Accuracy of task 3 =  41.60%
+2024-01-25 13:26:49,237:INFO:Inc_Learning:536: Accuracy (Oracle) for task 4 =  77.20%
+2024-01-25 13:26:49,237:INFO:Inc_Learning:540: Accuracy of task 4 =  32.80%
+2024-01-25 13:26:49,237:INFO:Inc_Learning:536: Accuracy (Oracle) for task 5 =  76.40%
+2024-01-25 13:26:49,237:INFO:Inc_Learning:540: Accuracy of task 5 =  33.80%
+2024-01-25 13:26:49,238:INFO:Inc_Learning:536: Accuracy (Oracle) for task 6 =  72.40%
+2024-01-25 13:26:49,238:INFO:Inc_Learning:540: Accuracy of task 6 =  16.60%
+2024-01-25 13:26:49,238:INFO:Inc_Learning:536: Accuracy (Oracle) for task 7 =  77.20%
+2024-01-25 13:26:49,238:INFO:Inc_Learning:540: Accuracy of task 7 =  48.80%
+2024-01-25 13:26:49,249:INFO:Inc_Learning:693: The incremental learning phase for task 7 is finished!
+2024-01-25 13:26:49,249:INFO:Inc_Learning:557: Estimated remaining time: 21 seconds
+2024-01-25 13:26:49,249:INFO:Inc_Learning:682: The incremental learning phase for task 8 is started ...
+2024-01-25 13:26:49,335:INFO:Inc_Learning:150: The session file "data/index_list/mini_imagenet/num_base_classes=60,num_tasks=9,num_shots=5,seed=4/train_samples_for_task=9.txt" is loaded!
+2024-01-25 13:26:49,376:INFO:Inc_Learning:150: The session file "data/index_list/mini_imagenet/num_base_classes=60,num_tasks=9,num_shots=5,seed=4/test_samples_for_task=9.txt" is loaded!
+2024-01-25 13:26:50,510:INFO:Inc_Learning:187: Epoch: 1/1
+2024-01-25 13:26:51,523:INFO:Inc_Learning:230: Epoch 1/1 Train Accuracy:  88.00%
+2024-01-25 13:26:51,523:INFO:Inc_Learning:231: Epoch 1/1 Average Loss: 0.19256240129470825 / MA Loss: 0.19256240129470825
+2024-01-25 13:26:51,549:INFO:Inc_Learning:465: Evaluating the test set after task 8 ...
+2024-01-25 13:27:20,081:INFO:Inc_Learning:518: Evaluation Accuracy (oracle) after task 8:  74.99%
+2024-01-25 13:27:20,082:INFO:Inc_Learning:529: Evaluation Accuracy after task 8:  52.06%
+2024-01-25 13:27:20,082:INFO:Inc_Learning:530: Accuracy of task-id detection after task 8:  61.82%
+2024-01-25 13:27:20,082:INFO:Inc_Learning:536: Accuracy (Oracle) for task 0 =  76.28%
+2024-01-25 13:27:20,083:INFO:Inc_Learning:540: Accuracy of task 0 =  65.50%
+2024-01-25 13:27:20,083:INFO:Inc_Learning:536: Accuracy (Oracle) for task 1 =  58.40%
+2024-01-25 13:27:20,083:INFO:Inc_Learning:540: Accuracy of task 1 =  24.20%
+2024-01-25 13:27:20,083:INFO:Inc_Learning:536: Accuracy (Oracle) for task 2 =  73.20%
+2024-01-25 13:27:20,083:INFO:Inc_Learning:540: Accuracy of task 2 =  16.20%
+2024-01-25 13:27:20,083:INFO:Inc_Learning:536: Accuracy (Oracle) for task 3 =  74.60%
+2024-01-25 13:27:20,084:INFO:Inc_Learning:540: Accuracy of task 3 =  41.60%
+2024-01-25 13:27:20,084:INFO:Inc_Learning:536: Accuracy (Oracle) for task 4 =  76.20%
+2024-01-25 13:27:20,084:INFO:Inc_Learning:540: Accuracy of task 4 =  31.00%
+2024-01-25 13:27:20,084:INFO:Inc_Learning:536: Accuracy (Oracle) for task 5 =  76.40%
+2024-01-25 13:27:20,084:INFO:Inc_Learning:540: Accuracy of task 5 =  33.20%
+2024-01-25 13:27:20,084:INFO:Inc_Learning:536: Accuracy (Oracle) for task 6 =  71.60%
+2024-01-25 13:27:20,085:INFO:Inc_Learning:540: Accuracy of task 6 =  17.00%
+2024-01-25 13:27:20,085:INFO:Inc_Learning:536: Accuracy (Oracle) for task 7 =  76.80%
+2024-01-25 13:27:20,085:INFO:Inc_Learning:540: Accuracy of task 7 =  48.20%
+2024-01-25 13:27:20,085:INFO:Inc_Learning:536: Accuracy (Oracle) for task 8 =  77.20%
+2024-01-25 13:27:20,085:INFO:Inc_Learning:540: Accuracy of task 8 =  43.80%
+2024-01-25 13:27:20,102:INFO:Inc_Learning:693: The incremental learning phase for task 8 is finished!
+2024-01-25 13:27:20,103:INFO:Inc_Learning:557: Estimated remaining time: 0 seconds
+2024-01-25 13:27:20,103:INFO:Inc_Learning:704: Final accuracies after each incremental task:
+2024-01-25 13:27:20,104:INFO:Inc_Learning:716: Task 0: 80.82
+2024-01-25 13:27:20,104:INFO:Inc_Learning:716: Task 1: 75.42
+2024-01-25 13:27:20,104:INFO:Inc_Learning:716: Task 2: 70.86
+2024-01-25 13:27:20,104:INFO:Inc_Learning:716: Task 3: 67.40
+2024-01-25 13:27:20,104:INFO:Inc_Learning:716: Task 4: 63.68
+2024-01-25 13:27:20,104:INFO:Inc_Learning:716: Task 5: 60.00
+2024-01-25 13:27:20,104:INFO:Inc_Learning:716: Task 6: 56.14
+2024-01-25 13:27:20,104:INFO:Inc_Learning:716: Task 7: 53.87
+2024-01-25 13:27:20,104:INFO:Inc_Learning:716: Task 8: 52.06
+2024-01-25 13:27:20,104:INFO:Inc_Learning:721: The incremental learning phase is finished!
+2024-01-25 13:27:20,104:INFO:Inc_Learning:722: The whole process took 3 minutes and 42 seconds

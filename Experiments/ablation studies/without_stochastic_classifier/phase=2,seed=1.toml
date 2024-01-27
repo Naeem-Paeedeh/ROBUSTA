@@ -1,0 +1,79 @@
+experiment_description = "Phase 2"
+phase = "supervised_learning"
+device = "cuda:0"
+seed = 1
+batch_size_base = 230
+batch_size_test = 230
+batch_size_new = 0
+image_size = 224
+in_channels = 3
+tqdm_enabled = true
+resume = false
+
+
+[configs_arch]
+  model_type = 'CCT-14/7x2'
+  use_BatchNorm = true
+  use_BatchNorm_for_patch_embeddings = true
+  temperature_stochastic_classifier = 16.0
+  temperature_cosine_classifier = 10.0      # Initial value of Tau in eq. (1) of the "Prototype Rectification for Few-Shot Learning" paper.
+  PositionalEmbeddingType = 'Learnable'     # Learnable, SinCos
+  dropout_rate_classifier_head = 0.0
+  number_of_the_first_layers_to_be_frozen = 0
+  classifer_head_type = 'Linear'            # 'Stochastic', 'Cosine', or 'Linear'
+
+
+[configs_FSCIL]
+  start_from_task = 0
+  randomize_selected_classes = false
+
+
+[configs_dataset]
+  dataroot = "/scratch/gx83/np9254/Datasets/FSCIL/CEC/"
+  dataset_name = "mini_imagenet"            # 'mini_imagenet', 'cifar100', or 'cub200'
+  num_workers = 8
+  total_classes = 100
+  num_base_classes = 60
+  num_tasks = 9
+  num_shots = 5
+  drop_last_base = true
+
+
+[configs_train]
+  num_epochs = 1000
+  num_epochs_no_progress_detection = 30
+  display_freq = 100  # For fine-tuning
+  evaluation_stochastic = true
+  
+  [configs_train.optimizer]
+    optimizer_name = 'AdamW' # SGD, Adam, AdamW, or Rprop.
+    lr = 1e-2
+    lr_backbone = 1e-5
+    momentum = 0.9
+    momentum2 = 0.999   # For Adam
+    nesterov = true     # For SGD
+    weight_decay = 3e-6    # 1e-5
+    # num_iterations = 200000
+
+  [configs_train.scheduler]
+    name = "ReduceLROnPlateau"
+    mode = "max"
+    factor = 0.25
+    patience = 10
+    cooldown = 0
+    min_lr = 3e-5
+    verbose = true
+
+
+[configs_logger]
+  display_freq = 1
+  moving_average_capacity = 200
+
+
+[configs_save]
+  save_freq_epoch = 50
+  save_freq_iter = 2000
+  time_interval_to_save = 60
+  root = "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Ablation_studies/without_stochastic_classifier"
+  input_file = "/scratch/gx83/np9254/ROBUSTA-Saves/Mini-ImageNet/Phase_1,60_classes/P1,start_time=Date_2024-01-19,Time_15-50-41,seed=1-Best_Model.pt"
+  output_file = "P1P2"

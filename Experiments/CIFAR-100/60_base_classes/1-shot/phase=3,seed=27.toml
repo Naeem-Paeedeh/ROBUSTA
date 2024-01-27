@@ -1,0 +1,133 @@
+experiment_description = "Incremental learning,60 base classes"
+phase = "incremental_learning"
+device = "cuda:0"
+seed = 27
+batch_size_base = 200   # 100 or 120
+batch_size_test = 200
+batch_size_new = 0
+image_size = 224
+in_channels = 3
+tqdm_enabled = true
+resume = false
+
+
+[configs_arch]
+  model_type = 'CCT-21/7x2'
+  use_BatchNorm = true
+  use_BatchNorm_for_patch_embeddings = true
+  temperature_stochastic_classifier = 16.0
+  temperature_cosine_classifier = 10.0      # Initial value of Tau in eq. (1) of the "Prototype Rectification for Few-Shot Learning" paper.
+  PositionalEmbeddingType = 'Learnable'     # Learnable, SinCos
+  dropout_rate_classifier_head = 0.0
+  number_of_the_first_layers_to_be_frozen = 0
+  classifer_head_type = 'Stochastic'        # 'Stochastic', 'Cosine', or 'Linear'
+
+
+[configs_dataset]
+  dataroot = "/scratch/gx83/np9254/Datasets/FSCIL/CEC/"
+  dataset_name = "cifar100"                 # 'mini_imagenet', 'cifar100', or 'cub200'
+  num_workers = 10
+  total_classes = 100
+  num_base_classes = 60
+  num_tasks = 9
+  num_shots = 1
+  drop_last_base = true
+
+
+[configs_FSCIL]
+  num_epochs = [2, 15, 15, 15, 15, 15, 15, 15, 15]
+  update_mu = true
+  fine_tune = true
+  freeze_backbone = true
+  use_delta_parameters_for_base_task = true
+  use_prefixes_for_distance_calculations = true
+  use_shared_covariance = true
+  start_from_task = 0
+  randomize_selected_classes = false
+  tasks_or_classes_for_Mahalanobis_distance_calculations = "classes"  # "classes" or "tasks"
+  enable_Mahalanobis_distance = false                                 # We use Euclidean distance when it is false
+  use_pseudo_labeled_samples_for_task_identification = [true, true, true, true, true, true, true, true, true]
+
+  [configs_FSCIL.configs_PEFT]
+    prefix_seq_length = [10, 10, 10, 10, 10, 10, 10, 10, 10]
+    number_of_layers_for_prefixes = [-1, -1, -1, -1, -1, -1, -1, -1, -1] # -1 to use prefixes in all blocks
+    fusion_mode = 'last'                # last or mean or random
+    prefix_or_prompt = 'prefix'         # 'prefix' or 'prompt'
+
+  [configs_FSCIL.optimizer]
+    optimizer_name = 'AdamW' # SGD, Adam, AdamW, or Rprop.
+    lr_head = [0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01]
+    lr_prefixes_or_prompts = [0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01]
+    lr = [0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01]
+    lr_backbone = [0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01]
+    momentum = 0.9
+    momentum2 = 0.999   # For Adam
+    dampening = 0
+    nesterov = true     # For SGD
+    weight_decay = [3e-6, 3e-6, 3e-6, 3e-6, 3e-6, 3e-6, 3e-6, 3e-6, 3e-6]
+
+  [configs_FSCIL.scheduler]
+    name = "ReduceLROnPlateau"
+    mode = "min"
+    factor = 0.25
+    patience = 5
+    cooldown = 0
+    min_lr = 0
+    verbose = true
+    moving_average_capacity = 10
+ 
+  [configs_FSCIL.evaluation]
+    ignore_logits_for_other_tasks = true
+    stochastic = true
+
+  [configs_FSCIL.PredictionNet]
+    enabled = true
+    num_epochs = [500, 500, 500, 500, 500, 500, 500, 500, 500]
+    separate_PredictionNet_for_each_task = true
+    use_PredictionNet_for_this_task = [true, true, true, true, true, true, true, true, true]
+    use_pseudo_labeled_test_samples = [false, true, true, true, true, true, true, true, true]
+    batch_size_for_Pseudo_labelling = 100
+    batch_size_for_PredictionNet = 100
+    n_layers = 2
+    size_hidden_layer = 384
+    use_real_residual_connections = false
+    dropout_rate = 0.0
+    bias = true
+    num_outliers = [5, 1, 1, 1, 1, 1, 1, 1, 1]
+    display_freq = 100
+    remember_from_previous_task = true    # Remember the PredictionNet parameters from the previous task when we use separate RestorNets.
+    use_the_best_model = false   # With minimum loss
+    loss = "MSE" # "squared_Euclidean_distance" or "MSE"
+
+    [configs_FSCIL.PredictionNet.optimizer]
+      optimizer_name = 'AdamW' # SGD, Adam, AdamW, or Rprop.
+      lr = [3e-4, 3e-4, 3e-4, 3e-4, 3e-4, 3e-4, 3e-4, 3e-4, 3e-4]
+      momentum = 0.9
+      momentum2 = 0.999   # For Adam
+      nesterov = true     # For SGD
+      weight_decay = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+    [configs_FSCIL.PredictionNet.scheduler]
+      name = "ReduceLROnPlateau"
+      mode = "min"
+      factor = 0.25
+      patience = 10000
+      cooldown = 0
+      min_lr = 0
+      verbose = true
+      moving_average_capacity = 10
+
+
+[configs_logger]
+  display_interval = 0.5
+  display_freq = 50
+  moving_average_capacity = 50
+
+
+[configs_save]
+  save_freq_epoch = 10
+  save_freq_iter = 2000
+  time_interval_to_save = 60
+  root = "/scratch/gx83/np9254/ROBUSTA-Saves/CIFAR-100/Phase_3,60_classes/1-shot"
+  input_file = "/scratch/gx83/np9254/ROBUSTA-Saves/CIFAR-100/Phase_2,60_classes/P1P2,start_time=Date_2024-01-15,Time_13-02-58,seed=21-Best_Model.pt"
+  output_file = "P1P2P3"

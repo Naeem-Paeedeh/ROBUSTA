@@ -1,0 +1,78 @@
+experiment_description = "Phase 2,Supervised Learning,100 base classes"
+phase = "supervised_learning"
+device = "cuda:0"
+seed = 41
+batch_size_base = 150
+batch_size_test = 150
+batch_size_new = 0
+image_size = 224
+in_channels = 3
+tqdm_enabled = false
+resume = false
+
+
+[configs_arch]
+  model_type = 'CCT-21/7x2'
+  use_BatchNorm = true
+  use_BatchNorm_for_patch_embeddings = true
+  temperature_stochastic_classifier = 16.0
+  temperature_cosine_classifier = 10.0      # Initial value of Tau in eq. (1) of the "Prototype Rectification for Few-Shot Learning" paper.
+  PositionalEmbeddingType = 'Learnable'     # Learnable, SinCos
+  dropout_rate_classifier_head = 0.0
+  number_of_the_first_layers_to_be_frozen = 0
+  classifer_head_type = 'Stochastic'
+
+
+[configs_FSCIL]
+  start_from_task = 0
+  randomize_selected_classes = false
+
+
+[configs_dataset]
+  dataroot = "/scratch/gx83/np9254/Datasets/FSCIL/CEC/"
+  dataset_name = 'cub200'                  # 'mini_imagenet', 'cifar100', or 'cub200'
+  num_workers = 12
+  total_classes = 200
+  num_base_classes = 100
+  num_tasks = 11
+  num_shots = 5
+  drop_last_base=true
+
+
+[configs_train]
+  num_epochs = 1000
+  num_epochs_no_progress_detection = 80
+  display_freq = 100              # For fine-tuning
+  evaluation_stochastic = true
+  
+  [configs_train.optimizer]
+    optimizer_name = 'AdamW' # SGD, Adam, AdamW, or Rprop.
+    lr = 1e-2
+    lr_backbone = 1e-5
+    momentum = 0.9
+    momentum2 = 0.999   # For Adam
+    nesterov = true     # For SGD
+    weight_decay = 1e-5
+
+  [configs_train.scheduler]
+    name = "ReduceLROnPlateau"
+    mode = "max"
+    factor = 0.5
+    patience = 6
+    cooldown = 0
+    min_lr = 3e-5
+    verbose = true
+
+
+[configs_logger]
+  display_freq = 1
+  moving_average_capacity = 200
+
+
+[configs_save]
+  save_freq_epoch = 100
+  save_freq_iter = 2000
+  time_interval_to_save = 60
+  root = "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_2,100_classes"
+  input_file = "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,100_classes/P0P1,start_time=Date_2024-01-02,Time_08-33-22,seed=41-Best_Model.pt"
+  output_file = "P0P1P2"

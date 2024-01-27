@@ -1,0 +1,561 @@
+2023-12-31 17:27:54,701:INFO:BaseTask_Sup:333: ('\nVersion Information: \n\tPyTorch: %s\n\tTorchVision: %s', '2.0.1+cu117', '0.15.2+cu117')
+2023-12-31 17:27:54,706:INFO:BaseTask_Sup:366: class_permutation is loaded from the permutation file "data/index_list/imagenet/num_base_classes=1000,num_tasks=0,num_shots=0,seed=41/class_permutation.txt".
+2023-12-31 17:27:55,690:WARNING:BaseTask_Sup:237: tqdm_enabled is set to False as the program is not running in the debug mode!
+2023-12-31 17:27:56,042:INFO:BaseTask_Sup:562: The network was trained for 27 epochs, 0 iterations in phase supervised_learning
+2023-12-31 17:27:56,072:INFO:BaseTask_Sup:639: We have loaded the head parameters from the saved file.
+2023-12-31 17:27:56,072:INFO:BaseTask_Sup:647: We start from epoch 27, iteration 0
+2023-12-31 17:27:56,072:INFO:BaseTask_Sup:659: File "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-29,Time_10-54-10,seed=41-Best_Model.pt" is loaded
+2023-12-31 17:27:56,122:INFO:BaseTask_Sup:277: --------------------------------------------------------------------- The given arguments ---------------------------------------------------------------------
+2023-12-31 17:27:56,122:INFO:BaseTask_Sup:301: experiment_description = "Phase 0 - Pretrain the model on the ImageNet with CE loss and stochastic classifier"
+2023-12-31 17:27:56,122:INFO:BaseTask_Sup:301: phase = "supervised_learning"
+2023-12-31 17:27:56,122:INFO:BaseTask_Sup:295: Device = "cuda:0"
+2023-12-31 17:27:56,122:INFO:BaseTask_Sup:299: seed = 41
+2023-12-31 17:27:56,122:INFO:BaseTask_Sup:299: is_train = True
+2023-12-31 17:27:56,122:INFO:BaseTask_Sup:299: is_incremental = False
+2023-12-31 17:27:56,122:INFO:BaseTask_Sup:299: debugging = False
+2023-12-31 17:27:56,122:INFO:BaseTask_Sup:299: tqdm_enabled = False
+2023-12-31 17:27:56,122:INFO:BaseTask_Sup:299: resume = True
+2023-12-31 17:27:56,122:INFO:BaseTask_Sup:301: time_str = "Date_2023-12-31,Time_17-27-54"
+2023-12-31 17:27:56,122:INFO:BaseTask_Sup:299: image_size = 224
+2023-12-31 17:27:56,122:INFO:BaseTask_Sup:299: in_channels = 3
+2023-12-31 17:27:56,122:INFO:BaseTask_Sup:299: batch_size_base = 400
+2023-12-31 17:27:56,122:INFO:BaseTask_Sup:299: batch_size_test = 400
+2023-12-31 17:27:56,122:INFO:BaseTask_Sup:299: batch_size_new = 0
+2023-12-31 17:27:56,122:INFO:BaseTask_Sup:299: batch_size_fine_tuning = 0
+2023-12-31 17:27:56,122:INFO:BaseTask_Sup:301: settings_file = "Experiments/ImageNet/1000_base_classes/phase=0,seed=41.toml"
+2023-12-31 17:27:56,122:INFO:BaseTask_Sup:301: directory_permutation_files = "data/index_list/imagenet/num_base_classes=1000,num_tasks=0,num_shots=0,seed=41"
+2023-12-31 17:27:56,122:INFO:BaseTask_Sup:291: The network was previously trained for 27 epochs.
+2023-12-31 17:27:56,122:INFO:BaseTask_Sup:293: The network was previously trained for 0 iterations.
+2023-12-31 17:27:56,122:INFO:BaseTask_Sup:299: dino = False
+2023-12-31 17:27:56,122:INFO:BaseTask_Sup:299: debugging_env = False
+2023-12-31 17:27:56,122:INFO:BaseTask_Sup:301: model_type = "CCT-21/7x2"
+2023-12-31 17:27:56,122:INFO:BaseTask_Sup:299: prediction_net_list = []
+2023-12-31 17:27:56,123:INFO:BaseTask_Sup:306: 
+configs_arch:  {
+  model_type = "CCT-21/7x2"
+  use_BatchNorm = True
+  use_BatchNorm_for_patch_embeddings = True
+  temperature_stochastic_classifier = 16.0
+  temperature_cosine_classifier = 10.0
+  PositionalEmbeddingType = "Learnable"
+  dropout_rate_classifier_head = 0.0
+  number_of_the_first_layers_to_be_frozen = 0
+  classifer_head_type = "Stochastic"
+}
+2023-12-31 17:27:56,123:INFO:BaseTask_Sup:306: 
+configs_dataset:  {
+  dataroot = "/g/data/wb00/ImageNet/ILSVRC2012/raw-data"
+  dataset_name = "imagenet"
+  num_workers = 12
+  total_classes = 1000
+  num_base_classes = 1000
+  num_tasks = 0
+  num_shots = 0
+  drop_last_base = True
+  num_ways = 0
+}
+2023-12-31 17:27:56,123:INFO:BaseTask_Sup:306: 
+configs_train:  {
+  num_epochs = 1000
+  num_epochs_no_progress_detection = 10
+  display_freq = 1
+  evaluation_stochastic = True
+  optimizer = {
+    optimizer_name = "SGD"
+    lr = 0.1
+    lr_backbone = 0.1
+    momentum = 0.9
+    momentum2 = 0.999
+    nesterov = True
+    weight_decay = 1e-06
+  }  
+  scheduler = {
+    name = "ReduceLROnPlateau"
+    mode = "max"
+    factor = 0.25
+    patience = 4
+    cooldown = 0
+    min_lr = 1e-06
+    verbose = True
+  }  
+}
+2023-12-31 17:27:56,123:INFO:BaseTask_Sup:306: 
+configs_logger:  {
+  display_interval = 30.0
+  display_freq = 1
+  moving_average_capacity = 200
+  log_file = "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/Experiment=Phase 0 - Pretrain the model on the ImageNet with CE loss and stochastic classifier,start_time=Date_2023-12-31,Time_17-27-54,seed=41.log"
+}
+2023-12-31 17:27:56,123:INFO:BaseTask_Sup:306: 
+configs_save:  {
+  save_freq_epoch = 1
+  save_freq_iter = 2000
+  time_interval_to_save = 1000
+  root = "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0"
+  input_file = "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-29,Time_10-54-10,seed=41-Best_Model.pt"
+  output_file = "P0,start_time=Date_2023-12-31,Time_17-27-54"
+}
+2023-12-31 17:27:56,123:INFO:BaseTask_Sup:306: 
+configs_FSCIL:  {
+  start_from_task = 0
+  randomize_selected_classes = False
+}
+2023-12-31 17:27:56,123:INFO:BaseTask_Sup:308: --------------------------------------------------------------------------------
+2023-12-31 17:28:05,453:INFO:BaseTask_Sup:310: --------------------------------------------------
+2023-12-31 18:56:25,073:INFO:BaseTask_Sup:490: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Last.pt"! <--------
+2023-12-31 18:56:25,400:INFO:BaseTask_Sup:494: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41,Task-ID=0-Last.pt"! <--------
+2023-12-31 18:56:25,660:INFO:BaseTask_Sup:506: 
+A snapshot is saved to "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Epoch=28.pt" <--------
+2023-12-31 18:56:25,661:INFO:BaseTask_Sup:360: Epoch = 27
+2023-12-31 18:56:25,661:INFO:BaseTask_Sup:362: Mean average loss for the last 200 iterations: 1.27529712498188
+2023-12-31 18:58:05,449:INFO:BaseTask_Sup:758: -> test acc. of task 0: 67.95%
+2023-12-31 18:58:05,484:INFO:BaseTask_Sup:369: This is the new best model!
+2023-12-31 18:58:05,822:INFO:BaseTask_Sup:490: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Last.pt"! <--------
+2023-12-31 18:58:06,128:INFO:BaseTask_Sup:494: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41,Task-ID=0-Last.pt"! <--------
+2023-12-31 18:58:06,413:INFO:BaseTask_Sup:510: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Best_Model.pt"! <--------
+2023-12-31 18:58:06,414:INFO:BaseTask_Sup:371: The best test accuracy was 67.95% at epoch 27
+2023-12-31 18:58:06,414:INFO:BaseTask_Sup:372: This epoch took 1 hour, 30 minutes, and 0 seconds!
+2023-12-31 18:58:06,414:INFO:BaseTask_Sup:373: The training took 1 hour, 30 minutes, and 0 seconds from the beginning!
+2023-12-31 18:58:06,415:INFO:BaseTask_Sup:557: Estimated remaining time: 2 days, 4 hours, 4 minutes, and 50 seconds
+2023-12-31 18:58:06,415:INFO:BaseTask_Sup:380: Number of epochs with no-progress = 0/10
+2023-12-31 18:58:06,415:INFO:BaseTask_Sup:382: --------------------------------------------------
+2023-12-31 20:28:38,669:INFO:BaseTask_Sup:490: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Last.pt"! <--------
+2023-12-31 20:28:38,911:INFO:BaseTask_Sup:494: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41,Task-ID=0-Last.pt"! <--------
+2023-12-31 20:28:39,316:INFO:BaseTask_Sup:506: 
+A snapshot is saved to "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Epoch=29.pt" <--------
+2023-12-31 20:28:39,318:INFO:BaseTask_Sup:360: Epoch = 28
+2023-12-31 20:28:39,318:INFO:BaseTask_Sup:362: Mean average loss for the last 200 iterations: 1.259822885096073
+2023-12-31 20:30:27,644:INFO:BaseTask_Sup:758: -> test acc. of task 0: 68.73%
+2023-12-31 20:30:27,684:INFO:BaseTask_Sup:369: This is the new best model!
+2023-12-31 20:30:28,007:INFO:BaseTask_Sup:490: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Last.pt"! <--------
+2023-12-31 20:30:28,289:INFO:BaseTask_Sup:494: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41,Task-ID=0-Last.pt"! <--------
+2023-12-31 20:30:28,539:INFO:BaseTask_Sup:510: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Best_Model.pt"! <--------
+2023-12-31 20:30:28,540:INFO:BaseTask_Sup:371: The best test accuracy was 68.73% at epoch 28
+2023-12-31 20:30:28,540:INFO:BaseTask_Sup:372: This epoch took 1 hour, 32 minutes, and 22 seconds!
+2023-12-31 20:30:28,540:INFO:BaseTask_Sup:373: The training took 3 hours, 2 minutes, and 23 seconds from the beginning!
+2023-12-31 20:30:28,540:INFO:BaseTask_Sup:557: Estimated remaining time: 4 days, 5 hours, 46 minutes, and 44 seconds
+2023-12-31 20:30:28,540:INFO:BaseTask_Sup:380: Number of epochs with no-progress = 0/10
+2023-12-31 20:30:28,540:INFO:BaseTask_Sup:382: --------------------------------------------------
+2023-12-31 21:58:45,495:INFO:BaseTask_Sup:490: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Last.pt"! <--------
+2023-12-31 21:58:45,888:INFO:BaseTask_Sup:494: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41,Task-ID=0-Last.pt"! <--------
+2023-12-31 21:58:46,145:INFO:BaseTask_Sup:506: 
+A snapshot is saved to "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Epoch=30.pt" <--------
+2023-12-31 21:58:46,146:INFO:BaseTask_Sup:360: Epoch = 29
+2023-12-31 21:58:46,146:INFO:BaseTask_Sup:362: Mean average loss for the last 200 iterations: 1.253440833091736
+2023-12-31 22:00:31,064:INFO:BaseTask_Sup:758: -> test acc. of task 0: 68.83%
+2023-12-31 22:00:31,100:INFO:BaseTask_Sup:369: This is the new best model!
+2023-12-31 22:00:31,532:INFO:BaseTask_Sup:490: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Last.pt"! <--------
+2023-12-31 22:00:31,800:INFO:BaseTask_Sup:494: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41,Task-ID=0-Last.pt"! <--------
+2023-12-31 22:00:32,112:INFO:BaseTask_Sup:510: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Best_Model.pt"! <--------
+2023-12-31 22:00:32,113:INFO:BaseTask_Sup:371: The best test accuracy was 68.83% at epoch 29
+2023-12-31 22:00:32,113:INFO:BaseTask_Sup:372: This epoch took 1 hour, 30 minutes, and 3 seconds!
+2023-12-31 22:00:32,113:INFO:BaseTask_Sup:373: The training took 4 hours, 32 minutes, and 26 seconds from the beginning!
+2023-12-31 22:00:32,113:INFO:BaseTask_Sup:557: Estimated remaining time: 6 days, 2 hours, 49 minutes, and 1 second
+2023-12-31 22:00:32,113:INFO:BaseTask_Sup:380: Number of epochs with no-progress = 0/10
+2023-12-31 22:00:32,113:INFO:BaseTask_Sup:382: --------------------------------------------------
+2023-12-31 23:28:51,660:INFO:BaseTask_Sup:490: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Last.pt"! <--------
+2023-12-31 23:28:51,895:INFO:BaseTask_Sup:494: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41,Task-ID=0-Last.pt"! <--------
+2023-12-31 23:28:52,160:INFO:BaseTask_Sup:506: 
+A snapshot is saved to "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Epoch=31.pt" <--------
+2023-12-31 23:28:52,161:INFO:BaseTask_Sup:360: Epoch = 30
+2023-12-31 23:28:52,161:INFO:BaseTask_Sup:362: Mean average loss for the last 200 iterations: 1.2217384567856788
+2023-12-31 23:30:27,776:INFO:BaseTask_Sup:758: -> test acc. of task 0: 68.87%
+2023-12-31 23:30:27,812:INFO:BaseTask_Sup:369: This is the new best model!
+2023-12-31 23:30:28,134:INFO:BaseTask_Sup:490: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Last.pt"! <--------
+2023-12-31 23:30:28,381:INFO:BaseTask_Sup:494: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41,Task-ID=0-Last.pt"! <--------
+2023-12-31 23:30:28,672:INFO:BaseTask_Sup:510: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Best_Model.pt"! <--------
+2023-12-31 23:30:28,673:INFO:BaseTask_Sup:371: The best test accuracy was 68.87% at epoch 30
+2023-12-31 23:30:28,674:INFO:BaseTask_Sup:372: This epoch took 1 hour, 29 minutes, and 56 seconds!
+2023-12-31 23:30:28,674:INFO:BaseTask_Sup:373: The training took 6 hours, 2 minutes, and 23 seconds from the beginning!
+2023-12-31 23:30:28,674:INFO:BaseTask_Sup:557: Estimated remaining time: 7 days, 20 hours, 47 minutes, and 30 seconds
+2023-12-31 23:30:28,674:INFO:BaseTask_Sup:380: Number of epochs with no-progress = 0/10
+2023-12-31 23:30:28,674:INFO:BaseTask_Sup:382: --------------------------------------------------
+2024-01-01 00:57:39,741:INFO:BaseTask_Sup:490: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Last.pt"! <--------
+2024-01-01 00:57:40,044:INFO:BaseTask_Sup:494: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41,Task-ID=0-Last.pt"! <--------
+2024-01-01 00:57:40,324:INFO:BaseTask_Sup:506: 
+A snapshot is saved to "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Epoch=32.pt" <--------
+2024-01-01 00:57:40,325:INFO:BaseTask_Sup:360: Epoch = 31
+2024-01-01 00:57:40,326:INFO:BaseTask_Sup:362: Mean average loss for the last 200 iterations: 1.2072136101126671
+2024-01-01 00:59:20,687:INFO:BaseTask_Sup:758: -> test acc. of task 0: 69.00%
+2024-01-01 00:59:20,721:INFO:BaseTask_Sup:369: This is the new best model!
+2024-01-01 00:59:21,053:INFO:BaseTask_Sup:490: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Last.pt"! <--------
+2024-01-01 00:59:21,296:INFO:BaseTask_Sup:494: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41,Task-ID=0-Last.pt"! <--------
+2024-01-01 00:59:21,763:INFO:BaseTask_Sup:510: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Best_Model.pt"! <--------
+2024-01-01 00:59:21,765:INFO:BaseTask_Sup:371: The best test accuracy was 69.00% at epoch 31
+2024-01-01 00:59:21,765:INFO:BaseTask_Sup:372: This epoch took 1 hour, 28 minutes, and 53 seconds!
+2024-01-01 00:59:21,765:INFO:BaseTask_Sup:373: The training took 7 hours, 31 minutes, and 16 seconds from the beginning!
+2024-01-01 00:59:21,765:INFO:BaseTask_Sup:557: Estimated remaining time: 9 days, 11 hours, 30 minutes, and 58 seconds
+2024-01-01 00:59:21,765:INFO:BaseTask_Sup:380: Number of epochs with no-progress = 0/10
+2024-01-01 00:59:21,765:INFO:BaseTask_Sup:382: --------------------------------------------------
+2024-01-01 02:26:29,139:INFO:BaseTask_Sup:490: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Last.pt"! <--------
+2024-01-01 02:26:29,464:INFO:BaseTask_Sup:494: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41,Task-ID=0-Last.pt"! <--------
+2024-01-01 02:26:29,886:INFO:BaseTask_Sup:506: 
+A snapshot is saved to "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Epoch=33.pt" <--------
+2024-01-01 02:26:29,887:INFO:BaseTask_Sup:360: Epoch = 32
+2024-01-01 02:26:29,888:INFO:BaseTask_Sup:362: Mean average loss for the last 200 iterations: 1.1765188300609588
+2024-01-01 02:28:14,718:INFO:BaseTask_Sup:758: -> test acc. of task 0: 68.83%
+2024-01-01 02:28:14,754:INFO:BaseTask_Sup:371: The best test accuracy was 69.00% at epoch 31
+2024-01-01 02:28:14,754:INFO:BaseTask_Sup:372: This epoch took 1 hour, 28 minutes, and 52 seconds!
+2024-01-01 02:28:14,755:INFO:BaseTask_Sup:373: The training took 9 hours and 9 seconds from the beginning!
+2024-01-01 02:28:14,755:INFO:BaseTask_Sup:557: Estimated remaining time: 10 days, 23 hours, 48 minutes, and 10 seconds
+2024-01-01 02:28:14,755:INFO:BaseTask_Sup:380: Number of epochs with no-progress = 1/10
+2024-01-01 02:28:14,755:INFO:BaseTask_Sup:382: --------------------------------------------------
+2024-01-01 04:03:42,492:INFO:BaseTask_Sup:490: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Last.pt"! <--------
+2024-01-01 04:03:42,734:INFO:BaseTask_Sup:494: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41,Task-ID=0-Last.pt"! <--------
+2024-01-01 04:03:43,061:INFO:BaseTask_Sup:506: 
+A snapshot is saved to "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Epoch=34.pt" <--------
+2024-01-01 04:03:43,062:INFO:BaseTask_Sup:360: Epoch = 33
+2024-01-01 04:03:43,064:INFO:BaseTask_Sup:362: Mean average loss for the last 200 iterations: 1.1637371250987052
+2024-01-01 04:06:28,757:INFO:BaseTask_Sup:758: -> test acc. of task 0: 69.29%
+2024-01-01 04:06:28,793:INFO:BaseTask_Sup:369: This is the new best model!
+2024-01-01 04:06:29,234:INFO:BaseTask_Sup:490: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Last.pt"! <--------
+2024-01-01 04:06:29,534:INFO:BaseTask_Sup:494: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41,Task-ID=0-Last.pt"! <--------
+2024-01-01 04:06:29,825:INFO:BaseTask_Sup:510: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Best_Model.pt"! <--------
+2024-01-01 04:06:29,826:INFO:BaseTask_Sup:371: The best test accuracy was 69.29% at epoch 33
+2024-01-01 04:06:29,827:INFO:BaseTask_Sup:372: This epoch took 1 hour, 38 minutes, and 15 seconds!
+2024-01-01 04:06:29,827:INFO:BaseTask_Sup:373: The training took 10 hours, 38 minutes, and 24 seconds from the beginning!
+2024-01-01 04:06:29,827:INFO:BaseTask_Sup:557: Estimated remaining time: 12 days, 14 hours, 18 minutes, and 14 seconds
+2024-01-01 04:06:29,827:INFO:BaseTask_Sup:380: Number of epochs with no-progress = 0/10
+2024-01-01 04:06:29,827:INFO:BaseTask_Sup:382: --------------------------------------------------
+2024-01-01 05:44:44,679:INFO:BaseTask_Sup:490: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Last.pt"! <--------
+2024-01-01 05:44:44,928:INFO:BaseTask_Sup:494: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41,Task-ID=0-Last.pt"! <--------
+2024-01-01 05:44:45,159:INFO:BaseTask_Sup:506: 
+A snapshot is saved to "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Epoch=35.pt" <--------
+2024-01-01 05:44:45,160:INFO:BaseTask_Sup:360: Epoch = 34
+2024-01-01 05:44:45,161:INFO:BaseTask_Sup:362: Mean average loss for the last 200 iterations: 1.1525319558382034
+2024-01-01 05:47:36,775:INFO:BaseTask_Sup:758: -> test acc. of task 0: 69.32%
+2024-01-01 05:47:36,814:INFO:BaseTask_Sup:369: This is the new best model!
+2024-01-01 05:47:37,172:INFO:BaseTask_Sup:490: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Last.pt"! <--------
+2024-01-01 05:47:37,455:INFO:BaseTask_Sup:494: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41,Task-ID=0-Last.pt"! <--------
+2024-01-01 05:47:37,700:INFO:BaseTask_Sup:510: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Best_Model.pt"! <--------
+2024-01-01 05:47:37,701:INFO:BaseTask_Sup:371: The best test accuracy was 69.32% at epoch 34
+2024-01-01 05:47:37,701:INFO:BaseTask_Sup:372: This epoch took 1 hour, 41 minutes, and 7 seconds!
+2024-01-01 05:47:37,701:INFO:BaseTask_Sup:373: The training took 12 hours, 19 minutes, and 32 seconds from the beginning!
+2024-01-01 05:47:37,701:INFO:BaseTask_Sup:557: Estimated remaining time: 14 days, 3 hours, 50 minutes, and 6 seconds
+2024-01-01 05:47:37,701:INFO:BaseTask_Sup:380: Number of epochs with no-progress = 0/10
+2024-01-01 05:47:37,701:INFO:BaseTask_Sup:382: --------------------------------------------------
+2024-01-01 07:25:52,148:INFO:BaseTask_Sup:490: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Last.pt"! <--------
+2024-01-01 07:25:52,399:INFO:BaseTask_Sup:494: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41,Task-ID=0-Last.pt"! <--------
+2024-01-01 07:25:52,694:INFO:BaseTask_Sup:506: 
+A snapshot is saved to "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Epoch=36.pt" <--------
+2024-01-01 07:25:52,695:INFO:BaseTask_Sup:360: Epoch = 35
+2024-01-01 07:25:52,695:INFO:BaseTask_Sup:362: Mean average loss for the last 200 iterations: 1.1290194436907768
+2024-01-01 07:28:35,323:INFO:BaseTask_Sup:758: -> test acc. of task 0: 69.38%
+2024-01-01 07:28:35,359:INFO:BaseTask_Sup:369: This is the new best model!
+2024-01-01 07:28:35,677:INFO:BaseTask_Sup:490: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Last.pt"! <--------
+2024-01-01 07:28:35,915:INFO:BaseTask_Sup:494: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41,Task-ID=0-Last.pt"! <--------
+2024-01-01 07:28:36,225:INFO:BaseTask_Sup:510: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Best_Model.pt"! <--------
+2024-01-01 07:28:36,226:INFO:BaseTask_Sup:371: The best test accuracy was 69.38% at epoch 35
+2024-01-01 07:28:36,226:INFO:BaseTask_Sup:372: This epoch took 1 hour, 40 minutes, and 58 seconds!
+2024-01-01 07:28:36,226:INFO:BaseTask_Sup:373: The training took 14 hours and 30 seconds from the beginning!
+2024-01-01 07:28:36,226:INFO:BaseTask_Sup:557: Estimated remaining time: 15 days, 15 hours, 7 minutes, and 4 seconds
+2024-01-01 07:28:36,226:INFO:BaseTask_Sup:380: Number of epochs with no-progress = 0/10
+2024-01-01 07:28:36,226:INFO:BaseTask_Sup:382: --------------------------------------------------
+2024-01-01 09:06:42,391:INFO:BaseTask_Sup:490: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Last.pt"! <--------
+2024-01-01 09:06:42,631:INFO:BaseTask_Sup:494: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41,Task-ID=0-Last.pt"! <--------
+2024-01-01 09:06:42,865:INFO:BaseTask_Sup:506: 
+A snapshot is saved to "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Epoch=37.pt" <--------
+2024-01-01 09:06:42,866:INFO:BaseTask_Sup:360: Epoch = 36
+2024-01-01 09:06:42,868:INFO:BaseTask_Sup:362: Mean average loss for the last 200 iterations: 1.1191927459836006
+2024-01-01 09:09:24,280:INFO:BaseTask_Sup:758: -> test acc. of task 0: 69.75%
+2024-01-01 09:09:24,316:INFO:BaseTask_Sup:369: This is the new best model!
+2024-01-01 09:09:24,638:INFO:BaseTask_Sup:490: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Last.pt"! <--------
+2024-01-01 09:09:24,926:INFO:BaseTask_Sup:494: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41,Task-ID=0-Last.pt"! <--------
+2024-01-01 09:09:25,239:INFO:BaseTask_Sup:510: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Best_Model.pt"! <--------
+2024-01-01 09:09:25,240:INFO:BaseTask_Sup:371: The best test accuracy was 69.75% at epoch 36
+2024-01-01 09:09:25,240:INFO:BaseTask_Sup:372: This epoch took 1 hour, 40 minutes, and 49 seconds!
+2024-01-01 09:09:25,240:INFO:BaseTask_Sup:373: The training took 15 hours, 41 minutes, and 19 seconds from the beginning!
+2024-01-01 09:09:25,240:INFO:BaseTask_Sup:557: Estimated remaining time: 17 days, 20 minutes, and 0 seconds
+2024-01-01 09:09:25,240:INFO:BaseTask_Sup:380: Number of epochs with no-progress = 0/10
+2024-01-01 09:09:25,240:INFO:BaseTask_Sup:382: --------------------------------------------------
+2024-01-01 10:46:43,822:INFO:BaseTask_Sup:490: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Last.pt"! <--------
+2024-01-01 10:46:44,113:INFO:BaseTask_Sup:494: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41,Task-ID=0-Last.pt"! <--------
+2024-01-01 10:46:44,408:INFO:BaseTask_Sup:506: 
+A snapshot is saved to "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Epoch=38.pt" <--------
+2024-01-01 10:46:44,409:INFO:BaseTask_Sup:360: Epoch = 37
+2024-01-01 10:46:44,410:INFO:BaseTask_Sup:362: Mean average loss for the last 200 iterations: 1.1126185908913613
+2024-01-01 10:49:28,443:INFO:BaseTask_Sup:758: -> test acc. of task 0: 69.68%
+2024-01-01 10:49:28,479:INFO:BaseTask_Sup:371: The best test accuracy was 69.75% at epoch 36
+2024-01-01 10:49:28,479:INFO:BaseTask_Sup:372: This epoch took 1 hour, 40 minutes, and 3 seconds!
+2024-01-01 10:49:28,479:INFO:BaseTask_Sup:373: The training took 17 hours, 21 minutes, and 23 seconds from the beginning!
+2024-01-01 10:49:28,479:INFO:BaseTask_Sup:557: Estimated remaining time: 18 days, 7 hours, 23 minutes, and 27 seconds
+2024-01-01 10:49:28,479:INFO:BaseTask_Sup:380: Number of epochs with no-progress = 1/10
+2024-01-01 10:49:28,479:INFO:BaseTask_Sup:382: --------------------------------------------------
+2024-01-01 12:26:50,745:INFO:BaseTask_Sup:490: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Last.pt"! <--------
+2024-01-01 12:26:51,040:INFO:BaseTask_Sup:494: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41,Task-ID=0-Last.pt"! <--------
+2024-01-01 12:26:51,382:INFO:BaseTask_Sup:506: 
+A snapshot is saved to "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Epoch=39.pt" <--------
+2024-01-01 12:26:51,383:INFO:BaseTask_Sup:360: Epoch = 38
+2024-01-01 12:26:51,385:INFO:BaseTask_Sup:362: Mean average loss for the last 200 iterations: 1.0969943884015083
+2024-01-01 12:29:22,006:INFO:BaseTask_Sup:758: -> test acc. of task 0: 69.87%
+2024-01-01 12:29:22,042:INFO:BaseTask_Sup:369: This is the new best model!
+2024-01-01 12:29:22,480:INFO:BaseTask_Sup:490: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Last.pt"! <--------
+2024-01-01 12:29:22,777:INFO:BaseTask_Sup:494: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41,Task-ID=0-Last.pt"! <--------
+2024-01-01 12:29:23,141:INFO:BaseTask_Sup:510: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Best_Model.pt"! <--------
+2024-01-01 12:29:23,143:INFO:BaseTask_Sup:371: The best test accuracy was 69.87% at epoch 38
+2024-01-01 12:29:23,143:INFO:BaseTask_Sup:372: This epoch took 1 hour, 39 minutes, and 54 seconds!
+2024-01-01 12:29:23,143:INFO:BaseTask_Sup:373: The training took 19 hours, 1 minute, and 17 seconds from the beginning!
+2024-01-01 12:29:23,143:INFO:BaseTask_Sup:557: Estimated remaining time: 19 days, 12 hours, 42 minutes, and 40 seconds
+2024-01-01 12:29:23,143:INFO:BaseTask_Sup:380: Number of epochs with no-progress = 0/10
+2024-01-01 12:29:23,143:INFO:BaseTask_Sup:382: --------------------------------------------------
+2024-01-01 14:06:21,227:INFO:BaseTask_Sup:490: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Last.pt"! <--------
+2024-01-01 14:06:21,500:INFO:BaseTask_Sup:494: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41,Task-ID=0-Last.pt"! <--------
+2024-01-01 14:06:21,728:INFO:BaseTask_Sup:506: 
+A snapshot is saved to "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Epoch=40.pt" <--------
+2024-01-01 14:06:21,730:INFO:BaseTask_Sup:360: Epoch = 39
+2024-01-01 14:06:21,731:INFO:BaseTask_Sup:362: Mean average loss for the last 200 iterations: 1.0750833034515381
+2024-01-01 14:09:00,748:INFO:BaseTask_Sup:758: -> test acc. of task 0: 69.78%
+2024-01-01 14:09:00,784:INFO:BaseTask_Sup:371: The best test accuracy was 69.87% at epoch 38
+2024-01-01 14:09:00,784:INFO:BaseTask_Sup:372: This epoch took 1 hour, 39 minutes, and 37 seconds!
+2024-01-01 14:09:00,784:INFO:BaseTask_Sup:373: The training took 20 hours, 40 minutes, and 55 seconds from the beginning!
+2024-01-01 14:09:00,784:INFO:BaseTask_Sup:557: Estimated remaining time: 20 days, 16 hours, 22 minutes, and 7 seconds
+2024-01-01 14:09:00,784:INFO:BaseTask_Sup:380: Number of epochs with no-progress = 1/10
+2024-01-01 14:09:00,784:INFO:BaseTask_Sup:382: --------------------------------------------------
+2024-01-01 15:46:00,207:INFO:BaseTask_Sup:490: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Last.pt"! <--------
+2024-01-01 15:46:00,451:INFO:BaseTask_Sup:494: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41,Task-ID=0-Last.pt"! <--------
+2024-01-01 15:46:00,720:INFO:BaseTask_Sup:506: 
+A snapshot is saved to "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Epoch=41.pt" <--------
+2024-01-01 15:46:00,721:INFO:BaseTask_Sup:360: Epoch = 40
+2024-01-01 15:46:00,722:INFO:BaseTask_Sup:362: Mean average loss for the last 200 iterations: 1.0589597085118294
+2024-01-01 15:48:19,874:INFO:BaseTask_Sup:758: -> test acc. of task 0: 69.73%
+2024-01-01 15:48:19,911:INFO:BaseTask_Sup:371: The best test accuracy was 69.87% at epoch 38
+2024-01-01 15:48:19,912:INFO:BaseTask_Sup:372: This epoch took 1 hour, 39 minutes, and 19 seconds!
+2024-01-01 15:48:19,912:INFO:BaseTask_Sup:373: The training took 22 hours, 20 minutes, and 14 seconds from the beginning!
+2024-01-01 15:48:19,912:INFO:BaseTask_Sup:557: Estimated remaining time: 21 days, 18 hours, 28 minutes, and 33 seconds
+2024-01-01 15:48:19,912:INFO:BaseTask_Sup:380: Number of epochs with no-progress = 2/10
+2024-01-01 15:48:19,912:INFO:BaseTask_Sup:382: --------------------------------------------------
+2024-01-01 17:26:35,344:INFO:BaseTask_Sup:490: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Last.pt"! <--------
+2024-01-01 17:26:35,595:INFO:BaseTask_Sup:494: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41,Task-ID=0-Last.pt"! <--------
+2024-01-01 17:26:35,901:INFO:BaseTask_Sup:506: 
+A snapshot is saved to "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Epoch=42.pt" <--------
+2024-01-01 17:26:35,902:INFO:BaseTask_Sup:360: Epoch = 41
+2024-01-01 17:26:35,902:INFO:BaseTask_Sup:362: Mean average loss for the last 200 iterations: 1.0498793029785156
+2024-01-01 17:29:12,489:INFO:BaseTask_Sup:758: -> test acc. of task 0: 69.64%
+2024-01-01 17:29:12,526:INFO:BaseTask_Sup:371: The best test accuracy was 69.87% at epoch 38
+2024-01-01 17:29:12,526:INFO:BaseTask_Sup:372: This epoch took 1 hour, 40 minutes, and 52 seconds!
+2024-01-01 17:29:12,526:INFO:BaseTask_Sup:373: The training took 1 day, 1 minute, and 7 seconds from the beginning!
+2024-01-01 17:29:12,526:INFO:BaseTask_Sup:557: Estimated remaining time: 22 days, 19 hours, 51 minutes, and 12 seconds
+2024-01-01 17:29:12,526:INFO:BaseTask_Sup:380: Number of epochs with no-progress = 3/10
+2024-01-01 17:29:12,526:INFO:BaseTask_Sup:382: --------------------------------------------------
+2024-01-01 19:06:44,206:INFO:BaseTask_Sup:490: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Last.pt"! <--------
+2024-01-01 19:06:44,451:INFO:BaseTask_Sup:494: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41,Task-ID=0-Last.pt"! <--------
+2024-01-01 19:06:44,721:INFO:BaseTask_Sup:506: 
+A snapshot is saved to "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Epoch=43.pt" <--------
+2024-01-01 19:06:44,722:INFO:BaseTask_Sup:360: Epoch = 42
+2024-01-01 19:06:44,722:INFO:BaseTask_Sup:362: Mean average loss for the last 200 iterations: 1.0503003209829331
+2024-01-01 19:09:10,767:INFO:BaseTask_Sup:758: -> test acc. of task 0: 69.86%
+2024-01-01 19:09:10,805:INFO:BaseTask_Sup:371: The best test accuracy was 69.87% at epoch 38
+2024-01-01 19:09:10,805:INFO:BaseTask_Sup:372: This epoch took 1 hour, 39 minutes, and 58 seconds!
+2024-01-01 19:09:10,805:INFO:BaseTask_Sup:373: The training took 1 day, 1 hour, 41 minutes, and 5 seconds from the beginning!
+2024-01-01 19:09:10,806:INFO:BaseTask_Sup:557: Estimated remaining time: 23 days, 19 hours, 38 minutes, and 11 seconds
+2024-01-01 19:09:10,806:INFO:BaseTask_Sup:380: Number of epochs with no-progress = 4/10
+2024-01-01 19:09:10,806:INFO:BaseTask_Sup:382: --------------------------------------------------
+2024-01-01 20:47:04,175:INFO:BaseTask_Sup:490: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Last.pt"! <--------
+2024-01-01 20:47:04,430:INFO:BaseTask_Sup:494: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41,Task-ID=0-Last.pt"! <--------
+2024-01-01 20:47:04,707:INFO:BaseTask_Sup:506: 
+A snapshot is saved to "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Epoch=44.pt" <--------
+2024-01-01 20:47:04,708:INFO:BaseTask_Sup:360: Epoch = 43
+2024-01-01 20:47:04,709:INFO:BaseTask_Sup:362: Mean average loss for the last 200 iterations: 1.033518809080124
+2024-01-01 20:49:39,773:INFO:BaseTask_Sup:758: -> test acc. of task 0: 69.75%
+2024-01-01 20:49:39,811:INFO:BaseTask_Sup:371: The best test accuracy was 69.87% at epoch 38
+2024-01-01 20:49:39,811:INFO:BaseTask_Sup:372: This epoch took 1 hour, 40 minutes, and 29 seconds!
+2024-01-01 20:49:39,811:INFO:BaseTask_Sup:373: The training took 1 day, 3 hours, 21 minutes, and 34 seconds from the beginning!
+2024-01-01 20:49:39,811:INFO:BaseTask_Sup:557: Estimated remaining time: 24 days, 18 hours, 26 minutes, and 53 seconds
+2024-01-01 20:49:39,811:INFO:BaseTask_Sup:380: Number of epochs with no-progress = 5/10
+2024-01-01 20:49:39,811:INFO:BaseTask_Sup:382: --------------------------------------------------
+2024-01-01 22:26:36,588:INFO:BaseTask_Sup:490: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Last.pt"! <--------
+2024-01-01 22:26:36,841:INFO:BaseTask_Sup:494: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41,Task-ID=0-Last.pt"! <--------
+2024-01-01 22:26:37,255:INFO:BaseTask_Sup:506: 
+A snapshot is saved to "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Epoch=45.pt" <--------
+2024-01-01 22:26:37,256:INFO:BaseTask_Sup:360: Epoch = 44
+2024-01-01 22:26:37,257:INFO:BaseTask_Sup:362: Mean average loss for the last 200 iterations: 0.8363917148113251
+2024-01-01 22:29:14,952:INFO:BaseTask_Sup:758: -> test acc. of task 0: 71.79%
+2024-01-01 22:29:14,990:INFO:BaseTask_Sup:369: This is the new best model!
+2024-01-01 22:29:15,326:INFO:BaseTask_Sup:490: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Last.pt"! <--------
+2024-01-01 22:29:15,603:INFO:BaseTask_Sup:494: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41,Task-ID=0-Last.pt"! <--------
+2024-01-01 22:29:15,960:INFO:BaseTask_Sup:510: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Best_Model.pt"! <--------
+2024-01-01 22:29:15,961:INFO:BaseTask_Sup:371: The best test accuracy was 71.79% at epoch 44
+2024-01-01 22:29:15,962:INFO:BaseTask_Sup:372: This epoch took 1 hour, 39 minutes, and 36 seconds!
+2024-01-01 22:29:15,962:INFO:BaseTask_Sup:373: The training took 1 day, 5 hours, 1 minute, and 10 seconds from the beginning!
+2024-01-01 22:29:15,962:INFO:BaseTask_Sup:557: Estimated remaining time: 25 days, 15 hours, 51 minutes, and 36 seconds
+2024-01-01 22:29:15,962:INFO:BaseTask_Sup:380: Number of epochs with no-progress = 0/10
+2024-01-01 22:29:15,962:INFO:BaseTask_Sup:382: --------------------------------------------------
+2024-01-02 00:06:21,896:INFO:BaseTask_Sup:490: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Last.pt"! <--------
+2024-01-02 00:06:22,143:INFO:BaseTask_Sup:494: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41,Task-ID=0-Last.pt"! <--------
+2024-01-02 00:06:22,433:INFO:BaseTask_Sup:506: 
+A snapshot is saved to "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Epoch=46.pt" <--------
+2024-01-02 00:06:22,434:INFO:BaseTask_Sup:360: Epoch = 45
+2024-01-02 00:06:22,436:INFO:BaseTask_Sup:362: Mean average loss for the last 200 iterations: 0.8029020774364471
+2024-01-02 00:08:50,874:INFO:BaseTask_Sup:758: -> test acc. of task 0: 71.82%
+2024-01-02 00:08:50,911:INFO:BaseTask_Sup:369: This is the new best model!
+2024-01-02 00:08:51,295:INFO:BaseTask_Sup:490: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Last.pt"! <--------
+2024-01-02 00:08:51,601:INFO:BaseTask_Sup:494: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41,Task-ID=0-Last.pt"! <--------
+2024-01-02 00:08:51,926:INFO:BaseTask_Sup:510: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Best_Model.pt"! <--------
+2024-01-02 00:08:51,927:INFO:BaseTask_Sup:371: The best test accuracy was 71.82% at epoch 45
+2024-01-02 00:08:51,927:INFO:BaseTask_Sup:372: This epoch took 1 hour, 39 minutes, and 35 seconds!
+2024-01-02 00:08:51,927:INFO:BaseTask_Sup:373: The training took 1 day, 6 hours, 40 minutes, and 46 seconds from the beginning!
+2024-01-02 00:08:51,927:INFO:BaseTask_Sup:557: Estimated remaining time: 26 days, 12 hours, 16 minutes, and 3 seconds
+2024-01-02 00:08:51,927:INFO:BaseTask_Sup:380: Number of epochs with no-progress = 0/10
+2024-01-02 00:08:51,927:INFO:BaseTask_Sup:382: --------------------------------------------------
+2024-01-02 01:47:09,328:INFO:BaseTask_Sup:490: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Last.pt"! <--------
+2024-01-02 01:47:09,669:INFO:BaseTask_Sup:494: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41,Task-ID=0-Last.pt"! <--------
+2024-01-02 01:47:09,940:INFO:BaseTask_Sup:506: 
+A snapshot is saved to "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Epoch=47.pt" <--------
+2024-01-02 01:47:09,941:INFO:BaseTask_Sup:360: Epoch = 46
+2024-01-02 01:47:09,942:INFO:BaseTask_Sup:362: Mean average loss for the last 200 iterations: 0.7846412906050682
+2024-01-02 01:49:38,229:INFO:BaseTask_Sup:758: -> test acc. of task 0: 71.94%
+2024-01-02 01:49:38,265:INFO:BaseTask_Sup:369: This is the new best model!
+2024-01-02 01:49:38,595:INFO:BaseTask_Sup:490: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Last.pt"! <--------
+2024-01-02 01:49:38,897:INFO:BaseTask_Sup:494: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41,Task-ID=0-Last.pt"! <--------
+2024-01-02 01:49:39,231:INFO:BaseTask_Sup:510: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Best_Model.pt"! <--------
+2024-01-02 01:49:39,233:INFO:BaseTask_Sup:371: The best test accuracy was 71.94% at epoch 46
+2024-01-02 01:49:39,233:INFO:BaseTask_Sup:372: This epoch took 1 hour, 40 minutes, and 47 seconds!
+2024-01-02 01:49:39,233:INFO:BaseTask_Sup:373: The training took 1 day, 8 hours, 21 minutes, and 33 seconds from the beginning!
+2024-01-02 01:49:39,233:INFO:BaseTask_Sup:557: Estimated remaining time: 27 days, 8 hours, 8 minutes, and 17 seconds
+2024-01-02 01:49:39,233:INFO:BaseTask_Sup:380: Number of epochs with no-progress = 0/10
+2024-01-02 01:49:39,233:INFO:BaseTask_Sup:382: --------------------------------------------------
+2024-01-02 03:27:05,022:INFO:BaseTask_Sup:490: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Last.pt"! <--------
+2024-01-02 03:27:05,283:INFO:BaseTask_Sup:494: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41,Task-ID=0-Last.pt"! <--------
+2024-01-02 03:27:05,546:INFO:BaseTask_Sup:506: 
+A snapshot is saved to "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Epoch=48.pt" <--------
+2024-01-02 03:27:05,548:INFO:BaseTask_Sup:360: Epoch = 47
+2024-01-02 03:27:05,549:INFO:BaseTask_Sup:362: Mean average loss for the last 200 iterations: 0.7739103588461876
+2024-01-02 03:29:15,307:INFO:BaseTask_Sup:758: -> test acc. of task 0: 71.87%
+2024-01-02 03:29:15,341:INFO:BaseTask_Sup:371: The best test accuracy was 71.94% at epoch 46
+2024-01-02 03:29:15,342:INFO:BaseTask_Sup:372: This epoch took 1 hour, 39 minutes, and 36 seconds!
+2024-01-02 03:29:15,342:INFO:BaseTask_Sup:373: The training took 1 day, 10 hours, 1 minute, and 9 seconds from the beginning!
+2024-01-02 03:29:15,342:INFO:BaseTask_Sup:557: Estimated remaining time: 28 days, 2 hours, 43 minutes, and 6 seconds
+2024-01-02 03:29:15,342:INFO:BaseTask_Sup:380: Number of epochs with no-progress = 1/10
+2024-01-02 03:29:15,342:INFO:BaseTask_Sup:382: --------------------------------------------------
+2024-01-02 05:05:47,154:INFO:BaseTask_Sup:490: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Last.pt"! <--------
+2024-01-02 05:05:47,397:INFO:BaseTask_Sup:494: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41,Task-ID=0-Last.pt"! <--------
+2024-01-02 05:05:47,765:INFO:BaseTask_Sup:506: 
+A snapshot is saved to "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Epoch=49.pt" <--------
+2024-01-02 05:05:47,766:INFO:BaseTask_Sup:360: Epoch = 48
+2024-01-02 05:05:47,768:INFO:BaseTask_Sup:362: Mean average loss for the last 200 iterations: 0.7714808896183968
+2024-01-02 05:08:24,534:INFO:BaseTask_Sup:758: -> test acc. of task 0: 71.72%
+2024-01-02 05:08:24,571:INFO:BaseTask_Sup:371: The best test accuracy was 71.94% at epoch 46
+2024-01-02 05:08:24,571:INFO:BaseTask_Sup:372: This epoch took 1 hour, 39 minutes, and 9 seconds!
+2024-01-02 05:08:24,571:INFO:BaseTask_Sup:373: The training took 1 day, 11 hours, 40 minutes, and 19 seconds from the beginning!
+2024-01-02 05:08:24,571:INFO:BaseTask_Sup:557: Estimated remaining time: 28 days, 20 hours, 19 minutes, and 39 seconds
+2024-01-02 05:08:24,571:INFO:BaseTask_Sup:380: Number of epochs with no-progress = 2/10
+2024-01-02 05:08:24,571:INFO:BaseTask_Sup:382: --------------------------------------------------
+2024-01-02 06:45:11,759:INFO:BaseTask_Sup:490: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Last.pt"! <--------
+2024-01-02 06:45:11,998:INFO:BaseTask_Sup:494: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41,Task-ID=0-Last.pt"! <--------
+2024-01-02 06:45:12,287:INFO:BaseTask_Sup:506: 
+A snapshot is saved to "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Epoch=50.pt" <--------
+2024-01-02 06:45:12,288:INFO:BaseTask_Sup:360: Epoch = 49
+2024-01-02 06:45:12,289:INFO:BaseTask_Sup:362: Mean average loss for the last 200 iterations: 0.7535044822096825
+2024-01-02 06:47:26,349:INFO:BaseTask_Sup:758: -> test acc. of task 0: 71.61%
+2024-01-02 06:47:26,385:INFO:BaseTask_Sup:371: The best test accuracy was 71.94% at epoch 46
+2024-01-02 06:47:26,385:INFO:BaseTask_Sup:372: This epoch took 1 hour, 39 minutes, and 1 second!
+2024-01-02 06:47:26,385:INFO:BaseTask_Sup:373: The training took 1 day, 13 hours, 19 minutes, and 20 seconds from the beginning!
+2024-01-02 06:47:26,386:INFO:BaseTask_Sup:557: Estimated remaining time: 29 days, 13 hours, 7 minutes, and 37 seconds
+2024-01-02 06:47:26,386:INFO:BaseTask_Sup:380: Number of epochs with no-progress = 3/10
+2024-01-02 06:47:26,386:INFO:BaseTask_Sup:382: --------------------------------------------------
+2024-01-02 08:26:12,830:INFO:BaseTask_Sup:490: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Last.pt"! <--------
+2024-01-02 08:26:13,123:INFO:BaseTask_Sup:494: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41,Task-ID=0-Last.pt"! <--------
+2024-01-02 08:26:13,403:INFO:BaseTask_Sup:506: 
+A snapshot is saved to "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Epoch=51.pt" <--------
+2024-01-02 08:26:13,404:INFO:BaseTask_Sup:360: Epoch = 50
+2024-01-02 08:26:13,405:INFO:BaseTask_Sup:362: Mean average loss for the last 200 iterations: 0.7446046331524849
+2024-01-02 08:28:45,993:INFO:BaseTask_Sup:758: -> test acc. of task 0: 71.79%
+2024-01-02 08:28:46,029:INFO:BaseTask_Sup:371: The best test accuracy was 71.94% at epoch 46
+2024-01-02 08:28:46,030:INFO:BaseTask_Sup:372: This epoch took 1 hour, 41 minutes, and 19 seconds!
+2024-01-02 08:28:46,030:INFO:BaseTask_Sup:373: The training took 1 day, 15 hours, and 40 seconds from the beginning!
+2024-01-02 08:28:46,030:INFO:BaseTask_Sup:557: Estimated remaining time: 30 days, 5 hours, 54 minutes, and 56 seconds
+2024-01-02 08:28:46,030:INFO:BaseTask_Sup:380: Number of epochs with no-progress = 4/10
+2024-01-02 08:28:46,030:INFO:BaseTask_Sup:382: --------------------------------------------------
+2024-01-02 10:09:32,503:INFO:BaseTask_Sup:490: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Last.pt"! <--------
+2024-01-02 10:09:32,742:INFO:BaseTask_Sup:494: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41,Task-ID=0-Last.pt"! <--------
+2024-01-02 10:09:33,054:INFO:BaseTask_Sup:506: 
+A snapshot is saved to "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Epoch=52.pt" <--------

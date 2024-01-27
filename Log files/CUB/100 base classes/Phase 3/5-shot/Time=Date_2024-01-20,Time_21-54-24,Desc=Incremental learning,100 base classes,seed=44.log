@@ -1,0 +1,889 @@
+2024-01-20 21:54:24,706:INFO:Inc_Learning:336: ('\nVersion Information: \n\tPyTorch: %s\n\tTorchVision: %s', '2.0.1+cu117', '0.15.2+cu117')
+2024-01-20 21:54:24,715:INFO:Inc_Learning:369: class_permutation is loaded from the permutation file "data/index_list/cub200/num_base_classes=100,num_tasks=11,num_shots=5,seed=44/class_permutation.txt".
+2024-01-20 21:54:26,193:WARNING:Inc_Learning:240: tqdm_enabled is set to False as the program is not running in the debug mode!
+2024-01-20 21:54:26,635:INFO:Inc_Learning:566: The network was trained for 237 epochs, 0 iterations in phase supervised_learning
+2024-01-20 21:54:26,692:INFO:Inc_Learning:643: We have loaded the head parameters from the saved file.
+2024-01-20 21:54:26,692:INFO:Inc_Learning:651: We start from epoch 0, iteration 0
+2024-01-20 21:54:26,692:INFO:Inc_Learning:663: File "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_2,100_classes/P0P1P2,start_time=Date_2024-01-02,Time_09-50-53,seed=41-Best_Model.pt" is loaded
+2024-01-20 21:54:26,748:INFO:Inc_Learning:285: --------------------------------------------------------------------- The given arguments ---------------------------------------------------------------------
+2024-01-20 21:54:26,748:INFO:Inc_Learning:309: experiment_description = "Incremental learning,100 base classes"
+2024-01-20 21:54:26,748:INFO:Inc_Learning:309: phase = "incremental_learning"
+2024-01-20 21:54:26,748:INFO:Inc_Learning:303: Device = "cuda:0"
+2024-01-20 21:54:26,748:INFO:Inc_Learning:307: seed = 44
+2024-01-20 21:54:26,748:INFO:Inc_Learning:307: is_incremental = True
+2024-01-20 21:54:26,748:INFO:Inc_Learning:307: debugging = False
+2024-01-20 21:54:26,748:INFO:Inc_Learning:307: tqdm_enabled = False
+2024-01-20 21:54:26,748:INFO:Inc_Learning:307: resume = False
+2024-01-20 21:54:26,748:INFO:Inc_Learning:309: time_str = "Date_2024-01-20,Time_21-54-24"
+2024-01-20 21:54:26,748:INFO:Inc_Learning:307: image_size = 224
+2024-01-20 21:54:26,748:INFO:Inc_Learning:307: in_channels = 3
+2024-01-20 21:54:26,748:INFO:Inc_Learning:307: batch_size_base = 160
+2024-01-20 21:54:26,748:INFO:Inc_Learning:307: batch_size_test = 160
+2024-01-20 21:54:26,748:INFO:Inc_Learning:307: batch_size_new = 0
+2024-01-20 21:54:26,748:INFO:Inc_Learning:307: batch_size_fine_tuning = 0
+2024-01-20 21:54:26,748:INFO:Inc_Learning:309: settings_file = "Experiments/CUB-200-2011/100_base_classes/5-shot/phase=3,seed=44.toml"
+2024-01-20 21:54:26,749:INFO:Inc_Learning:309: directory_permutation_files = "data/index_list/cub200/num_base_classes=100,num_tasks=11,num_shots=5,seed=44"
+2024-01-20 21:54:26,749:INFO:Inc_Learning:299: The network was previously trained for 0 epochs.
+2024-01-20 21:54:26,749:INFO:Inc_Learning:301: The network was previously trained for 0 iterations.
+2024-01-20 21:54:26,749:INFO:Inc_Learning:307: dino = False
+2024-01-20 21:54:26,749:INFO:Inc_Learning:307: debugging_env = False
+2024-01-20 21:54:26,749:INFO:Inc_Learning:309: model_type = "CCT-21/7x2"
+2024-01-20 21:54:26,749:INFO:Inc_Learning:307: prediction_net_list = []
+2024-01-20 21:54:26,749:INFO:Inc_Learning:314: 
+configs_arch:  {
+  model_type = "CCT-21/7x2"
+  use_BatchNorm = True
+  use_BatchNorm_for_patch_embeddings = True
+  temperature_stochastic_classifier = 16.0
+  temperature_cosine_classifier = 10.0
+  PositionalEmbeddingType = "Learnable"
+  dropout_rate_classifier_head = 0.0
+  number_of_the_first_layers_to_be_frozen = 0
+  classifer_head_type = "Stochastic"
+}
+2024-01-20 21:54:26,749:INFO:Inc_Learning:314: 
+configs_dataset:  {
+  dataroot = "/scratch/gx83/np9254/Datasets/FSCIL/CEC/"
+  dataset_name = "cub200"
+  num_workers = 16
+  total_classes = 200
+  num_base_classes = 100
+  num_tasks = 11
+  num_shots = 5
+  drop_last_base = True
+  num_ways = 10
+}
+2024-01-20 21:54:26,749:INFO:Inc_Learning:314: 
+configs_logger:  {
+  display_interval = 0.5
+  display_freq = 50
+  moving_average_capacity = 50
+  log_file = "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_3,100_classes/5-shot/Time=Date_2024-01-20,Time_21-54-24,Desc=Incremental learning,100 base classes,seed=44.log"
+}
+2024-01-20 21:54:26,749:INFO:Inc_Learning:314: 
+configs_save:  {
+  save_freq_epoch = 10
+  save_freq_iter = 2000
+  time_interval_to_save = 60
+  root = "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_3,100_classes/5-shot"
+  input_file = "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_2,100_classes/P0P1P2,start_time=Date_2024-01-02,Time_09-50-53,seed=41-Best_Model.pt"
+  output_file = "P0P1P2P3,start_time=Date_2024-01-20,Time_21-54-24"
+}
+2024-01-20 21:54:26,749:INFO:Inc_Learning:314: 
+configs_FSCIL:  {
+  num_epochs = [5, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+  update_mu = True
+  fine_tune = True
+  freeze_backbone = True
+  freeze_batch_norm_layers = True
+  freeze_non_batch_norm_layers = True
+  use_delta_parameters_for_base_task = False
+  use_prefixes_for_distance_calculations = True
+  use_shared_covariance = True
+  start_from_task = 0
+  randomize_selected_classes = False
+  use_cache_for_the_base_task = False
+  tasks_or_classes_for_Mahalanobis_distance_calculations = "classes"
+  enable_Mahalanobis_distance = True
+  use_pseudo_labeled_samples_for_task_identification = [True, True, True, True, True, True, True, True, True, True, True]
+  configs_PEFT = {
+    prefix_seq_length = [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+    number_of_layers_for_prefixes = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+    fusion_mode = "last"
+    prefix_or_prompt = "prefix"
+  }  
+  optimizer = {
+    optimizer_name = "AdamW"
+    lr_head = [0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01]
+    lr_prefixes_or_prompts = [0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01]
+    lr = [0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01]
+    lr_backbone = [0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01]
+    momentum = 0.9
+    momentum2 = 0.999
+    dampening = 0
+    nesterov = True
+    weight_decay = [1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05]
+  }  
+  scheduler = {
+    name = "ReduceLROnPlateau"
+    mode = "min"
+    factor = 0.25
+    patience = 5
+    cooldown = 0
+    min_lr = 0
+    verbose = True
+    moving_average_capacity = 10
+  }  
+  evaluation = {
+    ignore_logits_for_other_tasks = True
+    stochastic = True
+  }  
+  PredictionNet = {
+    enabled = True
+    num_epochs = [500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500]
+    separate_PredictionNet_for_each_task = True
+    use_PredictionNet_for_this_task = [True, True, True, True, True, True, True, True, True, True, True]
+    use_pseudo_labeled_test_samples = [False, True, True, True, True, True, True, True, True, True, True]
+    batch_size_for_Pseudo_labelling = 100
+    batch_size_for_PredictionNet = 100
+    n_layers = 1
+    size_hidden_layer = 384
+    use_real_residual_connections = False
+    dropout_rate = 0.0
+    bias = True
+    num_outliers = [8, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    display_freq = 50
+    remember_from_previous_task = True
+    use_the_best_model = False
+    loss = "MSE"
+    optimizer = {
+      optimizer_name = "AdamW"
+      lr = [0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001]
+      momentum = 0.9
+      momentum2 = 0.999
+      dampening = 0.0
+      nesterov = True
+      weight_decay = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    }    
+    scheduler = {
+      name = "ReduceLROnPlateau"
+      mode = "min"
+      factor = 0.25
+      patience = 1000
+      cooldown = 0
+      min_lr = 0
+      verbose = True
+      moving_average_capacity = 10
+    }    
+  }  
+}
+2024-01-20 21:54:26,749:INFO:Inc_Learning:316: --------------------------------------------------------------------------------
+2024-01-20 21:54:26,823:INFO:Inc_Learning:142: The session file "data/index_list/cub200/num_base_classes=100,num_tasks=11,num_shots=5,seed=44/train_samples_for_task=1.txt" is loaded!
+2024-01-20 21:54:26,855:INFO:Inc_Learning:142: The session file "data/index_list/cub200/num_base_classes=100,num_tasks=11,num_shots=5,seed=44/test_samples_for_task=1.txt" is loaded!
+2024-01-20 21:54:26,926:INFO:Inc_Learning:681: The incremental learning phase for task 0 is started ...
+2024-01-20 21:54:26,955:INFO:Inc_Learning:142: The session file "data/index_list/cub200/num_base_classes=100,num_tasks=11,num_shots=5,seed=44/train_samples_for_task=1.txt" is loaded!
+2024-01-20 21:54:26,982:INFO:Inc_Learning:142: The session file "data/index_list/cub200/num_base_classes=100,num_tasks=11,num_shots=5,seed=44/test_samples_for_task=1.txt" is loaded!
+2024-01-20 21:54:27,026:INFO:Inc_Learning:576: Statistics for task identification ...
+2024-01-20 21:54:38,853:INFO:Inc_Learning:270: The pseudo-labeling phase is started ...
+2024-01-20 21:54:53,747:INFO:Inc_Learning:351: The training of the PredictionNet is started.
+2024-01-20 21:55:02,159:INFO:Inc_Learning:463: Epoch: 000/500, MA loss: 0.0730220964178443
+2024-01-20 21:55:02,873:INFO:Inc_Learning:463: Epoch: 050/500, MA loss: 0.014976033475250006
+2024-01-20 21:55:03,588:INFO:Inc_Learning:463: Epoch: 100/500, MA loss: 0.013426868617534638
+2024-01-20 21:55:04,299:INFO:Inc_Learning:463: Epoch: 150/500, MA loss: 0.012901333440095187
+2024-01-20 21:55:05,013:INFO:Inc_Learning:463: Epoch: 200/500, MA loss: 0.012775776814669371
+2024-01-20 21:55:05,726:INFO:Inc_Learning:463: Epoch: 250/500, MA loss: 0.012650754954665899
+2024-01-20 21:55:06,436:INFO:Inc_Learning:463: Epoch: 300/500, MA loss: 0.012519164010882378
+2024-01-20 21:55:07,152:INFO:Inc_Learning:463: Epoch: 350/500, MA loss: 0.012658682744950056
+2024-01-20 21:55:07,864:INFO:Inc_Learning:463: Epoch: 400/500, MA loss: 0.012467644456773997
+2024-01-20 21:55:08,575:INFO:Inc_Learning:463: Epoch: 450/500, MA loss: 0.0123607256449759
+2024-01-20 21:55:09,274:INFO:Inc_Learning:463: Epoch: 499/500, MA loss: 0.012541443388909102
+2024-01-20 21:55:09,274:INFO:Inc_Learning:576: Statistics for task identification ...
+2024-01-20 21:55:22,788:INFO:Inc_Learning:496: Evaluating the test set after task 0 ...
+2024-01-20 21:55:31,141:INFO:Inc_Learning:544: Evaluation Accuracy (oracle) after task 0:  79.22%
+2024-01-20 21:55:31,143:INFO:Inc_Learning:562: Accuracy (Oracle) for task 0 =  79.22%
+2024-01-20 21:55:31,157:INFO:Inc_Learning:692: The incremental learning phase for task 0 is finished!
+2024-01-20 21:55:31,157:INFO:Inc_Learning:557: Estimated remaining time: 5 minutes and 21 seconds
+2024-01-20 21:55:31,158:INFO:Inc_Learning:681: The incremental learning phase for task 1 is started ...
+2024-01-20 21:55:31,158:INFO:Inc_Learning:318: Prefixes are randomly initialized for task 1.
+2024-01-20 21:55:31,158:INFO:Inc_Learning:269: The PredictionNet is copied from the previous task.
+2024-01-20 21:55:31,187:INFO:Inc_Learning:142: The session file "data/index_list/cub200/num_base_classes=100,num_tasks=11,num_shots=5,seed=44/train_samples_for_task=2.txt" is loaded!
+2024-01-20 21:55:31,215:INFO:Inc_Learning:142: The session file "data/index_list/cub200/num_base_classes=100,num_tasks=11,num_shots=5,seed=44/test_samples_for_task=2.txt" is loaded!
+2024-01-20 21:55:33,721:INFO:Inc_Learning:213: Epoch: 1/10
+2024-01-20 21:55:35,449:INFO:Inc_Learning:256: Epoch 1/10 Train Accuracy:  92.00%
+2024-01-20 21:55:35,449:INFO:Inc_Learning:257: Epoch 1/10 Average Loss: 0.21296364068984985 / MA Loss: 0.21296364068984985
+2024-01-20 21:55:35,449:INFO:Inc_Learning:213: Epoch: 2/10
+2024-01-20 21:55:37,186:INFO:Inc_Learning:256: Epoch 2/10 Train Accuracy:  92.00%
+2024-01-20 21:55:37,186:INFO:Inc_Learning:257: Epoch 2/10 Average Loss: 0.23944364488124847 / MA Loss: 0.22620364278554916
+2024-01-20 21:55:37,186:INFO:Inc_Learning:213: Epoch: 3/10
+2024-01-20 21:55:38,841:INFO:Inc_Learning:256: Epoch 3/10 Train Accuracy:  100.00%
+2024-01-20 21:55:38,842:INFO:Inc_Learning:257: Epoch 3/10 Average Loss: 0.08793599903583527 / MA Loss: 0.1801144282023112
+2024-01-20 21:55:38,842:INFO:Inc_Learning:213: Epoch: 4/10
+2024-01-20 21:55:40,509:INFO:Inc_Learning:256: Epoch 4/10 Train Accuracy:  100.00%
+2024-01-20 21:55:40,510:INFO:Inc_Learning:257: Epoch 4/10 Average Loss: 0.04693205654621124 / MA Loss: 0.1468188352882862
+2024-01-20 21:55:40,510:INFO:Inc_Learning:213: Epoch: 5/10
+2024-01-20 21:55:42,303:INFO:Inc_Learning:256: Epoch 5/10 Train Accuracy:  94.00%
+2024-01-20 21:55:42,303:INFO:Inc_Learning:257: Epoch 5/10 Average Loss: 0.19099317491054535 / MA Loss: 0.15565370321273803
+2024-01-20 21:55:42,304:INFO:Inc_Learning:213: Epoch: 6/10
+2024-01-20 21:55:44,131:INFO:Inc_Learning:256: Epoch 6/10 Train Accuracy:  96.00%
+2024-01-20 21:55:44,132:INFO:Inc_Learning:257: Epoch 6/10 Average Loss: 0.10254628956317902 / MA Loss: 0.1468024676044782
+2024-01-20 21:55:44,132:INFO:Inc_Learning:213: Epoch: 7/10
+2024-01-20 21:55:45,942:INFO:Inc_Learning:256: Epoch 7/10 Train Accuracy:  98.00%
+2024-01-20 21:55:45,942:INFO:Inc_Learning:257: Epoch 7/10 Average Loss: 0.07208158820867538 / MA Loss: 0.13612805626222066
+2024-01-20 21:55:45,942:INFO:Inc_Learning:213: Epoch: 8/10
+2024-01-20 21:55:47,796:INFO:Inc_Learning:256: Epoch 8/10 Train Accuracy:  100.00%
+2024-01-20 21:55:47,796:INFO:Inc_Learning:257: Epoch 8/10 Average Loss: 0.041043199598789215 / MA Loss: 0.12424244917929173
+2024-01-20 21:55:47,796:INFO:Inc_Learning:213: Epoch: 9/10
+2024-01-20 21:55:49,528:INFO:Inc_Learning:256: Epoch 9/10 Train Accuracy:  98.00%
+2024-01-20 21:55:49,528:INFO:Inc_Learning:257: Epoch 9/10 Average Loss: 0.08723397552967072 / MA Loss: 0.12013039655155605
+2024-01-20 21:55:49,528:INFO:Inc_Learning:213: Epoch: 10/10
+2024-01-20 21:55:51,160:INFO:Inc_Learning:256: Epoch 10/10 Train Accuracy:  96.00%
+2024-01-20 21:55:51,160:INFO:Inc_Learning:257: Epoch 10/10 Average Loss: 0.14559650421142578 / MA Loss: 0.12267700731754302
+2024-01-20 21:55:51,199:INFO:Inc_Learning:576: Statistics for task identification ...
+2024-01-20 21:55:52,832:INFO:Inc_Learning:270: The pseudo-labeling phase is started ...
+2024-01-20 21:56:14,877:INFO:Inc_Learning:351: The training of the PredictionNet is started.
+2024-01-20 21:56:15,178:INFO:Inc_Learning:463: Epoch: 000/500, MA loss: 0.049111027270555496
+2024-01-20 21:56:15,222:INFO:Inc_Learning:463: Epoch: 050/500, MA loss: 0.00015044992615003138
+2024-01-20 21:56:15,268:INFO:Inc_Learning:463: Epoch: 100/500, MA loss: 9.460271996886149e-07
+2024-01-20 21:56:15,313:INFO:Inc_Learning:463: Epoch: 150/500, MA loss: 5.295029370522286e-09
+2024-01-20 21:56:15,358:INFO:Inc_Learning:463: Epoch: 200/500, MA loss: 2.8834596342564022e-11
+2024-01-20 21:56:15,403:INFO:Inc_Learning:463: Epoch: 250/500, MA loss: 1.6957065227885328e-13
+2024-01-20 21:56:15,448:INFO:Inc_Learning:463: Epoch: 300/500, MA loss: 1.2986858754497242e-15
+2024-01-20 21:56:15,493:INFO:Inc_Learning:463: Epoch: 350/500, MA loss: 4.1581527654049367e-16
+2024-01-20 21:56:15,538:INFO:Inc_Learning:463: Epoch: 400/500, MA loss: 4.4168972697614674e-16
+2024-01-20 21:56:15,584:INFO:Inc_Learning:463: Epoch: 450/500, MA loss: 4.627689703726715e-16
+2024-01-20 21:56:15,628:INFO:Inc_Learning:463: Epoch: 499/500, MA loss: 5.093622675676604e-16
+2024-01-20 21:56:15,628:INFO:Inc_Learning:576: Statistics for task identification ...
+2024-01-20 21:56:15,981:INFO:Inc_Learning:496: Evaluating the test set after task 1 ...
+2024-01-20 21:56:42,636:INFO:Inc_Learning:544: Evaluation Accuracy (oracle) after task 1:  79.61%
+2024-01-20 21:56:42,637:INFO:Inc_Learning:555: Evaluation Accuracy after task 1:  76.52%
+2024-01-20 21:56:42,637:INFO:Inc_Learning:556: Accuracy of task-id detection after task 1:  95.10%
+2024-01-20 21:56:42,637:INFO:Inc_Learning:562: Accuracy (Oracle) for task 0 =  79.40%
+2024-01-20 21:56:42,637:INFO:Inc_Learning:566: Accuracy of task 0 =  79.02%
+2024-01-20 21:56:42,638:INFO:Inc_Learning:562: Accuracy (Oracle) for task 1 =  81.72%
+2024-01-20 21:56:42,638:INFO:Inc_Learning:566: Accuracy of task 1 =  50.90%
+2024-01-20 21:56:42,647:INFO:Inc_Learning:692: The incremental learning phase for task 1 is finished!
+2024-01-20 21:56:42,647:INFO:Inc_Learning:557: Estimated remaining time: 6 minutes and 47 seconds
+2024-01-20 21:56:42,648:INFO:Inc_Learning:681: The incremental learning phase for task 2 is started ...
+2024-01-20 21:56:42,648:INFO:Inc_Learning:322: Prefixes are copied from task 1.
+2024-01-20 21:56:42,648:INFO:Inc_Learning:269: The PredictionNet is copied from the previous task.
+2024-01-20 21:56:42,676:INFO:Inc_Learning:142: The session file "data/index_list/cub200/num_base_classes=100,num_tasks=11,num_shots=5,seed=44/train_samples_for_task=3.txt" is loaded!
+2024-01-20 21:56:42,704:INFO:Inc_Learning:142: The session file "data/index_list/cub200/num_base_classes=100,num_tasks=11,num_shots=5,seed=44/test_samples_for_task=3.txt" is loaded!
+2024-01-20 21:56:45,000:INFO:Inc_Learning:213: Epoch: 1/10
+2024-01-20 21:56:46,703:INFO:Inc_Learning:256: Epoch 1/10 Train Accuracy:  86.00%
+2024-01-20 21:56:46,703:INFO:Inc_Learning:257: Epoch 1/10 Average Loss: 0.5484350323677063 / MA Loss: 0.5484350323677063
+2024-01-20 21:56:46,704:INFO:Inc_Learning:213: Epoch: 2/10
+2024-01-20 21:56:48,611:INFO:Inc_Learning:256: Epoch 2/10 Train Accuracy:  84.00%
+2024-01-20 21:56:48,611:INFO:Inc_Learning:257: Epoch 2/10 Average Loss: 0.5836813449859619 / MA Loss: 0.5660581886768341
+2024-01-20 21:56:48,612:INFO:Inc_Learning:213: Epoch: 3/10
+2024-01-20 21:56:50,361:INFO:Inc_Learning:256: Epoch 3/10 Train Accuracy:  90.00%
+2024-01-20 21:56:50,361:INFO:Inc_Learning:257: Epoch 3/10 Average Loss: 0.4134294092655182 / MA Loss: 0.5151819288730621
+2024-01-20 21:56:50,361:INFO:Inc_Learning:213: Epoch: 4/10
+2024-01-20 21:56:52,193:INFO:Inc_Learning:256: Epoch 4/10 Train Accuracy:  88.00%
+2024-01-20 21:56:52,193:INFO:Inc_Learning:257: Epoch 4/10 Average Loss: 0.5394026041030884 / MA Loss: 0.5212370976805687
+2024-01-20 21:56:52,193:INFO:Inc_Learning:213: Epoch: 5/10
+2024-01-20 21:56:53,967:INFO:Inc_Learning:256: Epoch 5/10 Train Accuracy:  90.00%
+2024-01-20 21:56:53,967:INFO:Inc_Learning:257: Epoch 5/10 Average Loss: 0.45258423686027527 / MA Loss: 0.50750652551651
+2024-01-20 21:56:53,968:INFO:Inc_Learning:213: Epoch: 6/10
+2024-01-20 21:56:55,734:INFO:Inc_Learning:256: Epoch 6/10 Train Accuracy:  94.00%
+2024-01-20 21:56:55,734:INFO:Inc_Learning:257: Epoch 6/10 Average Loss: 0.35252857208251953 / MA Loss: 0.4816768666108449
+2024-01-20 21:56:55,734:INFO:Inc_Learning:213: Epoch: 7/10
+2024-01-20 21:56:57,500:INFO:Inc_Learning:256: Epoch 7/10 Train Accuracy:  92.00%
+2024-01-20 21:56:57,500:INFO:Inc_Learning:257: Epoch 7/10 Average Loss: 0.46323421597480774 / MA Loss: 0.4790422022342682
+2024-01-20 21:56:57,500:INFO:Inc_Learning:213: Epoch: 8/10
+2024-01-20 21:56:59,188:INFO:Inc_Learning:256: Epoch 8/10 Train Accuracy:  94.00%
+2024-01-20 21:56:59,189:INFO:Inc_Learning:257: Epoch 8/10 Average Loss: 0.32031047344207764 / MA Loss: 0.45920073613524437
+2024-01-20 21:56:59,189:INFO:Inc_Learning:213: Epoch: 9/10
+2024-01-20 21:57:00,950:INFO:Inc_Learning:256: Epoch 9/10 Train Accuracy:  94.00%
+2024-01-20 21:57:00,951:INFO:Inc_Learning:257: Epoch 9/10 Average Loss: 0.37367042899131775 / MA Loss: 0.4496973686748081
+2024-01-20 21:57:00,951:INFO:Inc_Learning:213: Epoch: 10/10
+2024-01-20 21:57:02,727:INFO:Inc_Learning:256: Epoch 10/10 Train Accuracy:  88.00%
+2024-01-20 21:57:02,727:INFO:Inc_Learning:257: Epoch 10/10 Average Loss: 0.4087841510772705 / MA Loss: 0.44560604691505434
+2024-01-20 21:57:02,773:INFO:Inc_Learning:576: Statistics for task identification ...
+2024-01-20 21:57:04,729:INFO:Inc_Learning:270: The pseudo-labeling phase is started ...
+2024-01-20 21:57:34,879:INFO:Inc_Learning:351: The training of the PredictionNet is started.
+2024-01-20 21:57:35,282:INFO:Inc_Learning:463: Epoch: 000/500, MA loss: 0.0496056042611599
+2024-01-20 21:57:35,327:INFO:Inc_Learning:463: Epoch: 050/500, MA loss: 0.00014507030209642835
+2024-01-20 21:57:35,372:INFO:Inc_Learning:463: Epoch: 100/500, MA loss: 9.335416905287275e-07
+2024-01-20 21:57:35,417:INFO:Inc_Learning:463: Epoch: 150/500, MA loss: 5.308227746247951e-09
+2024-01-20 21:57:35,461:INFO:Inc_Learning:463: Epoch: 200/500, MA loss: 2.9167187588774454e-11
+2024-01-20 21:57:35,506:INFO:Inc_Learning:463: Epoch: 250/500, MA loss: 1.4030349917894951e-11
+2024-01-20 21:57:35,551:INFO:Inc_Learning:463: Epoch: 300/500, MA loss: 7.160569779913334e-10
+2024-01-20 21:57:35,595:INFO:Inc_Learning:463: Epoch: 350/500, MA loss: 5.855931911111556e-12
+2024-01-20 21:57:35,640:INFO:Inc_Learning:463: Epoch: 400/500, MA loss: 5.4060553501316865e-14
+2024-01-20 21:57:35,685:INFO:Inc_Learning:463: Epoch: 450/500, MA loss: 5.151014739800206e-14
+2024-01-20 21:57:35,728:INFO:Inc_Learning:463: Epoch: 499/500, MA loss: 3.5298878120829103e-09
+2024-01-20 21:57:35,729:INFO:Inc_Learning:576: Statistics for task identification ...
+2024-01-20 21:57:36,183:INFO:Inc_Learning:496: Evaluating the test set after task 2 ...
+2024-01-20 21:58:11,156:INFO:Inc_Learning:544: Evaluation Accuracy (oracle) after task 2:  77.03%
+2024-01-20 21:58:11,156:INFO:Inc_Learning:555: Evaluation Accuracy after task 2:  72.74%
+2024-01-20 21:58:11,156:INFO:Inc_Learning:556: Accuracy of task-id detection after task 2:  92.33%
+2024-01-20 21:58:11,157:INFO:Inc_Learning:562: Accuracy (Oracle) for task 0 =  79.33%
+2024-01-20 21:58:11,157:INFO:Inc_Learning:566: Accuracy of task 0 =  77.76%
+2024-01-20 21:58:11,157:INFO:Inc_Learning:562: Accuracy (Oracle) for task 1 =  81.72%
+2024-01-20 21:58:11,157:INFO:Inc_Learning:566: Accuracy of task 1 =  50.18%
+2024-01-20 21:58:11,158:INFO:Inc_Learning:562: Accuracy (Oracle) for task 2 =  49.48%
+2024-01-20 21:58:11,158:INFO:Inc_Learning:566: Accuracy of task 2 =  44.60%
+2024-01-20 21:58:11,165:INFO:Inc_Learning:692: The incremental learning phase for task 2 is finished!
+2024-01-20 21:58:11,165:INFO:Inc_Learning:557: Estimated remaining time: 7 minutes and 28 seconds
+2024-01-20 21:58:11,166:INFO:Inc_Learning:681: The incremental learning phase for task 3 is started ...
+2024-01-20 21:58:11,166:INFO:Inc_Learning:322: Prefixes are copied from task 2.
+2024-01-20 21:58:11,166:INFO:Inc_Learning:269: The PredictionNet is copied from the previous task.
+2024-01-20 21:58:11,194:INFO:Inc_Learning:142: The session file "data/index_list/cub200/num_base_classes=100,num_tasks=11,num_shots=5,seed=44/train_samples_for_task=4.txt" is loaded!
+2024-01-20 21:58:11,222:INFO:Inc_Learning:142: The session file "data/index_list/cub200/num_base_classes=100,num_tasks=11,num_shots=5,seed=44/test_samples_for_task=4.txt" is loaded!
+2024-01-20 21:58:13,446:INFO:Inc_Learning:213: Epoch: 1/10
+2024-01-20 21:58:15,268:INFO:Inc_Learning:256: Epoch 1/10 Train Accuracy:  84.00%
+2024-01-20 21:58:15,269:INFO:Inc_Learning:257: Epoch 1/10 Average Loss: 0.7076944708824158 / MA Loss: 0.7076944708824158
+2024-01-20 21:58:15,269:INFO:Inc_Learning:213: Epoch: 2/10
+2024-01-20 21:58:17,115:INFO:Inc_Learning:256: Epoch 2/10 Train Accuracy:  82.00%
+2024-01-20 21:58:17,116:INFO:Inc_Learning:257: Epoch 2/10 Average Loss: 0.6569843292236328 / MA Loss: 0.6823394000530243
+2024-01-20 21:58:17,116:INFO:Inc_Learning:213: Epoch: 3/10
+2024-01-20 21:58:18,978:INFO:Inc_Learning:256: Epoch 3/10 Train Accuracy:  86.00%
+2024-01-20 21:58:18,979:INFO:Inc_Learning:257: Epoch 3/10 Average Loss: 0.5502908229827881 / MA Loss: 0.6383232076962789
+2024-01-20 21:58:18,979:INFO:Inc_Learning:213: Epoch: 4/10
+2024-01-20 21:58:20,746:INFO:Inc_Learning:256: Epoch 4/10 Train Accuracy:  90.00%
+2024-01-20 21:58:20,746:INFO:Inc_Learning:257: Epoch 4/10 Average Loss: 0.5807397365570068 / MA Loss: 0.6239273399114609
+2024-01-20 21:58:20,746:INFO:Inc_Learning:213: Epoch: 5/10
+2024-01-20 21:58:22,714:INFO:Inc_Learning:256: Epoch 5/10 Train Accuracy:  90.00%
+2024-01-20 21:58:22,714:INFO:Inc_Learning:257: Epoch 5/10 Average Loss: 0.5034369230270386 / MA Loss: 0.5998292565345764
+2024-01-20 21:58:22,715:INFO:Inc_Learning:213: Epoch: 6/10
+2024-01-20 21:58:24,531:INFO:Inc_Learning:256: Epoch 6/10 Train Accuracy:  96.00%
+2024-01-20 21:58:24,531:INFO:Inc_Learning:257: Epoch 6/10 Average Loss: 0.4791939854621887 / MA Loss: 0.5797233780225118
+2024-01-20 21:58:24,532:INFO:Inc_Learning:213: Epoch: 7/10
+2024-01-20 21:58:26,412:INFO:Inc_Learning:256: Epoch 7/10 Train Accuracy:  90.00%
+2024-01-20 21:58:26,412:INFO:Inc_Learning:257: Epoch 7/10 Average Loss: 0.5246831178665161 / MA Loss: 0.5718604837145124
+2024-01-20 21:58:26,413:INFO:Inc_Learning:213: Epoch: 8/10
+2024-01-20 21:58:28,220:INFO:Inc_Learning:256: Epoch 8/10 Train Accuracy:  92.00%
+2024-01-20 21:58:28,221:INFO:Inc_Learning:257: Epoch 8/10 Average Loss: 0.5257532596588135 / MA Loss: 0.56609708070755
+2024-01-20 21:58:28,221:INFO:Inc_Learning:213: Epoch: 9/10
+2024-01-20 21:58:30,040:INFO:Inc_Learning:256: Epoch 9/10 Train Accuracy:  98.00%
+2024-01-20 21:58:30,040:INFO:Inc_Learning:257: Epoch 9/10 Average Loss: 0.2786581516265869 / MA Loss: 0.5341594219207764
+2024-01-20 21:58:30,041:INFO:Inc_Learning:213: Epoch: 10/10
+2024-01-20 21:58:31,802:INFO:Inc_Learning:256: Epoch 10/10 Train Accuracy:  94.00%
+2024-01-20 21:58:31,802:INFO:Inc_Learning:257: Epoch 10/10 Average Loss: 0.4251633584499359 / MA Loss: 0.5232598155736923
+2024-01-20 21:58:31,849:INFO:Inc_Learning:576: Statistics for task identification ...
+2024-01-20 21:58:33,576:INFO:Inc_Learning:270: The pseudo-labeling phase is started ...
+2024-01-20 21:59:13,182:INFO:Inc_Learning:351: The training of the PredictionNet is started.
+2024-01-20 21:59:13,408:INFO:Inc_Learning:463: Epoch: 000/500, MA loss: 0.048454876989126205
+2024-01-20 21:59:13,452:INFO:Inc_Learning:463: Epoch: 050/500, MA loss: 0.0001417736646544654
+2024-01-20 21:59:13,497:INFO:Inc_Learning:463: Epoch: 100/500, MA loss: 8.574914318160154e-07
+2024-01-20 21:59:13,541:INFO:Inc_Learning:463: Epoch: 150/500, MA loss: 5.126130209198721e-09
+2024-01-20 21:59:13,586:INFO:Inc_Learning:463: Epoch: 200/500, MA loss: 2.933998896614831e-08
+2024-01-20 21:59:13,630:INFO:Inc_Learning:463: Epoch: 250/500, MA loss: 1.554972613995384e-10
+2024-01-20 21:59:13,675:INFO:Inc_Learning:463: Epoch: 300/500, MA loss: 1.1176305439117036e-12
+2024-01-20 21:59:13,719:INFO:Inc_Learning:463: Epoch: 350/500, MA loss: 1.7772254005368921e-13
+2024-01-20 21:59:13,764:INFO:Inc_Learning:463: Epoch: 400/500, MA loss: 3.897806011288196e-09
+2024-01-20 21:59:13,808:INFO:Inc_Learning:463: Epoch: 450/500, MA loss: 1.6775053369999516e-08
+2024-01-20 21:59:13,852:INFO:Inc_Learning:463: Epoch: 499/500, MA loss: 3.372637832855727e-10
+2024-01-20 21:59:13,852:INFO:Inc_Learning:576: Statistics for task identification ...
+2024-01-20 21:59:14,129:INFO:Inc_Learning:496: Evaluating the test set after task 3 ...
+2024-01-20 21:59:59,185:INFO:Inc_Learning:544: Evaluation Accuracy (oracle) after task 3:  75.13%
+2024-01-20 21:59:59,186:INFO:Inc_Learning:555: Evaluation Accuracy after task 3:  68.83%
+2024-01-20 21:59:59,186:INFO:Inc_Learning:556: Accuracy of task-id detection after task 3:  87.96%
+2024-01-20 21:59:59,186:INFO:Inc_Learning:562: Accuracy (Oracle) for task 0 =  79.22%
+2024-01-20 21:59:59,187:INFO:Inc_Learning:566: Accuracy of task 0 =  77.30%
+2024-01-20 21:59:59,187:INFO:Inc_Learning:562: Accuracy (Oracle) for task 1 =  81.00%
+2024-01-20 21:59:59,187:INFO:Inc_Learning:566: Accuracy of task 1 =  49.10%
+2024-01-20 21:59:59,187:INFO:Inc_Learning:562: Accuracy (Oracle) for task 2 =  50.17%
+2024-01-20 21:59:59,187:INFO:Inc_Learning:566: Accuracy of task 2 =  44.25%
+2024-01-20 21:59:59,187:INFO:Inc_Learning:562: Accuracy (Oracle) for task 3 =  54.36%
+2024-01-20 21:59:59,188:INFO:Inc_Learning:566: Accuracy of task 3 =  29.53%
+2024-01-20 21:59:59,194:INFO:Inc_Learning:692: The incremental learning phase for task 3 is finished!
+2024-01-20 21:59:59,194:INFO:Inc_Learning:557: Estimated remaining time: 7 minutes and 45 seconds
+2024-01-20 21:59:59,194:INFO:Inc_Learning:681: The incremental learning phase for task 4 is started ...
+2024-01-20 21:59:59,194:INFO:Inc_Learning:322: Prefixes are copied from task 3.
+2024-01-20 21:59:59,195:INFO:Inc_Learning:269: The PredictionNet is copied from the previous task.
+2024-01-20 21:59:59,222:INFO:Inc_Learning:142: The session file "data/index_list/cub200/num_base_classes=100,num_tasks=11,num_shots=5,seed=44/train_samples_for_task=5.txt" is loaded!
+2024-01-20 21:59:59,251:INFO:Inc_Learning:142: The session file "data/index_list/cub200/num_base_classes=100,num_tasks=11,num_shots=5,seed=44/test_samples_for_task=5.txt" is loaded!
+2024-01-20 22:00:01,492:INFO:Inc_Learning:213: Epoch: 1/10
+2024-01-20 22:00:03,368:INFO:Inc_Learning:256: Epoch 1/10 Train Accuracy:  94.00%
+2024-01-20 22:00:03,369:INFO:Inc_Learning:257: Epoch 1/10 Average Loss: 0.2637289762496948 / MA Loss: 0.2637289762496948
+2024-01-20 22:00:03,369:INFO:Inc_Learning:213: Epoch: 2/10
+2024-01-20 22:00:05,216:INFO:Inc_Learning:256: Epoch 2/10 Train Accuracy:  86.00%
+2024-01-20 22:00:05,217:INFO:Inc_Learning:257: Epoch 2/10 Average Loss: 0.39646652340888977 / MA Loss: 0.3300977498292923
+2024-01-20 22:00:05,217:INFO:Inc_Learning:213: Epoch: 3/10
+2024-01-20 22:00:07,094:INFO:Inc_Learning:256: Epoch 3/10 Train Accuracy:  90.00%
+2024-01-20 22:00:07,094:INFO:Inc_Learning:257: Epoch 3/10 Average Loss: 0.25555431842803955 / MA Loss: 0.30524993936220807
+2024-01-20 22:00:07,094:INFO:Inc_Learning:213: Epoch: 4/10
+2024-01-20 22:00:08,810:INFO:Inc_Learning:256: Epoch 4/10 Train Accuracy:  92.00%
+2024-01-20 22:00:08,810:INFO:Inc_Learning:257: Epoch 4/10 Average Loss: 0.2263367474079132 / MA Loss: 0.28552164137363434
+2024-01-20 22:00:08,810:INFO:Inc_Learning:213: Epoch: 5/10
+2024-01-20 22:00:10,555:INFO:Inc_Learning:256: Epoch 5/10 Train Accuracy:  88.00%
+2024-01-20 22:00:10,555:INFO:Inc_Learning:257: Epoch 5/10 Average Loss: 0.33934706449508667 / MA Loss: 0.2962867259979248
+2024-01-20 22:00:10,556:INFO:Inc_Learning:213: Epoch: 6/10
+2024-01-20 22:00:12,323:INFO:Inc_Learning:256: Epoch 6/10 Train Accuracy:  88.00%
+2024-01-20 22:00:12,323:INFO:Inc_Learning:257: Epoch 6/10 Average Loss: 0.4341539144515991 / MA Loss: 0.31926459074020386
+2024-01-20 22:00:12,324:INFO:Inc_Learning:213: Epoch: 7/10
+2024-01-20 22:00:14,124:INFO:Inc_Learning:256: Epoch 7/10 Train Accuracy:  98.00%
+2024-01-20 22:00:14,124:INFO:Inc_Learning:257: Epoch 7/10 Average Loss: 0.17029376327991486 / MA Loss: 0.29798304396016256
+2024-01-20 22:00:14,124:INFO:Inc_Learning:213: Epoch: 8/10
+2024-01-20 22:00:15,914:INFO:Inc_Learning:256: Epoch 8/10 Train Accuracy:  84.00%
+2024-01-20 22:00:15,914:INFO:Inc_Learning:257: Epoch 8/10 Average Loss: 0.3987646996974945 / MA Loss: 0.31058075092732906
+2024-01-20 22:00:15,915:INFO:Inc_Learning:213: Epoch: 9/10
+2024-01-20 22:00:17,783:INFO:Inc_Learning:256: Epoch 9/10 Train Accuracy:  92.00%
+2024-01-20 22:00:17,783:INFO:Inc_Learning:257: Epoch 9/10 Average Loss: 0.27724921703338623 / MA Loss: 0.3068772471613354
+2024-01-20 22:00:17,783:INFO:Inc_Learning:213: Epoch: 10/10
+2024-01-20 22:00:19,544:INFO:Inc_Learning:256: Epoch 10/10 Train Accuracy:  98.00%
+2024-01-20 22:00:19,544:INFO:Inc_Learning:257: Epoch 10/10 Average Loss: 0.09369922429323196 / MA Loss: 0.28555944487452506
+2024-01-20 22:00:19,590:INFO:Inc_Learning:576: Statistics for task identification ...
+2024-01-20 22:00:21,246:INFO:Inc_Learning:270: The pseudo-labeling phase is started ...
+2024-01-20 22:01:10,986:INFO:Inc_Learning:351: The training of the PredictionNet is started.
+2024-01-20 22:01:11,255:INFO:Inc_Learning:463: Epoch: 000/500, MA loss: 0.04921409487724304
+2024-01-20 22:01:11,299:INFO:Inc_Learning:463: Epoch: 050/500, MA loss: 0.00015121045653359032
+2024-01-20 22:01:11,343:INFO:Inc_Learning:463: Epoch: 100/500, MA loss: 8.912553653317445e-07
+2024-01-20 22:01:11,388:INFO:Inc_Learning:463: Epoch: 150/500, MA loss: 4.994891300569293e-09
+2024-01-20 22:01:11,432:INFO:Inc_Learning:463: Epoch: 200/500, MA loss: 2.928638009186413e-11
+2024-01-20 22:01:11,476:INFO:Inc_Learning:463: Epoch: 250/500, MA loss: 1.6340897751143494e-13
+2024-01-20 22:01:11,521:INFO:Inc_Learning:463: Epoch: 300/500, MA loss: 1.2815260467295362e-15
+2024-01-20 22:01:11,565:INFO:Inc_Learning:463: Epoch: 350/500, MA loss: 3.7578430622386433e-16
+2024-01-20 22:01:11,609:INFO:Inc_Learning:463: Epoch: 400/500, MA loss: 6.936930534475053e-16
+2024-01-20 22:01:11,653:INFO:Inc_Learning:463: Epoch: 450/500, MA loss: 1.3796102357743755e-09
+2024-01-20 22:01:11,697:INFO:Inc_Learning:463: Epoch: 499/500, MA loss: 1.0863135543014157e-11
+2024-01-20 22:01:11,697:INFO:Inc_Learning:576: Statistics for task identification ...
+2024-01-20 22:01:12,042:INFO:Inc_Learning:496: Evaluating the test set after task 4 ...
+2024-01-20 22:02:08,347:INFO:Inc_Learning:544: Evaluation Accuracy (oracle) after task 4:  74.83%
+2024-01-20 22:02:08,348:INFO:Inc_Learning:555: Evaluation Accuracy after task 4:  66.56%
+2024-01-20 22:02:08,348:INFO:Inc_Learning:556: Accuracy of task-id detection after task 4:  84.29%
+2024-01-20 22:02:08,348:INFO:Inc_Learning:562: Accuracy (Oracle) for task 0 =  79.43%
+2024-01-20 22:02:08,348:INFO:Inc_Learning:566: Accuracy of task 0 =  76.43%
+2024-01-20 22:02:08,348:INFO:Inc_Learning:562: Accuracy (Oracle) for task 1 =  81.72%
+2024-01-20 22:02:08,348:INFO:Inc_Learning:566: Accuracy of task 1 =  48.39%
+2024-01-20 22:02:08,349:INFO:Inc_Learning:562: Accuracy (Oracle) for task 2 =  48.43%
+2024-01-20 22:02:08,349:INFO:Inc_Learning:566: Accuracy of task 2 =  43.21%
+2024-01-20 22:02:08,349:INFO:Inc_Learning:562: Accuracy (Oracle) for task 3 =  52.35%
+2024-01-20 22:02:08,349:INFO:Inc_Learning:566: Accuracy of task 3 =  32.89%
+2024-01-20 22:02:08,349:INFO:Inc_Learning:562: Accuracy (Oracle) for task 4 =  72.00%
+2024-01-20 22:02:08,349:INFO:Inc_Learning:566: Accuracy of task 4 =  45.00%
+2024-01-20 22:02:08,354:INFO:Inc_Learning:692: The incremental learning phase for task 4 is finished!
+2024-01-20 22:02:08,355:INFO:Inc_Learning:557: Estimated remaining time: 7 minutes and 41 seconds
+2024-01-20 22:02:08,355:INFO:Inc_Learning:681: The incremental learning phase for task 5 is started ...
+2024-01-20 22:02:08,355:INFO:Inc_Learning:322: Prefixes are copied from task 4.
+2024-01-20 22:02:08,355:INFO:Inc_Learning:269: The PredictionNet is copied from the previous task.
+2024-01-20 22:02:08,384:INFO:Inc_Learning:142: The session file "data/index_list/cub200/num_base_classes=100,num_tasks=11,num_shots=5,seed=44/train_samples_for_task=6.txt" is loaded!
+2024-01-20 22:02:08,413:INFO:Inc_Learning:142: The session file "data/index_list/cub200/num_base_classes=100,num_tasks=11,num_shots=5,seed=44/test_samples_for_task=6.txt" is loaded!
+2024-01-20 22:02:10,595:INFO:Inc_Learning:213: Epoch: 1/10
+2024-01-20 22:02:12,360:INFO:Inc_Learning:256: Epoch 1/10 Train Accuracy:  90.00%
+2024-01-20 22:02:12,361:INFO:Inc_Learning:257: Epoch 1/10 Average Loss: 0.4614030122756958 / MA Loss: 0.4614030122756958
+2024-01-20 22:02:12,361:INFO:Inc_Learning:213: Epoch: 2/10
+2024-01-20 22:02:14,146:INFO:Inc_Learning:256: Epoch 2/10 Train Accuracy:  84.00%
+2024-01-20 22:02:14,146:INFO:Inc_Learning:257: Epoch 2/10 Average Loss: 0.5924562811851501 / MA Loss: 0.526929646730423
+2024-01-20 22:02:14,147:INFO:Inc_Learning:213: Epoch: 3/10
+2024-01-20 22:02:15,943:INFO:Inc_Learning:256: Epoch 3/10 Train Accuracy:  78.00%
+2024-01-20 22:02:15,943:INFO:Inc_Learning:257: Epoch 3/10 Average Loss: 0.6772029399871826 / MA Loss: 0.5770207444826762
+2024-01-20 22:02:15,943:INFO:Inc_Learning:213: Epoch: 4/10
+2024-01-20 22:02:17,642:INFO:Inc_Learning:256: Epoch 4/10 Train Accuracy:  84.00%
+2024-01-20 22:02:17,642:INFO:Inc_Learning:257: Epoch 4/10 Average Loss: 0.6360122561454773 / MA Loss: 0.5917686223983765
+2024-01-20 22:02:17,642:INFO:Inc_Learning:213: Epoch: 5/10
+2024-01-20 22:02:19,388:INFO:Inc_Learning:256: Epoch 5/10 Train Accuracy:  84.00%
+2024-01-20 22:02:19,389:INFO:Inc_Learning:257: Epoch 5/10 Average Loss: 0.5288707613945007 / MA Loss: 0.5791890501976014
+2024-01-20 22:02:19,389:INFO:Inc_Learning:213: Epoch: 6/10
+2024-01-20 22:02:21,224:INFO:Inc_Learning:256: Epoch 6/10 Train Accuracy:  92.00%
+2024-01-20 22:02:21,225:INFO:Inc_Learning:257: Epoch 6/10 Average Loss: 0.3688662648200989 / MA Loss: 0.5441352526346842
+2024-01-20 22:02:21,225:INFO:Inc_Learning:213: Epoch: 7/10
+2024-01-20 22:02:22,964:INFO:Inc_Learning:256: Epoch 7/10 Train Accuracy:  76.00%
+2024-01-20 22:02:22,964:INFO:Inc_Learning:257: Epoch 7/10 Average Loss: 0.5680534243583679 / MA Loss: 0.5475521343094962
+2024-01-20 22:02:22,965:INFO:Inc_Learning:213: Epoch: 8/10
+2024-01-20 22:02:24,724:INFO:Inc_Learning:256: Epoch 8/10 Train Accuracy:  94.00%
+2024-01-20 22:02:24,725:INFO:Inc_Learning:257: Epoch 8/10 Average Loss: 0.37275299429893494 / MA Loss: 0.525702241808176
+2024-01-20 22:02:24,725:INFO:Inc_Learning:213: Epoch: 9/10
+2024-01-20 22:02:26,373:INFO:Inc_Learning:256: Epoch 9/10 Train Accuracy:  90.00%
+2024-01-20 22:02:26,373:INFO:Inc_Learning:257: Epoch 9/10 Average Loss: 0.37478724122047424 / MA Loss: 0.5089339084095426
+2024-01-20 22:02:26,374:INFO:Inc_Learning:213: Epoch: 10/10
+2024-01-20 22:02:28,248:INFO:Inc_Learning:256: Epoch 10/10 Train Accuracy:  88.00%
+2024-01-20 22:02:28,248:INFO:Inc_Learning:257: Epoch 10/10 Average Loss: 0.427646279335022 / MA Loss: 0.5008051455020904
+2024-01-20 22:02:28,298:INFO:Inc_Learning:576: Statistics for task identification ...
+2024-01-20 22:02:30,039:INFO:Inc_Learning:270: The pseudo-labeling phase is started ...
+2024-01-20 22:03:30,967:INFO:Inc_Learning:351: The training of the PredictionNet is started.
+2024-01-20 22:03:31,434:INFO:Inc_Learning:463: Epoch: 000/500, MA loss: 0.062129080295562744
+2024-01-20 22:03:31,480:INFO:Inc_Learning:463: Epoch: 050/500, MA loss: 0.00018262463199789636
+2024-01-20 22:03:31,525:INFO:Inc_Learning:463: Epoch: 100/500, MA loss: 1.1680747888931364e-06
+2024-01-20 22:03:31,570:INFO:Inc_Learning:463: Epoch: 150/500, MA loss: 6.485173287273938e-09
+2024-01-20 22:03:31,615:INFO:Inc_Learning:463: Epoch: 200/500, MA loss: 3.719289563830497e-11
+2024-01-20 22:03:31,661:INFO:Inc_Learning:463: Epoch: 250/500, MA loss: 2.0714336279245571e-13
+2024-01-20 22:03:31,706:INFO:Inc_Learning:463: Epoch: 300/500, MA loss: 1.4053028866085123e-15
+2024-01-20 22:03:31,750:INFO:Inc_Learning:463: Epoch: 350/500, MA loss: 3.522096772949488e-16
+2024-01-20 22:03:31,795:INFO:Inc_Learning:463: Epoch: 400/500, MA loss: 3.5546952859108227e-16
+2024-01-20 22:03:31,840:INFO:Inc_Learning:463: Epoch: 450/500, MA loss: 3.95441391889861e-16
+2024-01-20 22:03:31,885:INFO:Inc_Learning:463: Epoch: 499/500, MA loss: 4.1204789104329926e-16
+2024-01-20 22:03:31,885:INFO:Inc_Learning:576: Statistics for task identification ...
+2024-01-20 22:03:32,418:INFO:Inc_Learning:496: Evaluating the test set after task 5 ...
+2024-01-20 22:04:40,844:INFO:Inc_Learning:544: Evaluation Accuracy (oracle) after task 5:  73.51%
+2024-01-20 22:04:40,845:INFO:Inc_Learning:555: Evaluation Accuracy after task 5:  64.19%
+2024-01-20 22:04:40,845:INFO:Inc_Learning:556: Accuracy of task-id detection after task 5:  82.20%
+2024-01-20 22:04:40,845:INFO:Inc_Learning:562: Accuracy (Oracle) for task 0 =  79.26%
+2024-01-20 22:04:40,845:INFO:Inc_Learning:566: Accuracy of task 0 =  75.70%
+2024-01-20 22:04:40,846:INFO:Inc_Learning:562: Accuracy (Oracle) for task 1 =  81.72%
+2024-01-20 22:04:40,846:INFO:Inc_Learning:566: Accuracy of task 1 =  47.31%
+2024-01-20 22:04:40,846:INFO:Inc_Learning:562: Accuracy (Oracle) for task 2 =  50.17%
+2024-01-20 22:04:40,846:INFO:Inc_Learning:566: Accuracy of task 2 =  43.21%
+2024-01-20 22:04:40,846:INFO:Inc_Learning:562: Accuracy (Oracle) for task 3 =  51.34%
+2024-01-20 22:04:40,846:INFO:Inc_Learning:566: Accuracy of task 3 =  30.54%
+2024-01-20 22:04:40,847:INFO:Inc_Learning:562: Accuracy (Oracle) for task 4 =  71.00%
+2024-01-20 22:04:40,847:INFO:Inc_Learning:566: Accuracy of task 4 =  46.00%
+2024-01-20 22:04:40,847:INFO:Inc_Learning:562: Accuracy (Oracle) for task 5 =  57.72%
+2024-01-20 22:04:40,847:INFO:Inc_Learning:566: Accuracy of task 5 =  41.61%
+2024-01-20 22:04:40,850:INFO:Inc_Learning:692: The incremental learning phase for task 5 is finished!
+2024-01-20 22:04:40,851:INFO:Inc_Learning:557: Estimated remaining time: 7 minutes and 18 seconds
+2024-01-20 22:04:40,851:INFO:Inc_Learning:681: The incremental learning phase for task 6 is started ...
+2024-01-20 22:04:40,851:INFO:Inc_Learning:322: Prefixes are copied from task 5.
+2024-01-20 22:04:40,852:INFO:Inc_Learning:269: The PredictionNet is copied from the previous task.
+2024-01-20 22:04:40,879:INFO:Inc_Learning:142: The session file "data/index_list/cub200/num_base_classes=100,num_tasks=11,num_shots=5,seed=44/train_samples_for_task=7.txt" is loaded!
+2024-01-20 22:04:40,911:INFO:Inc_Learning:142: The session file "data/index_list/cub200/num_base_classes=100,num_tasks=11,num_shots=5,seed=44/test_samples_for_task=7.txt" is loaded!
+2024-01-20 22:04:43,104:INFO:Inc_Learning:213: Epoch: 1/10
+2024-01-20 22:04:44,832:INFO:Inc_Learning:256: Epoch 1/10 Train Accuracy:  72.00%
+2024-01-20 22:04:44,832:INFO:Inc_Learning:257: Epoch 1/10 Average Loss: 0.7546728253364563 / MA Loss: 0.7546728253364563
+2024-01-20 22:04:44,833:INFO:Inc_Learning:213: Epoch: 2/10
+2024-01-20 22:04:46,657:INFO:Inc_Learning:256: Epoch 2/10 Train Accuracy:  70.00%
+2024-01-20 22:04:46,658:INFO:Inc_Learning:257: Epoch 2/10 Average Loss: 0.8518073558807373 / MA Loss: 0.8032400906085968
+2024-01-20 22:04:46,658:INFO:Inc_Learning:213: Epoch: 3/10
+2024-01-20 22:04:48,297:INFO:Inc_Learning:256: Epoch 3/10 Train Accuracy:  82.00%
+2024-01-20 22:04:48,298:INFO:Inc_Learning:257: Epoch 3/10 Average Loss: 0.600506067276001 / MA Loss: 0.7356620828310648
+2024-01-20 22:04:48,298:INFO:Inc_Learning:213: Epoch: 4/10
+2024-01-20 22:04:50,152:INFO:Inc_Learning:256: Epoch 4/10 Train Accuracy:  88.00%
+2024-01-20 22:04:50,153:INFO:Inc_Learning:257: Epoch 4/10 Average Loss: 0.39741554856300354 / MA Loss: 0.6511004492640495
+2024-01-20 22:04:50,153:INFO:Inc_Learning:213: Epoch: 5/10
+2024-01-20 22:04:51,952:INFO:Inc_Learning:256: Epoch 5/10 Train Accuracy:  88.00%
+2024-01-20 22:04:51,952:INFO:Inc_Learning:257: Epoch 5/10 Average Loss: 0.39609840512275696 / MA Loss: 0.600100040435791
+2024-01-20 22:04:51,953:INFO:Inc_Learning:213: Epoch: 6/10
+2024-01-20 22:04:53,784:INFO:Inc_Learning:256: Epoch 6/10 Train Accuracy:  88.00%
+2024-01-20 22:04:53,784:INFO:Inc_Learning:257: Epoch 6/10 Average Loss: 0.44546177983283997 / MA Loss: 0.5743269970019659
+2024-01-20 22:04:53,785:INFO:Inc_Learning:213: Epoch: 7/10
+2024-01-20 22:04:55,578:INFO:Inc_Learning:256: Epoch 7/10 Train Accuracy:  94.00%
+2024-01-20 22:04:55,578:INFO:Inc_Learning:257: Epoch 7/10 Average Loss: 0.31340354681015015 / MA Loss: 0.537052218403135
+2024-01-20 22:04:55,578:INFO:Inc_Learning:213: Epoch: 8/10
+2024-01-20 22:04:57,362:INFO:Inc_Learning:256: Epoch 8/10 Train Accuracy:  96.00%
+2024-01-20 22:04:57,363:INFO:Inc_Learning:257: Epoch 8/10 Average Loss: 0.29027560353279114 / MA Loss: 0.506205141544342
+2024-01-20 22:04:57,363:INFO:Inc_Learning:213: Epoch: 9/10
+2024-01-20 22:04:59,051:INFO:Inc_Learning:256: Epoch 9/10 Train Accuracy:  96.00%
+2024-01-20 22:04:59,052:INFO:Inc_Learning:257: Epoch 9/10 Average Loss: 0.22995784878730774 / MA Loss: 0.47551099790467155
+2024-01-20 22:04:59,052:INFO:Inc_Learning:213: Epoch: 10/10
+2024-01-20 22:05:00,754:INFO:Inc_Learning:256: Epoch 10/10 Train Accuracy:  92.00%
+2024-01-20 22:05:00,755:INFO:Inc_Learning:257: Epoch 10/10 Average Loss: 0.3702585697174072 / MA Loss: 0.46498575508594514
+2024-01-20 22:05:00,803:INFO:Inc_Learning:576: Statistics for task identification ...
+2024-01-20 22:05:02,312:INFO:Inc_Learning:270: The pseudo-labeling phase is started ...
+2024-01-20 22:06:15,346:INFO:Inc_Learning:351: The training of the PredictionNet is started.
+2024-01-20 22:06:15,760:INFO:Inc_Learning:463: Epoch: 000/500, MA loss: 0.05317597836256027
+2024-01-20 22:06:15,804:INFO:Inc_Learning:463: Epoch: 050/500, MA loss: 0.00015356198491645046
+2024-01-20 22:06:15,849:INFO:Inc_Learning:463: Epoch: 100/500, MA loss: 9.834951811171777e-07
+2024-01-20 22:06:15,893:INFO:Inc_Learning:463: Epoch: 150/500, MA loss: 5.568022354296431e-09
+2024-01-20 22:06:15,937:INFO:Inc_Learning:463: Epoch: 200/500, MA loss: 3.135490946742925e-11
+2024-01-20 22:06:15,981:INFO:Inc_Learning:463: Epoch: 250/500, MA loss: 1.7193081810681908e-13
+2024-01-20 22:06:16,026:INFO:Inc_Learning:463: Epoch: 300/500, MA loss: 1.2454806549503358e-15
+2024-01-20 22:06:16,070:INFO:Inc_Learning:463: Epoch: 350/500, MA loss: 3.3885057540634143e-16
+2024-01-20 22:06:16,114:INFO:Inc_Learning:463: Epoch: 400/500, MA loss: 3.36180602036901e-14
+2024-01-20 22:06:16,159:INFO:Inc_Learning:463: Epoch: 450/500, MA loss: 1.2150327010143624e-09
+2024-01-20 22:06:16,202:INFO:Inc_Learning:463: Epoch: 499/500, MA loss: 6.774853896506265e-12
+2024-01-20 22:06:16,202:INFO:Inc_Learning:576: Statistics for task identification ...
+2024-01-20 22:06:16,678:INFO:Inc_Learning:496: Evaluating the test set after task 6 ...
+2024-01-20 22:07:38,023:INFO:Inc_Learning:544: Evaluation Accuracy (oracle) after task 6:  73.02%
+2024-01-20 22:07:38,024:INFO:Inc_Learning:555: Evaluation Accuracy after task 6:  62.92%
+2024-01-20 22:07:38,024:INFO:Inc_Learning:556: Accuracy of task-id detection after task 6:  80.88%
+2024-01-20 22:07:38,024:INFO:Inc_Learning:562: Accuracy (Oracle) for task 0 =  79.16%
+2024-01-20 22:07:38,025:INFO:Inc_Learning:566: Accuracy of task 0 =  74.48%
+2024-01-20 22:07:38,025:INFO:Inc_Learning:562: Accuracy (Oracle) for task 1 =  81.72%
+2024-01-20 22:07:38,025:INFO:Inc_Learning:566: Accuracy of task 1 =  47.67%
+2024-01-20 22:07:38,025:INFO:Inc_Learning:562: Accuracy (Oracle) for task 2 =  49.48%
+2024-01-20 22:07:38,025:INFO:Inc_Learning:566: Accuracy of task 2 =  42.16%
+2024-01-20 22:07:38,025:INFO:Inc_Learning:562: Accuracy (Oracle) for task 3 =  53.69%
+2024-01-20 22:07:38,026:INFO:Inc_Learning:566: Accuracy of task 3 =  32.89%
+2024-01-20 22:07:38,026:INFO:Inc_Learning:562: Accuracy (Oracle) for task 4 =  71.67%
+2024-01-20 22:07:38,026:INFO:Inc_Learning:566: Accuracy of task 4 =  46.33%
+2024-01-20 22:07:38,026:INFO:Inc_Learning:562: Accuracy (Oracle) for task 5 =  56.71%
+2024-01-20 22:07:38,026:INFO:Inc_Learning:566: Accuracy of task 5 =  42.28%
+2024-01-20 22:07:38,026:INFO:Inc_Learning:562: Accuracy (Oracle) for task 6 =  65.28%
+2024-01-20 22:07:38,027:INFO:Inc_Learning:566: Accuracy of task 6 =  53.12%
+2024-01-20 22:07:38,039:INFO:Inc_Learning:692: The incremental learning phase for task 6 is finished!
+2024-01-20 22:07:38,039:INFO:Inc_Learning:557: Estimated remaining time: 6 minutes and 35 seconds
+2024-01-20 22:07:38,039:INFO:Inc_Learning:681: The incremental learning phase for task 7 is started ...
+2024-01-20 22:07:38,040:INFO:Inc_Learning:322: Prefixes are copied from task 6.
+2024-01-20 22:07:38,040:INFO:Inc_Learning:269: The PredictionNet is copied from the previous task.
+2024-01-20 22:07:38,072:INFO:Inc_Learning:142: The session file "data/index_list/cub200/num_base_classes=100,num_tasks=11,num_shots=5,seed=44/train_samples_for_task=8.txt" is loaded!
+2024-01-20 22:07:38,106:INFO:Inc_Learning:142: The session file "data/index_list/cub200/num_base_classes=100,num_tasks=11,num_shots=5,seed=44/test_samples_for_task=8.txt" is loaded!
+2024-01-20 22:07:40,506:INFO:Inc_Learning:213: Epoch: 1/10
+2024-01-20 22:07:42,341:INFO:Inc_Learning:256: Epoch 1/10 Train Accuracy:  86.00%
+2024-01-20 22:07:42,342:INFO:Inc_Learning:257: Epoch 1/10 Average Loss: 0.4141547381877899 / MA Loss: 0.4141547381877899
+2024-01-20 22:07:42,342:INFO:Inc_Learning:213: Epoch: 2/10
+2024-01-20 22:07:43,970:INFO:Inc_Learning:256: Epoch 2/10 Train Accuracy:  88.00%
+2024-01-20 22:07:43,971:INFO:Inc_Learning:257: Epoch 2/10 Average Loss: 0.4546815752983093 / MA Loss: 0.4344181567430496
+2024-01-20 22:07:43,971:INFO:Inc_Learning:213: Epoch: 3/10
+2024-01-20 22:07:45,691:INFO:Inc_Learning:256: Epoch 3/10 Train Accuracy:  90.00%
+2024-01-20 22:07:45,691:INFO:Inc_Learning:257: Epoch 3/10 Average Loss: 0.45233479142189026 / MA Loss: 0.44039036830266315
+2024-01-20 22:07:45,691:INFO:Inc_Learning:213: Epoch: 4/10
+2024-01-20 22:07:47,433:INFO:Inc_Learning:256: Epoch 4/10 Train Accuracy:  92.00%
+2024-01-20 22:07:47,434:INFO:Inc_Learning:257: Epoch 4/10 Average Loss: 0.3680902123451233 / MA Loss: 0.4223153293132782
+2024-01-20 22:07:47,434:INFO:Inc_Learning:213: Epoch: 5/10
+2024-01-20 22:07:49,065:INFO:Inc_Learning:256: Epoch 5/10 Train Accuracy:  84.00%
+2024-01-20 22:07:49,065:INFO:Inc_Learning:257: Epoch 5/10 Average Loss: 0.5515357851982117 / MA Loss: 0.4481594204902649
+2024-01-20 22:07:49,066:INFO:Inc_Learning:213: Epoch: 6/10
+2024-01-20 22:07:50,909:INFO:Inc_Learning:256: Epoch 6/10 Train Accuracy:  94.00%
+2024-01-20 22:07:50,910:INFO:Inc_Learning:257: Epoch 6/10 Average Loss: 0.3625793159008026 / MA Loss: 0.4338960697253545
+2024-01-20 22:07:50,910:INFO:Inc_Learning:213: Epoch: 7/10
+2024-01-20 22:07:52,892:INFO:Inc_Learning:256: Epoch 7/10 Train Accuracy:  100.00%
+2024-01-20 22:07:52,893:INFO:Inc_Learning:257: Epoch 7/10 Average Loss: 0.17675252258777618 / MA Loss: 0.397161277277129
+2024-01-20 22:07:52,893:INFO:Inc_Learning:213: Epoch: 8/10
+2024-01-20 22:07:54,696:INFO:Inc_Learning:256: Epoch 8/10 Train Accuracy:  98.00%
+2024-01-20 22:07:54,696:INFO:Inc_Learning:257: Epoch 8/10 Average Loss: 0.22420324385166168 / MA Loss: 0.3755415230989456
+2024-01-20 22:07:54,696:INFO:Inc_Learning:213: Epoch: 9/10
+2024-01-20 22:07:56,373:INFO:Inc_Learning:256: Epoch 9/10 Train Accuracy:  96.00%
+2024-01-20 22:07:56,373:INFO:Inc_Learning:257: Epoch 9/10 Average Loss: 0.24569620192050934 / MA Loss: 0.3611142651902305
+2024-01-20 22:07:56,373:INFO:Inc_Learning:213: Epoch: 10/10
+2024-01-20 22:07:58,212:INFO:Inc_Learning:256: Epoch 10/10 Train Accuracy:  94.00%
+2024-01-20 22:07:58,213:INFO:Inc_Learning:257: Epoch 10/10 Average Loss: 0.37483933568000793 / MA Loss: 0.3624867722392082
+2024-01-20 22:07:58,329:INFO:Inc_Learning:576: Statistics for task identification ...
+2024-01-20 22:08:00,024:INFO:Inc_Learning:270: The pseudo-labeling phase is started ...
+2024-01-20 22:09:26,810:INFO:Inc_Learning:351: The training of the PredictionNet is started.
+2024-01-20 22:09:27,237:INFO:Inc_Learning:463: Epoch: 000/500, MA loss: 0.052860237658023834
+2024-01-20 22:09:27,281:INFO:Inc_Learning:463: Epoch: 050/500, MA loss: 0.0001534244824142661
+2024-01-20 22:09:27,326:INFO:Inc_Learning:463: Epoch: 100/500, MA loss: 9.91197828170698e-07
+2024-01-20 22:09:27,371:INFO:Inc_Learning:463: Epoch: 150/500, MA loss: 5.668337221820252e-09
+2024-01-20 22:09:27,416:INFO:Inc_Learning:463: Epoch: 200/500, MA loss: 3.184943610928803e-11
+2024-01-20 22:09:27,460:INFO:Inc_Learning:463: Epoch: 250/500, MA loss: 1.7275632693044413e-13
+2024-01-20 22:09:27,505:INFO:Inc_Learning:463: Epoch: 300/500, MA loss: 1.2963408128896514e-08
+2024-01-20 22:09:27,550:INFO:Inc_Learning:463: Epoch: 350/500, MA loss: 7.26425687831711e-11
+2024-01-20 22:09:27,594:INFO:Inc_Learning:463: Epoch: 400/500, MA loss: 7.312144190141368e-09
+2024-01-20 22:09:27,639:INFO:Inc_Learning:463: Epoch: 450/500, MA loss: 4.686312657375957e-11
+2024-01-20 22:09:27,683:INFO:Inc_Learning:463: Epoch: 499/500, MA loss: 2.2711419959964284e-09
+2024-01-20 22:09:27,683:INFO:Inc_Learning:576: Statistics for task identification ...
+2024-01-20 22:09:28,171:INFO:Inc_Learning:496: Evaluating the test set after task 7 ...
+2024-01-20 22:11:03,746:INFO:Inc_Learning:544: Evaluation Accuracy (oracle) after task 7:  73.33%
+2024-01-20 22:11:03,746:INFO:Inc_Learning:555: Evaluation Accuracy after task 7:  62.86%
+2024-01-20 22:11:03,747:INFO:Inc_Learning:556: Accuracy of task-id detection after task 7:  80.43%
+2024-01-20 22:11:03,747:INFO:Inc_Learning:562: Accuracy (Oracle) for task 0 =  79.54%
+2024-01-20 22:11:03,747:INFO:Inc_Learning:566: Accuracy of task 0 =  74.09%
+2024-01-20 22:11:03,747:INFO:Inc_Learning:562: Accuracy (Oracle) for task 1 =  81.72%
+2024-01-20 22:11:03,747:INFO:Inc_Learning:566: Accuracy of task 1 =  45.52%
+2024-01-20 22:11:03,747:INFO:Inc_Learning:562: Accuracy (Oracle) for task 2 =  50.17%
+2024-01-20 22:11:03,748:INFO:Inc_Learning:566: Accuracy of task 2 =  40.42%
+2024-01-20 22:11:03,748:INFO:Inc_Learning:562: Accuracy (Oracle) for task 3 =  53.02%
+2024-01-20 22:11:03,748:INFO:Inc_Learning:566: Accuracy of task 3 =  35.57%
+2024-01-20 22:11:03,748:INFO:Inc_Learning:562: Accuracy (Oracle) for task 4 =  71.67%
+2024-01-20 22:11:03,748:INFO:Inc_Learning:566: Accuracy of task 4 =  48.67%
+2024-01-20 22:11:03,748:INFO:Inc_Learning:562: Accuracy (Oracle) for task 5 =  57.72%
+2024-01-20 22:11:03,749:INFO:Inc_Learning:566: Accuracy of task 5 =  42.62%
+2024-01-20 22:11:03,749:INFO:Inc_Learning:562: Accuracy (Oracle) for task 6 =  65.28%
+2024-01-20 22:11:03,749:INFO:Inc_Learning:566: Accuracy of task 6 =  55.56%
+2024-01-20 22:11:03,749:INFO:Inc_Learning:562: Accuracy (Oracle) for task 7 =  73.40%
+2024-01-20 22:11:03,749:INFO:Inc_Learning:566: Accuracy of task 7 =  61.62%
+2024-01-20 22:11:03,760:INFO:Inc_Learning:692: The incremental learning phase for task 7 is finished!
+2024-01-20 22:11:03,760:INFO:Inc_Learning:557: Estimated remaining time: 5 minutes and 32 seconds
+2024-01-20 22:11:03,760:INFO:Inc_Learning:681: The incremental learning phase for task 8 is started ...
+2024-01-20 22:11:03,761:INFO:Inc_Learning:322: Prefixes are copied from task 7.
+2024-01-20 22:11:03,761:INFO:Inc_Learning:269: The PredictionNet is copied from the previous task.
+2024-01-20 22:11:03,789:INFO:Inc_Learning:142: The session file "data/index_list/cub200/num_base_classes=100,num_tasks=11,num_shots=5,seed=44/train_samples_for_task=9.txt" is loaded!
+2024-01-20 22:11:03,829:INFO:Inc_Learning:142: The session file "data/index_list/cub200/num_base_classes=100,num_tasks=11,num_shots=5,seed=44/test_samples_for_task=9.txt" is loaded!
+2024-01-20 22:11:06,183:INFO:Inc_Learning:213: Epoch: 1/10
+2024-01-20 22:11:07,953:INFO:Inc_Learning:256: Epoch 1/10 Train Accuracy:  82.00%
+2024-01-20 22:11:07,953:INFO:Inc_Learning:257: Epoch 1/10 Average Loss: 0.5782509446144104 / MA Loss: 0.5782509446144104
+2024-01-20 22:11:07,954:INFO:Inc_Learning:213: Epoch: 2/10
+2024-01-20 22:11:09,717:INFO:Inc_Learning:256: Epoch 2/10 Train Accuracy:  82.00%
+2024-01-20 22:11:09,717:INFO:Inc_Learning:257: Epoch 2/10 Average Loss: 0.6343663334846497 / MA Loss: 0.60630863904953
+2024-01-20 22:11:09,717:INFO:Inc_Learning:213: Epoch: 3/10
+2024-01-20 22:11:11,573:INFO:Inc_Learning:256: Epoch 3/10 Train Accuracy:  88.00%
+2024-01-20 22:11:11,573:INFO:Inc_Learning:257: Epoch 3/10 Average Loss: 0.4169049561023712 / MA Loss: 0.5431740780671438
+2024-01-20 22:11:11,573:INFO:Inc_Learning:213: Epoch: 4/10
+2024-01-20 22:11:13,269:INFO:Inc_Learning:256: Epoch 4/10 Train Accuracy:  94.00%
+2024-01-20 22:11:13,269:INFO:Inc_Learning:257: Epoch 4/10 Average Loss: 0.3061237037181854 / MA Loss: 0.4839114844799042
+2024-01-20 22:11:13,269:INFO:Inc_Learning:213: Epoch: 5/10
+2024-01-20 22:11:14,925:INFO:Inc_Learning:256: Epoch 5/10 Train Accuracy:  92.00%
+2024-01-20 22:11:14,926:INFO:Inc_Learning:257: Epoch 5/10 Average Loss: 0.3428132236003876 / MA Loss: 0.45569183230400084
+2024-01-20 22:11:14,926:INFO:Inc_Learning:213: Epoch: 6/10
+2024-01-20 22:11:16,557:INFO:Inc_Learning:256: Epoch 6/10 Train Accuracy:  90.00%
+2024-01-20 22:11:16,558:INFO:Inc_Learning:257: Epoch 6/10 Average Loss: 0.47533318400382996 / MA Loss: 0.45896539092063904
+2024-01-20 22:11:16,558:INFO:Inc_Learning:213: Epoch: 7/10
+2024-01-20 22:11:18,309:INFO:Inc_Learning:256: Epoch 7/10 Train Accuracy:  94.00%
+2024-01-20 22:11:18,309:INFO:Inc_Learning:257: Epoch 7/10 Average Loss: 0.3301068842411041 / MA Loss: 0.4405570328235626
+2024-01-20 22:11:18,310:INFO:Inc_Learning:213: Epoch: 8/10
+2024-01-20 22:11:20,078:INFO:Inc_Learning:256: Epoch 8/10 Train Accuracy:  94.00%
+2024-01-20 22:11:20,078:INFO:Inc_Learning:257: Epoch 8/10 Average Loss: 0.41228336095809937 / MA Loss: 0.4370228238403797
+2024-01-20 22:11:20,078:INFO:Inc_Learning:213: Epoch: 9/10
+2024-01-20 22:11:21,858:INFO:Inc_Learning:256: Epoch 9/10 Train Accuracy:  92.00%
+2024-01-20 22:11:21,858:INFO:Inc_Learning:257: Epoch 9/10 Average Loss: 0.38718685507774353 / MA Loss: 0.43148549397786456
+2024-01-20 22:11:21,859:INFO:Inc_Learning:213: Epoch: 10/10
+2024-01-20 22:11:23,535:INFO:Inc_Learning:256: Epoch 10/10 Train Accuracy:  88.00%
+2024-01-20 22:11:23,535:INFO:Inc_Learning:257: Epoch 10/10 Average Loss: 0.3622318506240845 / MA Loss: 0.4245601296424866
+2024-01-20 22:11:23,573:INFO:Inc_Learning:576: Statistics for task identification ...
+2024-01-20 22:11:25,326:INFO:Inc_Learning:270: The pseudo-labeling phase is started ...
+2024-01-20 22:13:06,636:INFO:Inc_Learning:351: The training of the PredictionNet is started.
+2024-01-20 22:13:06,895:INFO:Inc_Learning:463: Epoch: 000/500, MA loss: 0.04896553233265877
+2024-01-20 22:13:06,938:INFO:Inc_Learning:463: Epoch: 050/500, MA loss: 0.0001439973602828104
+2024-01-20 22:13:06,983:INFO:Inc_Learning:463: Epoch: 100/500, MA loss: 9.10835825607137e-07
+2024-01-20 22:13:07,027:INFO:Inc_Learning:463: Epoch: 150/500, MA loss: 5.3435702307425e-09
+2024-01-20 22:13:07,071:INFO:Inc_Learning:463: Epoch: 200/500, MA loss: 2.95167909211691e-11
+2024-01-20 22:13:07,116:INFO:Inc_Learning:463: Epoch: 250/500, MA loss: 1.623311003033732e-13
+2024-01-20 22:13:07,160:INFO:Inc_Learning:463: Epoch: 300/500, MA loss: 1.1923817529676959e-15
+2024-01-20 22:13:07,204:INFO:Inc_Learning:463: Epoch: 350/500, MA loss: 3.3634967886583756e-16
+2024-01-20 22:13:07,248:INFO:Inc_Learning:463: Epoch: 400/500, MA loss: 3.2500887384905794e-16
+2024-01-20 22:13:07,293:INFO:Inc_Learning:463: Epoch: 450/500, MA loss: 3.5273129606573573e-16
+2024-01-20 22:13:07,336:INFO:Inc_Learning:463: Epoch: 499/500, MA loss: 1.386609496667468e-08
+2024-01-20 22:13:07,336:INFO:Inc_Learning:576: Statistics for task identification ...
+2024-01-20 22:13:07,654:INFO:Inc_Learning:496: Evaluating the test set after task 8 ...
+2024-01-20 22:14:58,817:INFO:Inc_Learning:544: Evaluation Accuracy (oracle) after task 8:  73.26%
+2024-01-20 22:14:58,818:INFO:Inc_Learning:555: Evaluation Accuracy after task 8:  60.89%
+2024-01-20 22:14:58,818:INFO:Inc_Learning:556: Accuracy of task-id detection after task 8:  78.04%
+2024-01-20 22:14:58,818:INFO:Inc_Learning:562: Accuracy (Oracle) for task 0 =  79.47%
+2024-01-20 22:14:58,819:INFO:Inc_Learning:566: Accuracy of task 0 =  73.36%
+2024-01-20 22:14:58,819:INFO:Inc_Learning:562: Accuracy (Oracle) for task 1 =  81.36%
+2024-01-20 22:14:58,819:INFO:Inc_Learning:566: Accuracy of task 1 =  46.24%
+2024-01-20 22:14:58,819:INFO:Inc_Learning:562: Accuracy (Oracle) for task 2 =  51.57%
+2024-01-20 22:14:58,819:INFO:Inc_Learning:566: Accuracy of task 2 =  41.11%
+2024-01-20 22:14:58,819:INFO:Inc_Learning:562: Accuracy (Oracle) for task 3 =  54.03%
+2024-01-20 22:14:58,820:INFO:Inc_Learning:566: Accuracy of task 3 =  32.21%
+2024-01-20 22:14:58,820:INFO:Inc_Learning:562: Accuracy (Oracle) for task 4 =  71.67%
+2024-01-20 22:14:58,820:INFO:Inc_Learning:566: Accuracy of task 4 =  48.67%
+2024-01-20 22:14:58,820:INFO:Inc_Learning:562: Accuracy (Oracle) for task 5 =  58.05%
+2024-01-20 22:14:58,820:INFO:Inc_Learning:566: Accuracy of task 5 =  43.29%
+2024-01-20 22:14:58,820:INFO:Inc_Learning:562: Accuracy (Oracle) for task 6 =  67.01%
+2024-01-20 22:14:58,821:INFO:Inc_Learning:566: Accuracy of task 6 =  53.12%
+2024-01-20 22:14:58,821:INFO:Inc_Learning:562: Accuracy (Oracle) for task 7 =  73.74%
+2024-01-20 22:14:58,821:INFO:Inc_Learning:566: Accuracy of task 7 =  60.94%
+2024-01-20 22:14:58,821:INFO:Inc_Learning:562: Accuracy (Oracle) for task 8 =  68.47%
+2024-01-20 22:14:58,821:INFO:Inc_Learning:566: Accuracy of task 8 =  39.66%
+2024-01-20 22:14:58,831:INFO:Inc_Learning:692: The incremental learning phase for task 8 is finished!
+2024-01-20 22:14:58,831:INFO:Inc_Learning:557: Estimated remaining time: 4 minutes and 6 seconds
+2024-01-20 22:14:58,831:INFO:Inc_Learning:681: The incremental learning phase for task 9 is started ...
+2024-01-20 22:14:58,831:INFO:Inc_Learning:322: Prefixes are copied from task 8.
+2024-01-20 22:14:58,832:INFO:Inc_Learning:269: The PredictionNet is copied from the previous task.
+2024-01-20 22:14:58,860:INFO:Inc_Learning:142: The session file "data/index_list/cub200/num_base_classes=100,num_tasks=11,num_shots=5,seed=44/train_samples_for_task=10.txt" is loaded!
+2024-01-20 22:14:58,892:INFO:Inc_Learning:142: The session file "data/index_list/cub200/num_base_classes=100,num_tasks=11,num_shots=5,seed=44/test_samples_for_task=10.txt" is loaded!
+2024-01-20 22:15:01,225:INFO:Inc_Learning:213: Epoch: 1/10
+2024-01-20 22:15:03,008:INFO:Inc_Learning:256: Epoch 1/10 Train Accuracy:  92.00%
+2024-01-20 22:15:03,009:INFO:Inc_Learning:257: Epoch 1/10 Average Loss: 0.2462167888879776 / MA Loss: 0.2462167888879776
+2024-01-20 22:15:03,009:INFO:Inc_Learning:213: Epoch: 2/10
+2024-01-20 22:15:04,733:INFO:Inc_Learning:256: Epoch 2/10 Train Accuracy:  92.00%
+2024-01-20 22:15:04,733:INFO:Inc_Learning:257: Epoch 2/10 Average Loss: 0.1736978143453598 / MA Loss: 0.2099573016166687
+2024-01-20 22:15:04,734:INFO:Inc_Learning:213: Epoch: 3/10
+2024-01-20 22:15:06,483:INFO:Inc_Learning:256: Epoch 3/10 Train Accuracy:  100.00%
+2024-01-20 22:15:06,483:INFO:Inc_Learning:257: Epoch 3/10 Average Loss: 0.10990294814109802 / MA Loss: 0.17660585045814514
+2024-01-20 22:15:06,483:INFO:Inc_Learning:213: Epoch: 4/10
+2024-01-20 22:15:08,195:INFO:Inc_Learning:256: Epoch 4/10 Train Accuracy:  96.00%
+2024-01-20 22:15:08,196:INFO:Inc_Learning:257: Epoch 4/10 Average Loss: 0.23674245178699493 / MA Loss: 0.1916400007903576
+2024-01-20 22:15:08,196:INFO:Inc_Learning:213: Epoch: 5/10
+2024-01-20 22:15:09,921:INFO:Inc_Learning:256: Epoch 5/10 Train Accuracy:  96.00%
+2024-01-20 22:15:09,921:INFO:Inc_Learning:257: Epoch 5/10 Average Loss: 0.18276509642601013 / MA Loss: 0.1898650199174881
+2024-01-20 22:15:09,921:INFO:Inc_Learning:213: Epoch: 6/10
+2024-01-20 22:15:11,660:INFO:Inc_Learning:256: Epoch 6/10 Train Accuracy:  98.00%
+2024-01-20 22:15:11,661:INFO:Inc_Learning:257: Epoch 6/10 Average Loss: 0.08204624056816101 / MA Loss: 0.1718952233592669
+2024-01-20 22:15:11,661:INFO:Inc_Learning:213: Epoch: 7/10
+2024-01-20 22:15:13,431:INFO:Inc_Learning:256: Epoch 7/10 Train Accuracy:  94.00%
+2024-01-20 22:15:13,431:INFO:Inc_Learning:257: Epoch 7/10 Average Loss: 0.23501908779144287 / MA Loss: 0.1809129182781492
+2024-01-20 22:15:13,431:INFO:Inc_Learning:213: Epoch: 8/10
+2024-01-20 22:15:15,134:INFO:Inc_Learning:256: Epoch 8/10 Train Accuracy:  94.00%
+2024-01-20 22:15:15,134:INFO:Inc_Learning:257: Epoch 8/10 Average Loss: 0.1724228411912918 / MA Loss: 0.17985165864229202
+2024-01-20 22:15:15,135:INFO:Inc_Learning:213: Epoch: 9/10
+2024-01-20 22:15:16,937:INFO:Inc_Learning:256: Epoch 9/10 Train Accuracy:  94.00%
+2024-01-20 22:15:16,937:INFO:Inc_Learning:257: Epoch 9/10 Average Loss: 0.17382320761680603 / MA Loss: 0.17918183075057137
+2024-01-20 22:15:16,937:INFO:Inc_Learning:213: Epoch: 10/10
+2024-01-20 22:15:18,778:INFO:Inc_Learning:256: Epoch 10/10 Train Accuracy:  96.00%
+2024-01-20 22:15:18,778:INFO:Inc_Learning:257: Epoch 10/10 Average Loss: 0.10463155806064606 / MA Loss: 0.17172680348157882
+2024-01-20 22:15:18,820:INFO:Inc_Learning:576: Statistics for task identification ...
+2024-01-20 22:15:20,527:INFO:Inc_Learning:270: The pseudo-labeling phase is started ...
+2024-01-20 22:17:17,632:INFO:Inc_Learning:351: The training of the PredictionNet is started.
+2024-01-20 22:17:18,062:INFO:Inc_Learning:463: Epoch: 000/500, MA loss: 0.05436517670750618
+2024-01-20 22:17:18,107:INFO:Inc_Learning:463: Epoch: 050/500, MA loss: 0.00016676169907441362
+2024-01-20 22:17:18,152:INFO:Inc_Learning:463: Epoch: 100/500, MA loss: 1.0424325978419801e-06
+2024-01-20 22:17:18,197:INFO:Inc_Learning:463: Epoch: 150/500, MA loss: 5.764212018810611e-09
+2024-01-20 22:17:18,242:INFO:Inc_Learning:463: Epoch: 200/500, MA loss: 3.260648522018794e-11
+2024-01-20 22:17:18,286:INFO:Inc_Learning:463: Epoch: 250/500, MA loss: 1.745318435131607e-13
+2024-01-20 22:17:18,331:INFO:Inc_Learning:463: Epoch: 300/500, MA loss: 1.254593935369404e-15
+2024-01-20 22:17:18,376:INFO:Inc_Learning:463: Epoch: 350/500, MA loss: 3.4345912285367447e-16
+2024-01-20 22:17:18,421:INFO:Inc_Learning:463: Epoch: 400/500, MA loss: 3.5072140334893153e-16
+2024-01-20 22:17:18,466:INFO:Inc_Learning:463: Epoch: 450/500, MA loss: 3.639855449032178e-16
+2024-01-20 22:17:18,510:INFO:Inc_Learning:463: Epoch: 499/500, MA loss: 4.139969217958653e-16
+2024-01-20 22:17:18,510:INFO:Inc_Learning:576: Statistics for task identification ...
+2024-01-20 22:17:19,004:INFO:Inc_Learning:496: Evaluating the test set after task 9 ...
+2024-01-20 22:19:27,059:INFO:Inc_Learning:544: Evaluation Accuracy (oracle) after task 9:  73.61%
+2024-01-20 22:19:27,060:INFO:Inc_Learning:555: Evaluation Accuracy after task 9:  60.90%
+2024-01-20 22:19:27,060:INFO:Inc_Learning:556: Accuracy of task-id detection after task 9:  77.54%
+2024-01-20 22:19:27,061:INFO:Inc_Learning:562: Accuracy (Oracle) for task 0 =  79.50%
+2024-01-20 22:19:27,061:INFO:Inc_Learning:566: Accuracy of task 0 =  73.39%
+2024-01-20 22:19:27,061:INFO:Inc_Learning:562: Accuracy (Oracle) for task 1 =  81.00%
+2024-01-20 22:19:27,061:INFO:Inc_Learning:566: Accuracy of task 1 =  45.52%
+2024-01-20 22:19:27,061:INFO:Inc_Learning:562: Accuracy (Oracle) for task 2 =  49.83%
+2024-01-20 22:19:27,061:INFO:Inc_Learning:566: Accuracy of task 2 =  39.02%
+2024-01-20 22:19:27,062:INFO:Inc_Learning:562: Accuracy (Oracle) for task 3 =  53.36%
+2024-01-20 22:19:27,062:INFO:Inc_Learning:566: Accuracy of task 3 =  30.87%
+2024-01-20 22:19:27,062:INFO:Inc_Learning:562: Accuracy (Oracle) for task 4 =  71.67%
+2024-01-20 22:19:27,062:INFO:Inc_Learning:566: Accuracy of task 4 =  49.33%
+2024-01-20 22:19:27,062:INFO:Inc_Learning:562: Accuracy (Oracle) for task 5 =  56.38%
+2024-01-20 22:19:27,063:INFO:Inc_Learning:566: Accuracy of task 5 =  42.95%
+2024-01-20 22:19:27,063:INFO:Inc_Learning:562: Accuracy (Oracle) for task 6 =  65.97%
+2024-01-20 22:19:27,063:INFO:Inc_Learning:566: Accuracy of task 6 =  53.47%
+2024-01-20 22:19:27,063:INFO:Inc_Learning:562: Accuracy (Oracle) for task 7 =  73.74%
+2024-01-20 22:19:27,063:INFO:Inc_Learning:566: Accuracy of task 7 =  61.62%
+2024-01-20 22:19:27,063:INFO:Inc_Learning:562: Accuracy (Oracle) for task 8 =  69.49%
+2024-01-20 22:19:27,064:INFO:Inc_Learning:566: Accuracy of task 8 =  38.64%
+2024-01-20 22:19:27,064:INFO:Inc_Learning:562: Accuracy (Oracle) for task 9 =  84.03%
+2024-01-20 22:19:27,064:INFO:Inc_Learning:566: Accuracy of task 9 =  64.58%
+2024-01-20 22:19:27,073:INFO:Inc_Learning:692: The incremental learning phase for task 9 is finished!
+2024-01-20 22:19:27,073:INFO:Inc_Learning:557: Estimated remaining time: 2 minutes and 16 seconds
+2024-01-20 22:19:27,074:INFO:Inc_Learning:681: The incremental learning phase for task 10 is started ...
+2024-01-20 22:19:27,074:INFO:Inc_Learning:322: Prefixes are copied from task 9.
+2024-01-20 22:19:27,074:INFO:Inc_Learning:269: The PredictionNet is copied from the previous task.
+2024-01-20 22:19:27,103:INFO:Inc_Learning:142: The session file "data/index_list/cub200/num_base_classes=100,num_tasks=11,num_shots=5,seed=44/train_samples_for_task=11.txt" is loaded!
+2024-01-20 22:19:27,136:INFO:Inc_Learning:142: The session file "data/index_list/cub200/num_base_classes=100,num_tasks=11,num_shots=5,seed=44/test_samples_for_task=11.txt" is loaded!
+2024-01-20 22:19:29,396:INFO:Inc_Learning:213: Epoch: 1/10
+2024-01-20 22:19:31,200:INFO:Inc_Learning:256: Epoch 1/10 Train Accuracy:  86.00%
+2024-01-20 22:19:31,200:INFO:Inc_Learning:257: Epoch 1/10 Average Loss: 0.36772269010543823 / MA Loss: 0.36772269010543823
+2024-01-20 22:19:31,201:INFO:Inc_Learning:213: Epoch: 2/10
+2024-01-20 22:19:33,136:INFO:Inc_Learning:256: Epoch 2/10 Train Accuracy:  92.00%
+2024-01-20 22:19:33,136:INFO:Inc_Learning:257: Epoch 2/10 Average Loss: 0.33493033051490784 / MA Loss: 0.35132651031017303
+2024-01-20 22:19:33,136:INFO:Inc_Learning:213: Epoch: 3/10
+2024-01-20 22:19:34,960:INFO:Inc_Learning:256: Epoch 3/10 Train Accuracy:  96.00%
+2024-01-20 22:19:34,961:INFO:Inc_Learning:257: Epoch 3/10 Average Loss: 0.18426448106765747 / MA Loss: 0.29563916722933453
+2024-01-20 22:19:34,961:INFO:Inc_Learning:213: Epoch: 4/10
+2024-01-20 22:19:36,659:INFO:Inc_Learning:256: Epoch 4/10 Train Accuracy:  92.00%
+2024-01-20 22:19:36,659:INFO:Inc_Learning:257: Epoch 4/10 Average Loss: 0.29681751132011414 / MA Loss: 0.2959337532520294
+2024-01-20 22:19:36,659:INFO:Inc_Learning:213: Epoch: 5/10
+2024-01-20 22:19:38,463:INFO:Inc_Learning:256: Epoch 5/10 Train Accuracy:  90.00%
+2024-01-20 22:19:38,464:INFO:Inc_Learning:257: Epoch 5/10 Average Loss: 0.36475762724876404 / MA Loss: 0.3096985280513763
+2024-01-20 22:19:38,464:INFO:Inc_Learning:213: Epoch: 6/10
+2024-01-20 22:19:40,075:INFO:Inc_Learning:256: Epoch 6/10 Train Accuracy:  98.00%
+2024-01-20 22:19:40,075:INFO:Inc_Learning:257: Epoch 6/10 Average Loss: 0.12991183996200562 / MA Loss: 0.2797340800364812
+2024-01-20 22:19:40,075:INFO:Inc_Learning:213: Epoch: 7/10
+2024-01-20 22:19:41,966:INFO:Inc_Learning:256: Epoch 7/10 Train Accuracy:  92.00%
+2024-01-20 22:19:41,966:INFO:Inc_Learning:257: Epoch 7/10 Average Loss: 0.23894526064395905 / MA Loss: 0.27390710583754946
+2024-01-20 22:19:41,966:INFO:Inc_Learning:213: Epoch: 8/10
+2024-01-20 22:19:43,425:INFO:Inc_Learning:256: Epoch 8/10 Train Accuracy:  98.00%
+2024-01-20 22:19:43,426:INFO:Inc_Learning:257: Epoch 8/10 Average Loss: 0.09762744605541229 / MA Loss: 0.25187214836478233
+2024-01-20 22:19:43,426:INFO:Inc_Learning:213: Epoch: 9/10
+2024-01-20 22:19:45,077:INFO:Inc_Learning:256: Epoch 9/10 Train Accuracy:  98.00%
+2024-01-20 22:19:45,077:INFO:Inc_Learning:257: Epoch 9/10 Average Loss: 0.13936108350753784 / MA Loss: 0.2393709189361996
+2024-01-20 22:19:45,078:INFO:Inc_Learning:213: Epoch: 10/10
+2024-01-20 22:19:46,834:INFO:Inc_Learning:256: Epoch 10/10 Train Accuracy:  98.00%
+2024-01-20 22:19:46,835:INFO:Inc_Learning:257: Epoch 10/10 Average Loss: 0.14921803772449493 / MA Loss: 0.23035563081502913
+2024-01-20 22:19:46,879:INFO:Inc_Learning:576: Statistics for task identification ...
+2024-01-20 22:19:48,569:INFO:Inc_Learning:270: The pseudo-labeling phase is started ...
+2024-01-20 22:22:02,432:INFO:Inc_Learning:351: The training of the PredictionNet is started.
+2024-01-20 22:22:02,826:INFO:Inc_Learning:463: Epoch: 000/500, MA loss: 0.057294148951768875
+2024-01-20 22:22:02,870:INFO:Inc_Learning:463: Epoch: 050/500, MA loss: 0.00017328217727481389
+2024-01-20 22:22:02,915:INFO:Inc_Learning:463: Epoch: 100/500, MA loss: 1.1049886438740942e-06
+2024-01-20 22:22:02,959:INFO:Inc_Learning:463: Epoch: 150/500, MA loss: 5.970420957623901e-09
+2024-01-20 22:22:03,003:INFO:Inc_Learning:463: Epoch: 200/500, MA loss: 3.449436170727127e-11
+2024-01-20 22:22:03,047:INFO:Inc_Learning:463: Epoch: 250/500, MA loss: 1.885465687658655e-13
+2024-01-20 22:22:03,091:INFO:Inc_Learning:463: Epoch: 300/500, MA loss: 1.349550394514758e-15
+2024-01-20 22:22:03,136:INFO:Inc_Learning:463: Epoch: 350/500, MA loss: 3.8858754538781405e-16
+2024-01-20 22:22:03,180:INFO:Inc_Learning:463: Epoch: 400/500, MA loss: 3.9355752973467436e-16
+2024-01-20 22:22:03,224:INFO:Inc_Learning:463: Epoch: 450/500, MA loss: 4.238341083353926e-16
+2024-01-20 22:22:03,268:INFO:Inc_Learning:463: Epoch: 499/500, MA loss: 4.463058527213797e-16
+2024-01-20 22:22:03,268:INFO:Inc_Learning:576: Statistics for task identification ...
+2024-01-20 22:22:03,724:INFO:Inc_Learning:496: Evaluating the test set after task 10 ...
+2024-01-20 22:24:29,647:INFO:Inc_Learning:544: Evaluation Accuracy (oracle) after task 10:  73.99%
+2024-01-20 22:24:29,648:INFO:Inc_Learning:555: Evaluation Accuracy after task 10:  60.23%
+2024-01-20 22:24:29,648:INFO:Inc_Learning:556: Accuracy of task-id detection after task 10:  76.51%
+2024-01-20 22:24:29,648:INFO:Inc_Learning:562: Accuracy (Oracle) for task 0 =  79.61%
+2024-01-20 22:24:29,648:INFO:Inc_Learning:566: Accuracy of task 0 =  72.28%
+2024-01-20 22:24:29,648:INFO:Inc_Learning:562: Accuracy (Oracle) for task 1 =  82.08%
+2024-01-20 22:24:29,649:INFO:Inc_Learning:566: Accuracy of task 1 =  44.80%
+2024-01-20 22:24:29,649:INFO:Inc_Learning:562: Accuracy (Oracle) for task 2 =  49.48%
+2024-01-20 22:24:29,649:INFO:Inc_Learning:566: Accuracy of task 2 =  38.68%
+2024-01-20 22:24:29,649:INFO:Inc_Learning:562: Accuracy (Oracle) for task 3 =  53.69%
+2024-01-20 22:24:29,649:INFO:Inc_Learning:566: Accuracy of task 3 =  31.54%
+2024-01-20 22:24:29,649:INFO:Inc_Learning:562: Accuracy (Oracle) for task 4 =  72.00%
+2024-01-20 22:24:29,650:INFO:Inc_Learning:566: Accuracy of task 4 =  49.00%
+2024-01-20 22:24:29,650:INFO:Inc_Learning:562: Accuracy (Oracle) for task 5 =  57.05%
+2024-01-20 22:24:29,650:INFO:Inc_Learning:566: Accuracy of task 5 =  42.62%
+2024-01-20 22:24:29,650:INFO:Inc_Learning:562: Accuracy (Oracle) for task 6 =  67.36%
+2024-01-20 22:24:29,650:INFO:Inc_Learning:566: Accuracy of task 6 =  54.17%
+2024-01-20 22:24:29,650:INFO:Inc_Learning:562: Accuracy (Oracle) for task 7 =  74.75%
+2024-01-20 22:24:29,651:INFO:Inc_Learning:566: Accuracy of task 7 =  61.95%
+2024-01-20 22:24:29,651:INFO:Inc_Learning:562: Accuracy (Oracle) for task 8 =  69.15%
+2024-01-20 22:24:29,651:INFO:Inc_Learning:566: Accuracy of task 8 =  39.66%
+2024-01-20 22:24:29,651:INFO:Inc_Learning:562: Accuracy (Oracle) for task 9 =  85.07%
+2024-01-20 22:24:29,651:INFO:Inc_Learning:566: Accuracy of task 9 =  66.67%
+2024-01-20 22:24:29,651:INFO:Inc_Learning:562: Accuracy (Oracle) for task 10 =  75.00%
+2024-01-20 22:24:29,651:INFO:Inc_Learning:566: Accuracy of task 10 =  55.67%
+2024-01-20 22:24:29,659:INFO:Inc_Learning:692: The incremental learning phase for task 10 is finished!
+2024-01-20 22:24:29,659:INFO:Inc_Learning:557: Estimated remaining time: 0 seconds
+2024-01-20 22:24:29,659:INFO:Inc_Learning:703: Final accuracies after each incremental task:
+2024-01-20 22:24:29,659:INFO:Inc_Learning:715: Task 0: 79.22
+2024-01-20 22:24:29,660:INFO:Inc_Learning:715: Task 1: 76.52
+2024-01-20 22:24:29,660:INFO:Inc_Learning:715: Task 2: 72.74
+2024-01-20 22:24:29,660:INFO:Inc_Learning:715: Task 3: 68.83
+2024-01-20 22:24:29,660:INFO:Inc_Learning:715: Task 4: 66.56
+2024-01-20 22:24:29,660:INFO:Inc_Learning:715: Task 5: 64.19
+2024-01-20 22:24:29,660:INFO:Inc_Learning:715: Task 6: 62.92
+2024-01-20 22:24:29,660:INFO:Inc_Learning:715: Task 7: 62.86
+2024-01-20 22:24:29,660:INFO:Inc_Learning:715: Task 8: 60.89
+2024-01-20 22:24:29,660:INFO:Inc_Learning:715: Task 9: 60.90
+2024-01-20 22:24:29,660:INFO:Inc_Learning:715: Task 10: 60.23
+2024-01-20 22:24:29,660:INFO:Inc_Learning:720: The incremental learning phase is finished!
+2024-01-20 22:24:29,660:INFO:Inc_Learning:721: The whole process took 30 minutes and 2 seconds

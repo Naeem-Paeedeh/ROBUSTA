@@ -1,0 +1,1013 @@
+2024-01-10 10:18:32,655:INFO:BaseTask_Self-Sup:336: ('\nVersion Information: \n\tPyTorch: %s\n\tTorchVision: %s', '2.0.1+cu117', '0.15.2+cu117')
+2024-01-10 10:18:32,679:INFO:BaseTask_Self-Sup:369: class_permutation is loaded from the permutation file "data/index_list/cub200/num_base_classes=50,num_tasks=11,num_shots=5,seed=51/class_permutation.txt".
+2024-01-10 10:18:34,121:WARNING:BaseTask_Self-Sup:240: tqdm_enabled is set to False as the program is not running in the debug mode!
+2024-01-10 10:18:34,547:INFO:BaseTask_Self-Sup:566: The network was trained for 47 epochs, 0 iterations in phase supervised_learning
+2024-01-10 10:18:34,547:INFO:BaseTask_Self-Sup:586: We remove the useless proj_dino from the loaded model!
+2024-01-10 10:18:35,709:INFO:BaseTask_Self-Sup:651: We start from epoch 0, iteration 0
+2024-01-10 10:18:35,709:INFO:BaseTask_Self-Sup:663: File "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Epoch=47.pt" is loaded
+2024-01-10 10:18:35,768:INFO:BaseTask_Self-Sup:285: --------------------------------------------------------------------- The given arguments ---------------------------------------------------------------------
+2024-01-10 10:18:35,768:INFO:BaseTask_Self-Sup:309: experiment_description = "Phase 1,DINO,base task,50 classes,CCT-21_7x2"
+2024-01-10 10:18:35,768:INFO:BaseTask_Self-Sup:309: phase = "self_supervised_learning"
+2024-01-10 10:18:35,768:INFO:BaseTask_Self-Sup:303: Device = "cuda:0"
+2024-01-10 10:18:35,768:INFO:BaseTask_Self-Sup:307: seed = 51
+2024-01-10 10:18:35,768:INFO:BaseTask_Self-Sup:307: is_incremental = False
+2024-01-10 10:18:35,768:INFO:BaseTask_Self-Sup:307: debugging = False
+2024-01-10 10:18:35,768:INFO:BaseTask_Self-Sup:307: tqdm_enabled = False
+2024-01-10 10:18:35,768:INFO:BaseTask_Self-Sup:307: resume = False
+2024-01-10 10:18:35,768:INFO:BaseTask_Self-Sup:309: time_str = "Date_2024-01-10,Time_10-18-32"
+2024-01-10 10:18:35,768:INFO:BaseTask_Self-Sup:307: image_size = 224
+2024-01-10 10:18:35,768:INFO:BaseTask_Self-Sup:307: in_channels = 3
+2024-01-10 10:18:35,768:INFO:BaseTask_Self-Sup:307: batch_size_base = 45
+2024-01-10 10:18:35,768:INFO:BaseTask_Self-Sup:307: batch_size_test = 45
+2024-01-10 10:18:35,768:INFO:BaseTask_Self-Sup:307: batch_size_new = 0
+2024-01-10 10:18:35,769:INFO:BaseTask_Self-Sup:307: batch_size_fine_tuning = 100
+2024-01-10 10:18:35,769:INFO:BaseTask_Self-Sup:309: settings_file = "Experiments/CUB-200-2011/50_base_classes/phase=1,seed=51.toml"
+2024-01-10 10:18:35,769:INFO:BaseTask_Self-Sup:309: directory_permutation_files = "data/index_list/cub200/num_base_classes=50,num_tasks=11,num_shots=5,seed=51"
+2024-01-10 10:18:35,769:INFO:BaseTask_Self-Sup:299: The network was previously trained for 0 epochs.
+2024-01-10 10:18:35,769:INFO:BaseTask_Self-Sup:301: The network was previously trained for 0 iterations.
+2024-01-10 10:18:35,769:INFO:BaseTask_Self-Sup:307: dino = True
+2024-01-10 10:18:35,769:INFO:BaseTask_Self-Sup:307: debugging_env = False
+2024-01-10 10:18:35,769:INFO:BaseTask_Self-Sup:309: model_type = "CCT-21/7x2"
+2024-01-10 10:18:35,769:INFO:BaseTask_Self-Sup:307: prediction_net_list = []
+2024-01-10 10:18:35,769:INFO:BaseTask_Self-Sup:314: 
+configs_arch:  {
+  model_type = "CCT-21/7x2"
+  use_BatchNorm = True
+  use_BatchNorm_for_patch_embeddings = True
+  use_BatchNorm_for_patch_embeddings_for_local_patches = True
+  PositionalEmbeddingType = "Learnable"
+  number_of_the_first_layers_to_be_frozen = 0
+}
+2024-01-10 10:18:35,769:INFO:BaseTask_Self-Sup:314: 
+configs_dataset:  {
+  dataroot = "/scratch/gx83/np9254/Datasets/FSCIL/CEC/"
+  dataset_name = "cub200"
+  num_workers = 12
+  total_classes = 200
+  num_base_classes = 50
+  num_tasks = 11
+  num_shots = 5
+  drop_last_base = True
+  num_ways = 15
+}
+2024-01-10 10:18:35,769:INFO:BaseTask_Self-Sup:314: 
+configs_train:  {
+  num_epochs = 200
+  lr = 0.001
+  momentum = 0.9
+  momentum2 = 0.999
+  weight_decay = 0.0
+  nesterov = True
+  display_freq = 100
+}
+2024-01-10 10:18:35,769:INFO:BaseTask_Self-Sup:314: 
+configs_dino:  {
+  num_epochs = 500
+  num_epochs_no_progress_detection = 30
+  lr_head = 0.00025
+  lr_backbone = 0.00025
+  coef_loss_dino = 1.0
+  coef_loss_ce = 0.0
+  min_lr = 1e-06
+  weight_decay = 0.04
+  weight_decay_end = 0.4
+  warmup_epochs_head = 10
+  warmup_epochs_backbone = 10
+  fine_tuning_and_evaluation_freq = 1
+  out_dim = 65536
+  local_crops_number = 8
+  local_patch_size = 96
+  local_crops_scale = [0.05, 0.4]
+  global_crops_scale = [0.4, 1.0]
+  warmup_teacher_temp = 0.04
+  teacher_temp = 0.07
+  warmup_teacher_temp_epochs = 30
+  momentum_teacher = 0.996
+  clip_grad = 0
+  num_epochs_freeze_last_layer = 1
+  use_BatchNorm_in_dino_head = False
+  display_freq = 1
+  freeze_backbone_for_fine_tuning = True
+  enable_normalize_transform = False
+}
+2024-01-10 10:18:35,769:INFO:BaseTask_Self-Sup:314: 
+configs_logger:  {
+  moving_average_capacity = 200
+  log_file = "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/Time=Date_2024-01-10,Time_10-18-32,Desc=Phase 1,DINO,base task,50 classes,CCT-21_7x2,seed=51.log"
+}
+2024-01-10 10:18:35,769:INFO:BaseTask_Self-Sup:314: 
+configs_save:  {
+  save_freq_epoch = 50
+  save_freq_iter = 2000
+  time_interval_to_save = 60
+  root = "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes"
+  input_file = "/scratch/gx83/np9254/ROBUSTA-Saves/ImageNet/Phase_0/P0,start_time=Date_2023-12-31,Time_17-27-54,seed=41-Epoch=47.pt"
+  output_file = "P0P1,start_time=Date_2024-01-10,Time_10-18-32"
+}
+2024-01-10 10:18:35,769:INFO:BaseTask_Self-Sup:314: 
+configs_FSCIL:  {
+  start_from_task = 0
+  randomize_selected_classes = False
+}
+2024-01-10 10:18:35,769:INFO:BaseTask_Self-Sup:316: --------------------------------------------------------------------------------
+2024-01-10 10:18:35,916:INFO:BaseTask_Self-Sup:142: The session file "data/index_list/cub200/num_base_classes=50,num_tasks=11,num_shots=5,seed=51/train_samples_for_task=1.txt" is loaded!
+2024-01-10 10:18:35,946:INFO:BaseTask_Self-Sup:142: The session file "data/index_list/cub200/num_base_classes=50,num_tasks=11,num_shots=5,seed=51/train_samples_for_task=1.txt" is loaded!
+2024-01-10 10:18:35,993:INFO:BaseTask_Self-Sup:142: The session file "data/index_list/cub200/num_base_classes=50,num_tasks=11,num_shots=5,seed=51/test_samples_for_task=1.txt" is loaded!
+2024-01-10 10:18:37,292:INFO:BaseTask_Self-Sup:165: Student and Teacher are built.
+2024-01-10 10:18:37,297:INFO:BaseTask_Self-Sup:219: Optimizer and schedulers are ready.
+2024-01-10 10:18:37,297:INFO:BaseTask_Self-Sup:226: The base task training task has been started!
+2024-01-10 10:18:37,297:INFO:BaseTask_Self-Sup:233: --------------------------------------------------
+2024-01-10 10:19:19,540:INFO:BaseTask_Self-Sup:230: train_loss = 11.242001591306744
+2024-01-10 10:19:19,540:INFO:BaseTask_Self-Sup:230: train_lr = 1.21580547112462e-05
+2024-01-10 10:19:19,541:INFO:BaseTask_Self-Sup:230: train_wd = 0.040001131059937856
+2024-01-10 10:19:19,541:INFO:BaseTask_Self-Sup:230: epoch = 0
+2024-01-10 10:19:19,544:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:19:23,744:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:19:27,232:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:19:31,494:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 61.48%
+2024-01-10 10:19:31,651:INFO:BaseTask_Self-Sup:257: This is the new best model!
+2024-01-10 10:19:32,471:INFO:BaseTask_Self-Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51-Last.pt"! <--------
+2024-01-10 10:19:33,193:INFO:BaseTask_Self-Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51,Task-ID=0-Last.pt"! <--------
+2024-01-10 10:19:34,019:INFO:BaseTask_Self-Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51-Best_Model.pt"! <--------
+2024-01-10 10:19:34,022:INFO:BaseTask_Self-Sup:260: The best test accuracy was 61.48% at epoch 1
+2024-01-10 10:19:34,024:INFO:BaseTask_Self-Sup:265: This epoch took 56 seconds!
+2024-01-10 10:19:34,025:INFO:BaseTask_Self-Sup:266: The training took 56 seconds from the beginning!
+2024-01-10 10:19:34,025:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 7 hours, 51 minutes, and 47 seconds
+2024-01-10 10:19:34,025:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 0/30
+2024-01-10 10:19:34,025:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:20:13,765:INFO:BaseTask_Self-Sup:230: train_loss = 11.195880109613592
+2024-01-10 10:20:13,766:INFO:BaseTask_Self-Sup:230: train_lr = 3.723404255319149e-05
+2024-01-10 10:20:13,766:INFO:BaseTask_Self-Sup:230: train_wd = 0.04000812943901876
+2024-01-10 10:20:13,766:INFO:BaseTask_Self-Sup:230: epoch = 1
+2024-01-10 10:20:13,770:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:20:17,961:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:20:21,440:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:20:25,482:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 61.41%
+2024-01-10 10:20:25,648:INFO:BaseTask_Self-Sup:260: The best test accuracy was 61.48% at epoch 1
+2024-01-10 10:20:25,650:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 10:20:25,650:INFO:BaseTask_Self-Sup:266: The training took 1 minute and 48 seconds from the beginning!
+2024-01-10 10:20:25,650:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 7 hours, 29 minutes, and 40 seconds
+2024-01-10 10:20:25,650:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 1/30
+2024-01-10 10:20:25,650:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:21:05,648:INFO:BaseTask_Self-Sup:230: train_loss = 11.113681128530791
+2024-01-10 10:21:05,649:INFO:BaseTask_Self-Sup:230: train_lr = 6.231003039513678e-05
+2024-01-10 10:21:05,649:INFO:BaseTask_Self-Sup:230: train_wd = 0.04002223358895393
+2024-01-10 10:21:05,649:INFO:BaseTask_Self-Sup:230: epoch = 2
+2024-01-10 10:21:05,652:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:21:09,792:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:21:13,283:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:21:17,327:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 59.25%
+2024-01-10 10:21:17,479:INFO:BaseTask_Self-Sup:260: The best test accuracy was 61.48% at epoch 1
+2024-01-10 10:21:17,481:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 10:21:17,481:INFO:BaseTask_Self-Sup:266: The training took 2 minutes and 40 seconds from the beginning!
+2024-01-10 10:21:17,481:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 7 hours, 22 minutes, and 17 seconds
+2024-01-10 10:21:17,481:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 2/30
+2024-01-10 10:21:17,481:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:21:57,259:INFO:BaseTask_Self-Sup:230: train_loss = 11.059023221333822
+2024-01-10 10:21:57,260:INFO:BaseTask_Self-Sup:230: train_lr = 8.738601823708207e-05
+2024-01-10 10:21:57,260:INFO:BaseTask_Self-Sup:230: train_wd = 0.04004344295293575
+2024-01-10 10:21:57,260:INFO:BaseTask_Self-Sup:230: epoch = 3
+2024-01-10 10:21:57,263:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:22:01,411:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:22:04,866:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:22:08,931:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 60.98%
+2024-01-10 10:22:09,099:INFO:BaseTask_Self-Sup:260: The best test accuracy was 61.48% at epoch 1
+2024-01-10 10:22:09,101:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 10:22:09,101:INFO:BaseTask_Self-Sup:266: The training took 3 minutes and 31 seconds from the beginning!
+2024-01-10 10:22:09,101:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 7 hours, 17 minutes, and 43 seconds
+2024-01-10 10:22:09,101:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 3/30
+2024-01-10 10:22:09,101:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:22:48,906:INFO:BaseTask_Self-Sup:230: train_loss = 11.033829313335996
+2024-01-10 10:22:48,907:INFO:BaseTask_Self-Sup:230: train_lr = 0.00011246200607902735
+2024-01-10 10:22:48,907:INFO:BaseTask_Self-Sup:230: train_wd = 0.040071756693654766
+2024-01-10 10:22:48,907:INFO:BaseTask_Self-Sup:230: epoch = 4
+2024-01-10 10:22:48,911:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:22:53,049:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:22:56,542:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:23:00,568:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 60.55%
+2024-01-10 10:23:00,720:INFO:BaseTask_Self-Sup:260: The best test accuracy was 61.48% at epoch 1
+2024-01-10 10:23:00,722:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 10:23:00,722:INFO:BaseTask_Self-Sup:266: The training took 4 minutes and 23 seconds from the beginning!
+2024-01-10 10:23:00,722:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 7 hours, 14 minutes, and 39 seconds
+2024-01-10 10:23:00,722:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 4/30
+2024-01-10 10:23:00,722:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:23:40,529:INFO:BaseTask_Self-Sup:230: train_loss = 11.006666732556893
+2024-01-10 10:23:40,530:INFO:BaseTask_Self-Sup:230: train_lr = 0.0001375379939209727
+2024-01-10 10:23:40,530:INFO:BaseTask_Self-Sup:230: train_wd = 0.040107173693333054
+2024-01-10 10:23:40,530:INFO:BaseTask_Self-Sup:230: epoch = 5
+2024-01-10 10:23:40,533:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:23:44,703:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:23:48,198:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:23:52,204:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 60.84%
+2024-01-10 10:23:52,365:INFO:BaseTask_Self-Sup:260: The best test accuracy was 61.48% at epoch 1
+2024-01-10 10:23:52,367:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 10:23:52,368:INFO:BaseTask_Self-Sup:266: The training took 5 minutes and 15 seconds from the beginning!
+2024-01-10 10:23:52,368:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 7 hours, 12 minutes, and 20 seconds
+2024-01-10 10:23:52,368:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 5/30
+2024-01-10 10:23:52,368:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:24:32,133:INFO:BaseTask_Self-Sup:230: train_loss = 10.972815426913174
+2024-01-10 10:24:32,134:INFO:BaseTask_Self-Sup:230: train_lr = 0.0001626139817629179
+2024-01-10 10:24:32,134:INFO:BaseTask_Self-Sup:230: train_wd = 0.04014969255376808
+2024-01-10 10:24:32,134:INFO:BaseTask_Self-Sup:230: epoch = 6
+2024-01-10 10:24:32,137:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:24:36,328:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:24:39,773:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:24:43,795:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 61.20%
+2024-01-10 10:24:43,944:INFO:BaseTask_Self-Sup:260: The best test accuracy was 61.48% at epoch 1
+2024-01-10 10:24:43,947:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 10:24:43,947:INFO:BaseTask_Self-Sup:266: The training took 6 minutes and 6 seconds from the beginning!
+2024-01-10 10:24:43,947:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 7 hours, 10 minutes, and 22 seconds
+2024-01-10 10:24:43,947:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 6/30
+2024-01-10 10:24:43,947:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:25:23,797:INFO:BaseTask_Self-Sup:230: train_loss = 10.939287532459606
+2024-01-10 10:25:23,798:INFO:BaseTask_Self-Sup:230: train_lr = 0.00018768996960486325
+2024-01-10 10:25:23,798:INFO:BaseTask_Self-Sup:230: train_wd = 0.04019931159638799
+2024-01-10 10:25:23,798:INFO:BaseTask_Self-Sup:230: epoch = 7
+2024-01-10 10:25:23,802:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:25:27,941:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:25:31,383:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:25:35,408:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 61.48%
+2024-01-10 10:25:35,567:INFO:BaseTask_Self-Sup:257: This is the new best model!
+2024-01-10 10:25:36,541:INFO:BaseTask_Self-Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51-Last.pt"! <--------
+2024-01-10 10:25:37,409:INFO:BaseTask_Self-Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51,Task-ID=0-Last.pt"! <--------
+2024-01-10 10:25:38,250:INFO:BaseTask_Self-Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51-Best_Model.pt"! <--------
+2024-01-10 10:25:38,252:INFO:BaseTask_Self-Sup:260: The best test accuracy was 61.48% at epoch 8
+2024-01-10 10:25:38,255:INFO:BaseTask_Self-Sup:265: This epoch took 54 seconds!
+2024-01-10 10:25:38,255:INFO:BaseTask_Self-Sup:266: The training took 7 minutes and 0 seconds from the beginning!
+2024-01-10 10:25:38,255:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 7 hours, 11 minutes, and 28 seconds
+2024-01-10 10:25:38,255:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 0/30
+2024-01-10 10:25:38,255:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:26:18,122:INFO:BaseTask_Self-Sup:230: train_loss = 10.91271177927653
+2024-01-10 10:26:18,122:INFO:BaseTask_Self-Sup:230: train_lr = 0.00021276595744680854
+2024-01-10 10:26:18,122:INFO:BaseTask_Self-Sup:230: train_wd = 0.040256028862318015
+2024-01-10 10:26:18,122:INFO:BaseTask_Self-Sup:230: epoch = 8
+2024-01-10 10:26:18,126:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:26:22,277:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:26:25,729:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:26:29,734:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 62.63%
+2024-01-10 10:26:29,903:INFO:BaseTask_Self-Sup:257: This is the new best model!
+2024-01-10 10:26:30,868:INFO:BaseTask_Self-Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51-Last.pt"! <--------
+2024-01-10 10:26:31,725:INFO:BaseTask_Self-Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51,Task-ID=0-Last.pt"! <--------
+2024-01-10 10:26:32,563:INFO:BaseTask_Self-Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51-Best_Model.pt"! <--------
+2024-01-10 10:26:32,566:INFO:BaseTask_Self-Sup:260: The best test accuracy was 62.63% at epoch 9
+2024-01-10 10:26:32,568:INFO:BaseTask_Self-Sup:265: This epoch took 54 seconds!
+2024-01-10 10:26:32,568:INFO:BaseTask_Self-Sup:266: The training took 7 minutes and 55 seconds from the beginning!
+2024-01-10 10:26:32,569:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 7 hours, 12 minutes, and 8 seconds
+2024-01-10 10:26:32,569:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 0/30
+2024-01-10 10:26:32,569:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:27:12,385:INFO:BaseTask_Self-Sup:230: train_loss = 10.874598416415127
+2024-01-10 10:27:12,386:INFO:BaseTask_Self-Sup:230: train_lr = 0.0002378419452887538
+2024-01-10 10:27:12,386:INFO:BaseTask_Self-Sup:230: train_wd = 0.040319842112457545
+2024-01-10 10:27:12,386:INFO:BaseTask_Self-Sup:230: epoch = 9
+2024-01-10 10:27:12,389:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:27:16,544:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:27:20,011:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:27:24,024:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 62.99%
+2024-01-10 10:27:24,187:INFO:BaseTask_Self-Sup:257: This is the new best model!
+2024-01-10 10:27:25,151:INFO:BaseTask_Self-Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51-Last.pt"! <--------
+2024-01-10 10:27:26,006:INFO:BaseTask_Self-Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51,Task-ID=0-Last.pt"! <--------
+2024-01-10 10:27:26,839:INFO:BaseTask_Self-Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51-Best_Model.pt"! <--------
+2024-01-10 10:27:26,842:INFO:BaseTask_Self-Sup:260: The best test accuracy was 62.99% at epoch 10
+2024-01-10 10:27:26,844:INFO:BaseTask_Self-Sup:265: This epoch took 54 seconds!
+2024-01-10 10:27:26,844:INFO:BaseTask_Self-Sup:266: The training took 8 minutes and 49 seconds from the beginning!
+2024-01-10 10:27:26,844:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 7 hours, 12 minutes, and 27 seconds
+2024-01-10 10:27:26,844:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 0/30
+2024-01-10 10:27:26,845:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:28:06,754:INFO:BaseTask_Self-Sup:230: train_loss = 10.84541976813114
+2024-01-10 10:28:06,755:INFO:BaseTask_Self-Sup:230: train_lr = 0.00024999918542649386
+2024-01-10 10:28:06,755:INFO:BaseTask_Self-Sup:230: train_wd = 0.040390748827568795
+2024-01-10 10:28:06,755:INFO:BaseTask_Self-Sup:230: epoch = 10
+2024-01-10 10:28:06,758:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:28:10,909:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:28:14,358:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:28:18,417:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 63.35%
+2024-01-10 10:28:18,568:INFO:BaseTask_Self-Sup:257: This is the new best model!
+2024-01-10 10:28:19,541:INFO:BaseTask_Self-Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51-Last.pt"! <--------
+2024-01-10 10:28:20,409:INFO:BaseTask_Self-Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51,Task-ID=0-Last.pt"! <--------
+2024-01-10 10:28:21,243:INFO:BaseTask_Self-Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51-Best_Model.pt"! <--------
+2024-01-10 10:28:21,246:INFO:BaseTask_Self-Sup:260: The best test accuracy was 63.35% at epoch 11
+2024-01-10 10:28:21,249:INFO:BaseTask_Self-Sup:265: This epoch took 54 seconds!
+2024-01-10 10:28:21,249:INFO:BaseTask_Self-Sup:266: The training took 9 minutes and 43 seconds from the beginning!
+2024-01-10 10:28:21,249:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 7 hours, 12 minutes, and 39 seconds
+2024-01-10 10:28:21,249:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 0/30
+2024-01-10 10:28:21,249:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:29:01,023:INFO:BaseTask_Self-Sup:230: train_loss = 10.805850144588586
+2024-01-10 10:29:01,024:INFO:BaseTask_Self-Sup:230: train_lr = 0.0002499941452936317
+2024-01-10 10:29:01,024:INFO:BaseTask_Self-Sup:230: train_wd = 0.04046874620837604
+2024-01-10 10:29:01,024:INFO:BaseTask_Self-Sup:230: epoch = 11
+2024-01-10 10:29:01,027:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:29:05,200:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:29:08,657:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:29:12,673:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 62.49%
+2024-01-10 10:29:12,832:INFO:BaseTask_Self-Sup:260: The best test accuracy was 63.35% at epoch 11
+2024-01-10 10:29:12,834:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 10:29:12,834:INFO:BaseTask_Self-Sup:266: The training took 10 minutes and 35 seconds from the beginning!
+2024-01-10 10:29:12,834:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 7 hours, 10 minutes, and 45 seconds
+2024-01-10 10:29:12,834:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 1/30
+2024-01-10 10:29:12,834:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:29:52,665:INFO:BaseTask_Self-Sup:230: train_loss = 10.762632196599787
+2024-01-10 10:29:52,666:INFO:BaseTask_Self-Sup:230: train_lr = 0.0002499839876940666
+2024-01-10 10:29:52,666:INFO:BaseTask_Self-Sup:230: train_wd = 0.04055383117567622
+2024-01-10 10:29:52,666:INFO:BaseTask_Self-Sup:230: epoch = 12
+2024-01-10 10:29:52,669:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:29:56,805:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:30:00,279:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:30:04,280:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 64.07%
+2024-01-10 10:30:04,432:INFO:BaseTask_Self-Sup:257: This is the new best model!
+2024-01-10 10:30:05,407:INFO:BaseTask_Self-Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51-Last.pt"! <--------
+2024-01-10 10:30:06,319:INFO:BaseTask_Self-Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51,Task-ID=0-Last.pt"! <--------
+2024-01-10 10:30:07,218:INFO:BaseTask_Self-Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51-Best_Model.pt"! <--------
+2024-01-10 10:30:07,220:INFO:BaseTask_Self-Sup:260: The best test accuracy was 64.07% at epoch 13
+2024-01-10 10:30:07,223:INFO:BaseTask_Self-Sup:265: This epoch took 54 seconds!
+2024-01-10 10:30:07,223:INFO:BaseTask_Self-Sup:266: The training took 11 minutes and 29 seconds from the beginning!
+2024-01-10 10:30:07,223:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 7 hours, 10 minutes, and 45 seconds
+2024-01-10 10:30:07,223:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 0/30
+2024-01-10 10:30:07,223:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:30:47,004:INFO:BaseTask_Self-Sup:230: train_loss = 10.734432567249645
+2024-01-10 10:30:47,004:INFO:BaseTask_Self-Sup:230: train_lr = 0.00024996871304533793
+2024-01-10 10:30:47,004:INFO:BaseTask_Self-Sup:230: train_wd = 0.04064600037046054
+2024-01-10 10:30:47,004:INFO:BaseTask_Self-Sup:230: epoch = 13
+2024-01-10 10:30:47,008:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:30:51,157:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:30:54,632:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:30:58,715:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 66.16%
+2024-01-10 10:30:58,880:INFO:BaseTask_Self-Sup:257: This is the new best model!
+2024-01-10 10:30:59,858:INFO:BaseTask_Self-Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51-Last.pt"! <--------
+2024-01-10 10:31:00,726:INFO:BaseTask_Self-Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51,Task-ID=0-Last.pt"! <--------
+2024-01-10 10:31:01,562:INFO:BaseTask_Self-Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51-Best_Model.pt"! <--------
+2024-01-10 10:31:01,564:INFO:BaseTask_Self-Sup:260: The best test accuracy was 66.16% at epoch 14
+2024-01-10 10:31:01,567:INFO:BaseTask_Self-Sup:265: This epoch took 54 seconds!
+2024-01-10 10:31:01,567:INFO:BaseTask_Self-Sup:266: The training took 12 minutes and 24 seconds from the beginning!
+2024-01-10 10:31:01,567:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 7 hours, 10 minutes, and 36 seconds
+2024-01-10 10:31:01,567:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 0/30
+2024-01-10 10:31:01,567:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:31:41,286:INFO:BaseTask_Self-Sup:230: train_loss = 10.683788935343424
+2024-01-10 10:31:41,287:INFO:BaseTask_Self-Sup:230: train_lr = 0.00024994832197532655
+2024-01-10 10:31:41,287:INFO:BaseTask_Self-Sup:230: train_wd = 0.04074525015404699
+2024-01-10 10:31:41,287:INFO:BaseTask_Self-Sup:230: epoch = 14
+2024-01-10 10:31:41,290:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:31:45,475:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:31:48,925:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:31:52,942:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 66.38%
+2024-01-10 10:31:53,091:INFO:BaseTask_Self-Sup:257: This is the new best model!
+2024-01-10 10:31:54,073:INFO:BaseTask_Self-Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51-Last.pt"! <--------
+2024-01-10 10:31:54,939:INFO:BaseTask_Self-Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51,Task-ID=0-Last.pt"! <--------
+2024-01-10 10:31:55,805:INFO:BaseTask_Self-Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51-Best_Model.pt"! <--------
+2024-01-10 10:31:55,808:INFO:BaseTask_Self-Sup:260: The best test accuracy was 66.38% at epoch 15
+2024-01-10 10:31:55,810:INFO:BaseTask_Self-Sup:265: This epoch took 54 seconds!
+2024-01-10 10:31:55,810:INFO:BaseTask_Self-Sup:266: The training took 13 minutes and 18 seconds from the beginning!
+2024-01-10 10:31:55,810:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 7 hours, 10 minutes, and 18 seconds
+2024-01-10 10:31:55,810:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 0/30
+2024-01-10 10:31:55,810:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:32:35,612:INFO:BaseTask_Self-Sup:230: train_loss = 10.638107617696127
+2024-01-10 10:32:35,613:INFO:BaseTask_Self-Sup:230: train_lr = 0.0002499228153222295
+2024-01-10 10:32:35,613:INFO:BaseTask_Self-Sup:230: train_wd = 0.040851576608224076
+2024-01-10 10:32:35,613:INFO:BaseTask_Self-Sup:230: epoch = 15
+2024-01-10 10:32:35,616:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:32:39,825:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:32:43,313:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:32:47,329:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 66.74%
+2024-01-10 10:32:47,486:INFO:BaseTask_Self-Sup:257: This is the new best model!
+2024-01-10 10:32:48,471:INFO:BaseTask_Self-Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51-Last.pt"! <--------
+2024-01-10 10:32:49,334:INFO:BaseTask_Self-Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51,Task-ID=0-Last.pt"! <--------
+2024-01-10 10:32:50,177:INFO:BaseTask_Self-Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51-Best_Model.pt"! <--------
+2024-01-10 10:32:50,180:INFO:BaseTask_Self-Sup:260: The best test accuracy was 66.74% at epoch 16
+2024-01-10 10:32:50,183:INFO:BaseTask_Self-Sup:265: This epoch took 54 seconds!
+2024-01-10 10:32:50,183:INFO:BaseTask_Self-Sup:266: The training took 14 minutes and 12 seconds from the beginning!
+2024-01-10 10:32:50,183:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 7 hours, 9 minutes, and 59 seconds
+2024-01-10 10:32:50,183:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 0/30
+2024-01-10 10:32:50,183:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:33:29,982:INFO:BaseTask_Self-Sup:230: train_loss = 10.600101731040262
+2024-01-10 10:33:29,982:INFO:BaseTask_Self-Sup:230: train_lr = 0.00024989219413452534
+2024-01-10 10:33:29,982:INFO:BaseTask_Self-Sup:230: train_wd = 0.04096497553540541
+2024-01-10 10:33:29,982:INFO:BaseTask_Self-Sup:230: epoch = 16
+2024-01-10 10:33:29,986:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:33:34,142:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:33:37,604:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:33:41,608:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 67.39%
+2024-01-10 10:33:41,785:INFO:BaseTask_Self-Sup:257: This is the new best model!
+2024-01-10 10:33:42,757:INFO:BaseTask_Self-Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51-Last.pt"! <--------
+2024-01-10 10:33:43,626:INFO:BaseTask_Self-Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51,Task-ID=0-Last.pt"! <--------
+2024-01-10 10:33:44,508:INFO:BaseTask_Self-Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51-Best_Model.pt"! <--------
+2024-01-10 10:33:44,510:INFO:BaseTask_Self-Sup:260: The best test accuracy was 67.39% at epoch 17
+2024-01-10 10:33:44,513:INFO:BaseTask_Self-Sup:265: This epoch took 54 seconds!
+2024-01-10 10:33:44,513:INFO:BaseTask_Self-Sup:266: The training took 15 minutes and 7 seconds from the beginning!
+2024-01-10 10:33:44,513:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 7 hours, 9 minutes, and 35 seconds
+2024-01-10 10:33:44,513:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 0/30
+2024-01-10 10:33:44,513:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:34:24,268:INFO:BaseTask_Self-Sup:230: train_loss = 10.553356517444957
+2024-01-10 10:34:24,269:INFO:BaseTask_Self-Sup:230: train_lr = 0.0002498564596709313
+2024-01-10 10:34:24,269:INFO:BaseTask_Self-Sup:230: train_wd = 0.04108544245879554
+2024-01-10 10:34:24,269:INFO:BaseTask_Self-Sup:230: epoch = 17
+2024-01-10 10:34:24,273:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:34:28,456:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:34:31,910:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:34:35,891:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 66.02%
+2024-01-10 10:34:36,058:INFO:BaseTask_Self-Sup:260: The best test accuracy was 67.39% at epoch 17
+2024-01-10 10:34:36,060:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 10:34:36,060:INFO:BaseTask_Self-Sup:266: The training took 15 minutes and 58 seconds from the beginning!
+2024-01-10 10:34:36,060:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 7 hours, 7 minutes, and 53 seconds
+2024-01-10 10:34:36,060:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 1/30
+2024-01-10 10:34:36,060:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:35:15,863:INFO:BaseTask_Self-Sup:230: train_loss = 10.50414989933823
+2024-01-10 10:35:15,864:INFO:BaseTask_Self-Sup:230: train_lr = 0.0002498156134003511
+2024-01-10 10:35:15,864:INFO:BaseTask_Self-Sup:230: train_wd = 0.04121297262256664
+2024-01-10 10:35:15,864:INFO:BaseTask_Self-Sup:230: epoch = 18
+2024-01-10 10:35:15,867:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:35:20,019:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:35:23,478:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:35:27,511:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 68.03%
+2024-01-10 10:35:27,671:INFO:BaseTask_Self-Sup:257: This is the new best model!
+2024-01-10 10:35:28,647:INFO:BaseTask_Self-Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51-Last.pt"! <--------
+2024-01-10 10:35:29,543:INFO:BaseTask_Self-Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51,Task-ID=0-Last.pt"! <--------
+2024-01-10 10:35:30,375:INFO:BaseTask_Self-Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51-Best_Model.pt"! <--------
+2024-01-10 10:35:30,378:INFO:BaseTask_Self-Sup:260: The best test accuracy was 68.03% at epoch 19
+2024-01-10 10:35:30,380:INFO:BaseTask_Self-Sup:265: This epoch took 54 seconds!
+2024-01-10 10:35:30,380:INFO:BaseTask_Self-Sup:266: The training took 16 minutes and 53 seconds from the beginning!
+2024-01-10 10:35:30,380:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 7 hours, 7 minutes, and 27 seconds
+2024-01-10 10:35:30,381:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 0/30
+2024-01-10 10:35:30,381:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:36:10,254:INFO:BaseTask_Self-Sup:230: train_loss = 10.459761475071762
+2024-01-10 10:36:10,255:INFO:BaseTask_Self-Sup:230: train_lr = 0.0002497696570018148
+2024-01-10 10:36:10,255:INFO:BaseTask_Self-Sup:230: train_wd = 0.04134756099204616
+2024-01-10 10:36:10,255:INFO:BaseTask_Self-Sup:230: epoch = 19
+2024-01-10 10:36:10,258:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:36:14,447:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:36:17,922:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:36:21,925:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 65.51%
+2024-01-10 10:36:22,073:INFO:BaseTask_Self-Sup:260: The best test accuracy was 68.03% at epoch 19
+2024-01-10 10:36:22,075:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 10:36:22,075:INFO:BaseTask_Self-Sup:266: The training took 17 minutes and 44 seconds from the beginning!
+2024-01-10 10:36:22,075:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 7 hours, 5 minutes, and 54 seconds
+2024-01-10 10:36:22,075:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 1/30
+2024-01-10 10:36:22,075:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:37:01,907:INFO:BaseTask_Self-Sup:230: train_loss = 10.41605466784853
+2024-01-10 10:37:01,908:INFO:BaseTask_Self-Sup:230: train_lr = 0.0002497185923644103
+2024-01-10 10:37:01,908:INFO:BaseTask_Self-Sup:230: train_wd = 0.04148920225391574
+2024-01-10 10:37:01,908:INFO:BaseTask_Self-Sup:230: epoch = 20
+2024-01-10 10:37:01,912:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:37:06,110:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:37:09,563:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:37:13,590:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 66.95%
+2024-01-10 10:37:13,740:INFO:BaseTask_Self-Sup:260: The best test accuracy was 68.03% at epoch 19
+2024-01-10 10:37:13,743:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 10:37:13,743:INFO:BaseTask_Self-Sup:266: The training took 18 minutes and 36 seconds from the beginning!
+2024-01-10 10:37:13,743:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 7 hours, 4 minutes, and 25 seconds
+2024-01-10 10:37:13,743:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 2/30
+2024-01-10 10:37:13,743:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:37:53,559:INFO:BaseTask_Self-Sup:230: train_loss = 10.389389211481268
+2024-01-10 10:37:53,560:INFO:BaseTask_Self-Sup:230: train_lr = 0.0002496624215872047
+2024-01-10 10:37:53,560:INFO:BaseTask_Self-Sup:230: train_wd = 0.04163789081642088
+2024-01-10 10:37:53,560:INFO:BaseTask_Self-Sup:230: epoch = 21
+2024-01-10 10:37:53,564:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:37:57,784:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:38:01,244:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:38:05,249:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 66.74%
+2024-01-10 10:38:05,399:INFO:BaseTask_Self-Sup:260: The best test accuracy was 68.03% at epoch 19
+2024-01-10 10:38:05,401:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 10:38:05,401:INFO:BaseTask_Self-Sup:266: The training took 19 minutes and 28 seconds from the beginning!
+2024-01-10 10:38:05,401:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 7 hours, 2 minutes, and 59 seconds
+2024-01-10 10:38:05,401:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 3/30
+2024-01-10 10:38:05,402:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:38:45,311:INFO:BaseTask_Self-Sup:230: train_loss = 10.361868453748299
+2024-01-10 10:38:45,312:INFO:BaseTask_Self-Sup:230: train_lr = 0.00024960114697915846
+2024-01-10 10:38:45,312:INFO:BaseTask_Self-Sup:230: train_wd = 0.04179362080959176
+2024-01-10 10:38:45,312:INFO:BaseTask_Self-Sup:230: epoch = 22
+2024-01-10 10:38:45,316:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:38:49,532:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:38:53,023:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:38:57,015:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 65.59%
+2024-01-10 10:38:57,182:INFO:BaseTask_Self-Sup:260: The best test accuracy was 68.03% at epoch 19
+2024-01-10 10:38:57,184:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 10:38:57,184:INFO:BaseTask_Self-Sup:266: The training took 20 minutes and 19 seconds from the beginning!
+2024-01-10 10:38:57,184:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 7 hours, 1 minute, and 39 seconds
+2024-01-10 10:38:57,184:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 4/30
+2024-01-10 10:38:57,184:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:39:36,929:INFO:BaseTask_Self-Sup:230: train_loss = 10.30634611303156
+2024-01-10 10:39:36,929:INFO:BaseTask_Self-Sup:230: train_lr = 0.0002495347710590309
+2024-01-10 10:39:36,929:INFO:BaseTask_Self-Sup:230: train_wd = 0.04195638608547488
+2024-01-10 10:39:36,929:INFO:BaseTask_Self-Sup:230: epoch = 23
+2024-01-10 10:39:36,933:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:39:41,117:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:39:44,598:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:39:48,676:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 66.52%
+2024-01-10 10:39:48,829:INFO:BaseTask_Self-Sup:260: The best test accuracy was 68.03% at epoch 19
+2024-01-10 10:39:48,832:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 10:39:48,832:INFO:BaseTask_Self-Sup:266: The training took 21 minutes and 11 seconds from the beginning!
+2024-01-10 10:39:48,832:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 7 hours and 18 seconds
+2024-01-10 10:39:48,832:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 5/30
+2024-01-10 10:39:48,832:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:40:28,625:INFO:BaseTask_Self-Sup:230: train_loss = 10.26391532204368
+2024-01-10 10:40:28,625:INFO:BaseTask_Self-Sup:230: train_lr = 0.0002494632965552761
+2024-01-10 10:40:28,625:INFO:BaseTask_Self-Sup:230: train_wd = 0.04212618021837582
+2024-01-10 10:40:28,625:INFO:BaseTask_Self-Sup:230: epoch = 24
+2024-01-10 10:40:28,629:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:40:32,752:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:40:36,243:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:40:40,253:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 66.95%
+2024-01-10 10:40:40,404:INFO:BaseTask_Self-Sup:260: The best test accuracy was 68.03% at epoch 19
+2024-01-10 10:40:40,407:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 10:40:40,407:INFO:BaseTask_Self-Sup:266: The training took 22 minutes and 3 seconds from the beginning!
+2024-01-10 10:40:40,407:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 6 hours, 58 minutes, and 59 seconds
+2024-01-10 10:40:40,407:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 6/30
+2024-01-10 10:40:40,407:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:41:20,237:INFO:BaseTask_Self-Sup:230: train_loss = 10.237905646815445
+2024-01-10 10:41:20,237:INFO:BaseTask_Self-Sup:230: train_lr = 0.0002493867264059309
+2024-01-10 10:41:20,238:INFO:BaseTask_Self-Sup:230: train_wd = 0.042302996505113
+2024-01-10 10:41:20,238:INFO:BaseTask_Self-Sup:230: epoch = 25
+2024-01-10 10:41:20,241:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:41:24,402:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:41:27,879:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:41:31,935:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 68.39%
+2024-01-10 10:41:32,091:INFO:BaseTask_Self-Sup:257: This is the new best model!
+2024-01-10 10:41:33,016:INFO:BaseTask_Self-Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51-Last.pt"! <--------
+2024-01-10 10:41:33,885:INFO:BaseTask_Self-Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51,Task-ID=0-Last.pt"! <--------
+2024-01-10 10:41:34,732:INFO:BaseTask_Self-Sup:513: 
+This model is saved as the best model in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51-Best_Model.pt"! <--------
+2024-01-10 10:41:34,735:INFO:BaseTask_Self-Sup:260: The best test accuracy was 68.39% at epoch 26
+2024-01-10 10:41:34,738:INFO:BaseTask_Self-Sup:265: This epoch took 54 seconds!
+2024-01-10 10:41:34,738:INFO:BaseTask_Self-Sup:266: The training took 22 minutes and 57 seconds from the beginning!
+2024-01-10 10:41:34,738:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 6 hours, 58 minutes, and 31 seconds
+2024-01-10 10:41:34,738:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 0/30
+2024-01-10 10:41:34,738:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:42:14,660:INFO:BaseTask_Self-Sup:230: train_loss = 10.19782713687781
+2024-01-10 10:42:14,660:INFO:BaseTask_Self-Sup:230: train_lr = 0.0002493050637584943
+2024-01-10 10:42:14,660:INFO:BaseTask_Self-Sup:230: train_wd = 0.042486827965282144
+2024-01-10 10:42:14,660:INFO:BaseTask_Self-Sup:230: epoch = 26
+2024-01-10 10:42:14,664:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:42:18,890:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:42:22,345:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:42:26,383:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 66.67%
+2024-01-10 10:42:26,537:INFO:BaseTask_Self-Sup:260: The best test accuracy was 68.39% at epoch 26
+2024-01-10 10:42:26,540:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 10:42:26,540:INFO:BaseTask_Self-Sup:266: The training took 23 minutes and 49 seconds from the beginning!
+2024-01-10 10:42:26,540:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 6 hours, 57 minutes, and 18 seconds
+2024-01-10 10:42:26,540:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 1/30
+2024-01-10 10:42:26,540:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:43:06,333:INFO:BaseTask_Self-Sup:230: train_loss = 10.165708310676344
+2024-01-10 10:43:06,333:INFO:BaseTask_Self-Sup:230: train_lr = 0.0002492183119697978
+2024-01-10 10:43:06,334:INFO:BaseTask_Self-Sup:230: train_wd = 0.04267766734153199
+2024-01-10 10:43:06,334:INFO:BaseTask_Self-Sup:230: epoch = 27
+2024-01-10 10:43:06,337:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:43:10,525:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:43:14,011:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:43:18,021:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 66.31%
+2024-01-10 10:43:18,172:INFO:BaseTask_Self-Sup:260: The best test accuracy was 68.39% at epoch 26
+2024-01-10 10:43:18,174:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 10:43:18,174:INFO:BaseTask_Self-Sup:266: The training took 24 minutes and 40 seconds from the beginning!
+2024-01-10 10:43:18,174:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 6 hours, 56 minutes, and 3 seconds
+2024-01-10 10:43:18,174:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 2/30
+2024-01-10 10:43:18,174:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:43:58,199:INFO:BaseTask_Self-Sup:230: train_loss = 10.148874253937691
+2024-01-10 10:43:58,200:INFO:BaseTask_Self-Sup:230: train_lr = 0.0002491264746058678
+2024-01-10 10:43:58,200:INFO:BaseTask_Self-Sup:230: train_wd = 0.04287550709985071
+2024-01-10 10:43:58,200:INFO:BaseTask_Self-Sup:230: epoch = 28
+2024-01-10 10:43:58,203:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:44:02,404:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:44:05,883:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:44:09,909:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 66.38%
+2024-01-10 10:44:10,068:INFO:BaseTask_Self-Sup:260: The best test accuracy was 68.39% at epoch 26
+2024-01-10 10:44:10,071:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 10:44:10,071:INFO:BaseTask_Self-Sup:266: The training took 25 minutes and 32 seconds from the beginning!
+2024-01-10 10:44:10,071:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 6 hours, 54 minutes, and 54 seconds
+2024-01-10 10:44:10,071:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 3/30
+2024-01-10 10:44:10,071:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:44:49,830:INFO:BaseTask_Self-Sup:230: train_loss = 10.132956591519443
+2024-01-10 10:44:49,832:INFO:BaseTask_Self-Sup:230: train_lr = 0.0002490295554417784
+2024-01-10 10:44:49,832:INFO:BaseTask_Self-Sup:230: train_wd = 0.04308033942986346
+2024-01-10 10:44:49,832:INFO:BaseTask_Self-Sup:230: epoch = 29
+2024-01-10 10:44:49,835:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:44:53,978:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:44:57,430:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:45:01,425:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 66.45%
+2024-01-10 10:45:01,577:INFO:BaseTask_Self-Sup:260: The best test accuracy was 68.39% at epoch 26
+2024-01-10 10:45:01,579:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 10:45:01,579:INFO:BaseTask_Self-Sup:266: The training took 26 minutes and 24 seconds from the beginning!
+2024-01-10 10:45:01,579:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 6 hours, 53 minutes, and 40 seconds
+2024-01-10 10:45:01,579:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 4/30
+2024-01-10 10:45:01,579:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:45:41,459:INFO:BaseTask_Self-Sup:230: train_loss = 10.094402053139426
+2024-01-10 10:45:41,460:INFO:BaseTask_Self-Sup:230: train_lr = 0.000248927558461497
+2024-01-10 10:45:41,460:INFO:BaseTask_Self-Sup:230: train_wd = 0.04329215624514049
+2024-01-10 10:45:41,460:INFO:BaseTask_Self-Sup:230: epoch = 30
+2024-01-10 10:45:41,464:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:45:45,641:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:45:49,133:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:45:53,162:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 66.88%
+2024-01-10 10:45:53,325:INFO:BaseTask_Self-Sup:260: The best test accuracy was 68.39% at epoch 26
+2024-01-10 10:45:53,327:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 10:45:53,327:INFO:BaseTask_Self-Sup:266: The training took 27 minutes and 16 seconds from the beginning!
+2024-01-10 10:45:53,327:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 6 hours, 52 minutes, and 31 seconds
+2024-01-10 10:45:53,327:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 5/30
+2024-01-10 10:45:53,327:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:46:33,209:INFO:BaseTask_Self-Sup:230: train_loss = 10.048482634804465
+2024-01-10 10:46:33,209:INFO:BaseTask_Self-Sup:230: train_lr = 0.00024882048785772
+2024-01-10 10:46:33,209:INFO:BaseTask_Self-Sup:230: train_wd = 0.043510949183516695
+2024-01-10 10:46:33,210:INFO:BaseTask_Self-Sup:230: epoch = 31
+2024-01-10 10:46:33,213:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:46:37,387:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:46:40,839:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:46:44,963:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 65.01%
+2024-01-10 10:46:45,136:INFO:BaseTask_Self-Sup:260: The best test accuracy was 68.39% at epoch 26
+2024-01-10 10:46:45,138:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 10:46:45,138:INFO:BaseTask_Self-Sup:266: The training took 28 minutes and 7 seconds from the beginning!
+2024-01-10 10:46:45,139:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 6 hours, 51 minutes, and 24 seconds
+2024-01-10 10:46:45,139:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 6/30
+2024-01-10 10:46:45,139:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:47:24,947:INFO:BaseTask_Self-Sup:230: train_loss = 9.998310378103545
+2024-01-10 10:47:24,948:INFO:BaseTask_Self-Sup:230: train_lr = 0.00024870834803170046
+2024-01-10 10:47:24,948:INFO:BaseTask_Self-Sup:230: train_wd = 0.043736709607421466
+2024-01-10 10:47:24,948:INFO:BaseTask_Self-Sup:230: epoch = 32
+2024-01-10 10:47:24,951:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:47:29,118:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:47:32,580:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:47:36,584:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 66.09%
+2024-01-10 10:47:36,748:INFO:BaseTask_Self-Sup:260: The best test accuracy was 68.39% at epoch 26
+2024-01-10 10:47:36,750:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 10:47:36,750:INFO:BaseTask_Self-Sup:266: The training took 28 minutes and 59 seconds from the beginning!
+2024-01-10 10:47:36,751:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 6 hours, 50 minutes, and 15 seconds
+2024-01-10 10:47:36,751:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 7/30
+2024-01-10 10:47:36,751:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:48:16,539:INFO:BaseTask_Self-Sup:230: train_loss = 9.949255827701453
+2024-01-10 10:48:16,539:INFO:BaseTask_Self-Sup:230: train_lr = 0.00024859114359306744
+2024-01-10 10:48:16,540:INFO:BaseTask_Self-Sup:230: train_wd = 0.043969428604219846
+2024-01-10 10:48:16,540:INFO:BaseTask_Self-Sup:230: epoch = 33
+2024-01-10 10:48:16,543:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:48:20,776:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:48:24,227:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:48:28,216:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 66.67%
+2024-01-10 10:48:28,362:INFO:BaseTask_Self-Sup:260: The best test accuracy was 68.39% at epoch 26
+2024-01-10 10:48:28,364:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 10:48:28,364:INFO:BaseTask_Self-Sup:266: The training took 29 minutes and 51 seconds from the beginning!
+2024-01-10 10:48:28,364:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 6 hours, 49 minutes, and 8 seconds
+2024-01-10 10:48:28,364:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 8/30
+2024-01-10 10:48:28,364:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:49:08,075:INFO:BaseTask_Self-Sup:230: train_loss = 9.892480358932957
+2024-01-10 10:49:08,076:INFO:BaseTask_Self-Sup:230: train_lr = 0.0002484688793596363
+2024-01-10 10:49:08,076:INFO:BaseTask_Self-Sup:230: train_wd = 0.04420909698656432
+2024-01-10 10:49:08,076:INFO:BaseTask_Self-Sup:230: epoch = 34
+2024-01-10 10:49:08,079:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:49:12,348:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:49:15,804:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:49:19,850:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 65.59%
+2024-01-10 10:49:20,003:INFO:BaseTask_Self-Sup:260: The best test accuracy was 68.39% at epoch 26
+2024-01-10 10:49:20,005:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 10:49:20,005:INFO:BaseTask_Self-Sup:266: The training took 30 minutes and 42 seconds from the beginning!
+2024-01-10 10:49:20,006:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 6 hours, 48 minutes, and 1 second
+2024-01-10 10:49:20,006:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 9/30
+2024-01-10 10:49:20,006:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:49:59,760:INFO:BaseTask_Self-Sup:230: train_loss = 9.859373410542807
+2024-01-10 10:49:59,760:INFO:BaseTask_Self-Sup:230: train_lr = 0.00024834156035721084
+2024-01-10 10:49:59,760:INFO:BaseTask_Self-Sup:230: train_wd = 0.04445570529275752
+2024-01-10 10:49:59,760:INFO:BaseTask_Self-Sup:230: epoch = 35
+2024-01-10 10:49:59,764:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:50:03,971:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:50:07,441:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:50:11,503:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 65.66%
+2024-01-10 10:50:11,662:INFO:BaseTask_Self-Sup:260: The best test accuracy was 68.39% at epoch 26
+2024-01-10 10:50:11,664:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 10:50:11,665:INFO:BaseTask_Self-Sup:266: The training took 31 minutes and 34 seconds from the beginning!
+2024-01-10 10:50:11,665:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 6 hours, 46 minutes, and 56 seconds
+2024-01-10 10:50:11,665:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 10/30
+2024-01-10 10:50:11,665:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:50:51,599:INFO:BaseTask_Self-Sup:230: train_loss = 9.807635133916682
+2024-01-10 10:50:51,599:INFO:BaseTask_Self-Sup:230: train_lr = 0.0002482091918193766
+2024-01-10 10:50:51,599:INFO:BaseTask_Self-Sup:230: train_wd = 0.04470924378712577
+2024-01-10 10:50:51,599:INFO:BaseTask_Self-Sup:230: epoch = 36
+2024-01-10 10:50:51,603:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:50:55,839:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:50:59,327:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:51:03,336:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 65.59%
+2024-01-10 10:51:03,491:INFO:BaseTask_Self-Sup:260: The best test accuracy was 68.39% at epoch 26
+2024-01-10 10:51:03,493:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 10:51:03,494:INFO:BaseTask_Self-Sup:266: The training took 32 minutes and 26 seconds from the beginning!
+2024-01-10 10:51:03,494:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 6 hours, 45 minutes, and 53 seconds
+2024-01-10 10:51:03,494:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 11/30
+2024-01-10 10:51:03,494:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:51:43,285:INFO:BaseTask_Self-Sup:230: train_loss = 9.764213012926506
+2024-01-10 10:51:43,286:INFO:BaseTask_Self-Sup:230: train_lr = 0.0002480717791872857
+2024-01-10 10:51:43,286:INFO:BaseTask_Self-Sup:230: train_wd = 0.044969702460403466
+2024-01-10 10:51:43,286:INFO:BaseTask_Self-Sup:230: epoch = 37
+2024-01-10 10:51:43,289:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:51:47,492:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:51:50,978:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:51:55,017:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 64.65%
+2024-01-10 10:51:55,171:INFO:BaseTask_Self-Sup:260: The best test accuracy was 68.39% at epoch 26
+2024-01-10 10:51:55,173:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 10:51:55,173:INFO:BaseTask_Self-Sup:266: The training took 33 minutes and 17 seconds from the beginning!
+2024-01-10 10:51:55,173:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 6 hours, 44 minutes, and 49 seconds
+2024-01-10 10:51:55,174:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 12/30
+2024-01-10 10:51:55,174:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:52:34,863:INFO:BaseTask_Self-Sup:230: train_loss = 9.713442397840096
+2024-01-10 10:52:34,864:INFO:BaseTask_Self-Sup:230: train_lr = 0.00024792932810943326
+2024-01-10 10:52:34,864:INFO:BaseTask_Self-Sup:230: train_wd = 0.04523707103012817
+2024-01-10 10:52:34,864:INFO:BaseTask_Self-Sup:230: epoch = 38
+2024-01-10 10:52:34,867:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:52:39,080:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:52:42,525:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:52:46,498:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 65.23%
+2024-01-10 10:52:46,657:INFO:BaseTask_Self-Sup:260: The best test accuracy was 68.39% at epoch 26
+2024-01-10 10:52:46,659:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 10:52:46,659:INFO:BaseTask_Self-Sup:266: The training took 34 minutes and 9 seconds from the beginning!
+2024-01-10 10:52:46,659:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 6 hours, 43 minutes, and 44 seconds
+2024-01-10 10:52:46,660:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 13/30
+2024-01-10 10:52:46,660:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:53:26,595:INFO:BaseTask_Self-Sup:230: train_loss = 9.662254709185977
+2024-01-10 10:53:26,596:INFO:BaseTask_Self-Sup:230: train_lr = 0.00024778184444142513
+2024-01-10 10:53:26,596:INFO:BaseTask_Self-Sup:230: train_wd = 0.04551133894104652
+2024-01-10 10:53:26,596:INFO:BaseTask_Self-Sup:230: epoch = 39
+2024-01-10 10:53:26,600:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:53:30,884:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:53:34,325:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:53:38,301:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 65.37%
+2024-01-10 10:53:38,453:INFO:BaseTask_Self-Sup:260: The best test accuracy was 68.39% at epoch 26
+2024-01-10 10:53:38,455:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 10:53:38,456:INFO:BaseTask_Self-Sup:266: The training took 35 minutes and 1 second from the beginning!
+2024-01-10 10:53:38,456:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 6 hours, 42 minutes, and 43 seconds
+2024-01-10 10:53:38,456:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 14/30
+2024-01-10 10:53:38,456:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:54:18,308:INFO:BaseTask_Self-Sup:230: train_loss = 9.601256890730424
+2024-01-10 10:54:18,308:INFO:BaseTask_Self-Sup:230: train_lr = 0.0002476293342457372
+2024-01-10 10:54:18,308:INFO:BaseTask_Self-Sup:230: train_wd = 0.04579249536553103
+2024-01-10 10:54:18,308:INFO:BaseTask_Self-Sup:230: epoch = 40
+2024-01-10 10:54:18,312:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:54:22,481:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:54:25,969:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:54:29,969:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 64.65%
+2024-01-10 10:54:30,117:INFO:BaseTask_Self-Sup:260: The best test accuracy was 68.39% at epoch 26
+2024-01-10 10:54:30,119:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 10:54:30,119:INFO:BaseTask_Self-Sup:266: The training took 35 minutes and 52 seconds from the beginning!
+2024-01-10 10:54:30,119:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 6 hours, 41 minutes, and 41 seconds
+2024-01-10 10:54:30,119:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 15/30
+2024-01-10 10:54:30,119:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:55:09,924:INFO:BaseTask_Self-Sup:230: train_loss = 9.571819218722256
+2024-01-10 10:55:09,924:INFO:BaseTask_Self-Sup:230: train_lr = 0.00024747180379146625
+2024-01-10 10:55:09,924:INFO:BaseTask_Self-Sup:230: train_wd = 0.046080529204007514
+2024-01-10 10:55:09,924:INFO:BaseTask_Self-Sup:230: epoch = 41
+2024-01-10 10:55:09,928:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:55:14,067:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:55:17,514:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:55:21,396:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 64.72%
+2024-01-10 10:55:21,548:INFO:BaseTask_Self-Sup:260: The best test accuracy was 68.39% at epoch 26
+2024-01-10 10:55:21,550:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 10:55:21,550:INFO:BaseTask_Self-Sup:266: The training took 36 minutes and 44 seconds from the beginning!
+2024-01-10 10:55:21,550:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 6 hours, 40 minutes, and 36 seconds
+2024-01-10 10:55:21,550:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 16/30
+2024-01-10 10:55:21,550:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:56:01,268:INFO:BaseTask_Self-Sup:230: train_loss = 9.526543906240752
+2024-01-10 10:56:01,269:INFO:BaseTask_Self-Sup:230: train_lr = 0.00024730925955407244
+2024-01-10 10:56:01,269:INFO:BaseTask_Self-Sup:230: train_wd = 0.046375429085393154
+2024-01-10 10:56:01,269:INFO:BaseTask_Self-Sup:230: epoch = 42
+2024-01-10 10:56:01,272:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:56:05,472:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:56:08,936:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:56:13,029:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 64.58%
+2024-01-10 10:56:13,180:INFO:BaseTask_Self-Sup:260: The best test accuracy was 68.39% at epoch 26
+2024-01-10 10:56:13,182:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 10:56:13,182:INFO:BaseTask_Self-Sup:266: The training took 37 minutes and 35 seconds from the beginning!
+2024-01-10 10:56:13,182:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 6 hours, 39 minutes, and 35 seconds
+2024-01-10 10:56:13,182:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 17/30
+2024-01-10 10:56:13,182:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:56:52,858:INFO:BaseTask_Self-Sup:230: train_loss = 9.469995585354892
+2024-01-10 10:56:52,859:INFO:BaseTask_Self-Sup:230: train_lr = 0.0002471417082151125
+2024-01-10 10:56:52,859:INFO:BaseTask_Self-Sup:230: train_wd = 0.04667718336754563
+2024-01-10 10:56:52,859:INFO:BaseTask_Self-Sup:230: epoch = 43
+2024-01-10 10:56:52,862:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:56:57,080:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:57:00,525:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:57:04,559:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 63.14%
+2024-01-10 10:57:04,719:INFO:BaseTask_Self-Sup:260: The best test accuracy was 68.39% at epoch 26
+2024-01-10 10:57:04,721:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 10:57:04,721:INFO:BaseTask_Self-Sup:266: The training took 38 minutes and 27 seconds from the beginning!
+2024-01-10 10:57:04,721:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 6 hours, 38 minutes, and 33 seconds
+2024-01-10 10:57:04,721:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 18/30
+2024-01-10 10:57:04,721:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:57:44,499:INFO:BaseTask_Self-Sup:230: train_loss = 9.414898698980158
+2024-01-10 10:57:44,500:INFO:BaseTask_Self-Sup:230: train_lr = 0.00024696915666196583
+2024-01-10 10:57:44,500:INFO:BaseTask_Self-Sup:230: train_wd = 0.046985780137722574
+2024-01-10 10:57:44,500:INFO:BaseTask_Self-Sup:230: epoch = 44
+2024-01-10 10:57:44,504:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:57:48,697:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:57:52,146:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:57:56,171:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 64.51%
+2024-01-10 10:57:56,332:INFO:BaseTask_Self-Sup:260: The best test accuracy was 68.39% at epoch 26
+2024-01-10 10:57:56,334:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 10:57:56,334:INFO:BaseTask_Self-Sup:266: The training took 39 minutes and 19 seconds from the beginning!
+2024-01-10 10:57:56,334:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 6 hours, 37 minutes, and 32 seconds
+2024-01-10 10:57:56,334:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 19/30
+2024-01-10 10:57:56,334:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:58:36,104:INFO:BaseTask_Self-Sup:230: train_loss = 9.387026035424435
+2024-01-10 10:58:36,105:INFO:BaseTask_Self-Sup:230: train_lr = 0.0002467916119875511
+2024-01-10 10:58:36,105:INFO:BaseTask_Self-Sup:230: train_wd = 0.047301207213051866
+2024-01-10 10:58:36,105:INFO:BaseTask_Self-Sup:230: epoch = 45
+2024-01-10 10:58:36,108:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:58:40,284:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:58:43,763:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:58:47,777:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 63.93%
+2024-01-10 10:58:47,932:INFO:BaseTask_Self-Sup:260: The best test accuracy was 68.39% at epoch 26
+2024-01-10 10:58:47,934:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 10:58:47,934:INFO:BaseTask_Self-Sup:266: The training took 40 minutes and 10 seconds from the beginning!
+2024-01-10 10:58:47,934:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 6 hours, 36 minutes, and 31 seconds
+2024-01-10 10:58:47,934:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 20/30
+2024-01-10 10:58:47,934:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 10:59:27,659:INFO:BaseTask_Self-Sup:230: train_loss = 9.342465111703584
+2024-01-10 10:59:27,660:INFO:BaseTask_Self-Sup:230: train_lr = 0.0002466090814900341
+2024-01-10 10:59:27,660:INFO:BaseTask_Self-Sup:230: train_wd = 0.047623452141012705
+2024-01-10 10:59:27,660:INFO:BaseTask_Self-Sup:230: epoch = 46
+2024-01-10 10:59:27,663:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 10:59:31,880:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 10:59:35,376:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 10:59:39,394:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 62.56%
+2024-01-10 10:59:39,561:INFO:BaseTask_Self-Sup:260: The best test accuracy was 68.39% at epoch 26
+2024-01-10 10:59:39,564:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 10:59:39,564:INFO:BaseTask_Self-Sup:266: The training took 41 minutes and 2 seconds from the beginning!
+2024-01-10 10:59:39,564:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 6 hours, 35 minutes, and 32 seconds
+2024-01-10 10:59:39,564:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 21/30
+2024-01-10 10:59:39,564:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 11:00:19,267:INFO:BaseTask_Self-Sup:230: train_loss = 9.293455961978797
+2024-01-10 11:00:19,268:INFO:BaseTask_Self-Sup:230: train_lr = 0.0002464215726725289
+2024-01-10 11:00:19,268:INFO:BaseTask_Self-Sup:230: train_wd = 0.047952502199927076
+2024-01-10 11:00:19,268:INFO:BaseTask_Self-Sup:230: epoch = 47
+2024-01-10 11:00:19,272:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 11:00:23,436:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 11:00:26,894:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 11:00:30,917:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 65.37%
+2024-01-10 11:00:31,073:INFO:BaseTask_Self-Sup:260: The best test accuracy was 68.39% at epoch 26
+2024-01-10 11:00:31,076:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 11:00:31,076:INFO:BaseTask_Self-Sup:266: The training took 41 minutes and 53 seconds from the beginning!
+2024-01-10 11:00:31,076:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 6 hours, 34 minutes, and 31 seconds
+2024-01-10 11:00:31,076:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 22/30
+2024-01-10 11:00:31,076:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 11:01:10,897:INFO:BaseTask_Self-Sup:230: train_loss = 9.24754726525509
+2024-01-10 11:01:10,898:INFO:BaseTask_Self-Sup:230: train_lr = 0.0002462290932427886
+2024-01-10 11:01:10,898:INFO:BaseTask_Self-Sup:230: train_wd = 0.04828834439946208
+2024-01-10 11:01:10,898:INFO:BaseTask_Self-Sup:230: epoch = 48
+2024-01-10 11:01:10,902:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 11:01:15,117:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 11:01:18,587:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 11:01:22,668:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 64.87%
+2024-01-10 11:01:22,818:INFO:BaseTask_Self-Sup:260: The best test accuracy was 68.39% at epoch 26
+2024-01-10 11:01:22,820:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 11:01:22,820:INFO:BaseTask_Self-Sup:266: The training took 42 minutes and 45 seconds from the beginning!
+2024-01-10 11:01:22,820:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 6 hours, 33 minutes, and 33 seconds
+2024-01-10 11:01:22,821:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 23/30
+2024-01-10 11:01:22,821:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 11:02:03,525:INFO:BaseTask_Self-Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51-Last.pt"! <--------
+2024-01-10 11:02:04,398:INFO:BaseTask_Self-Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51,Task-ID=0-Last.pt"! <--------
+2024-01-10 11:02:05,228:INFO:BaseTask_Self-Sup:509: 
+A snapshot is saved to "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51-Epoch=50.pt" <--------
+2024-01-10 11:02:05,231:INFO:BaseTask_Self-Sup:230: train_loss = 9.209211985270182
+2024-01-10 11:02:05,231:INFO:BaseTask_Self-Sup:230: train_lr = 0.0002460316511128886
+2024-01-10 11:02:05,231:INFO:BaseTask_Self-Sup:230: train_wd = 0.04863096548114278
+2024-01-10 11:02:05,231:INFO:BaseTask_Self-Sup:230: epoch = 49
+2024-01-10 11:02:05,234:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 11:02:09,530:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 11:02:12,968:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 11:02:16,970:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 63.57%
+2024-01-10 11:02:17,133:INFO:BaseTask_Self-Sup:260: The best test accuracy was 68.39% at epoch 26
+2024-01-10 11:02:17,135:INFO:BaseTask_Self-Sup:265: This epoch took 54 seconds!
+2024-01-10 11:02:17,135:INFO:BaseTask_Self-Sup:266: The training took 43 minutes and 39 seconds from the beginning!
+2024-01-10 11:02:17,135:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 6 hours, 32 minutes, and 58 seconds
+2024-01-10 11:02:17,135:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 24/30
+2024-01-10 11:02:17,135:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 11:02:56,857:INFO:BaseTask_Self-Sup:230: train_loss = 9.145916649789521
+2024-01-10 11:02:56,858:INFO:BaseTask_Self-Sup:230: train_lr = 0.0002458292543989015
+2024-01-10 11:02:56,858:INFO:BaseTask_Self-Sup:230: train_wd = 0.048980351918875474
+2024-01-10 11:02:56,858:INFO:BaseTask_Self-Sup:230: epoch = 50
+2024-01-10 11:02:56,861:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 11:03:01,054:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 11:03:04,498:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 11:03:08,486:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 64.00%
+2024-01-10 11:03:08,632:INFO:BaseTask_Self-Sup:260: The best test accuracy was 68.39% at epoch 26
+2024-01-10 11:03:08,635:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 11:03:08,635:INFO:BaseTask_Self-Sup:266: The training took 44 minutes and 31 seconds from the beginning!
+2024-01-10 11:03:08,635:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 6 hours, 31 minutes, and 58 seconds
+2024-01-10 11:03:08,635:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 25/30
+2024-01-10 11:03:08,635:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 11:03:48,387:INFO:BaseTask_Self-Sup:230: train_loss = 9.114251974857215
+2024-01-10 11:03:48,388:INFO:BaseTask_Self-Sup:230: train_lr = 0.00024562191142056354
+2024-01-10 11:03:48,388:INFO:BaseTask_Self-Sup:230: train_wd = 0.04933648991948187
+2024-01-10 11:03:48,388:INFO:BaseTask_Self-Sup:230: epoch = 51
+2024-01-10 11:03:48,392:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 11:03:52,549:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 11:03:56,013:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 11:04:00,037:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 61.70%
+2024-01-10 11:04:00,193:INFO:BaseTask_Self-Sup:260: The best test accuracy was 68.39% at epoch 26
+2024-01-10 11:04:00,195:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 11:04:00,195:INFO:BaseTask_Self-Sup:266: The training took 45 minutes and 22 seconds from the beginning!
+2024-01-10 11:04:00,195:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 6 hours, 30 minutes, and 58 seconds
+2024-01-10 11:04:00,195:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 26/30
+2024-01-10 11:04:00,195:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 11:04:40,046:INFO:BaseTask_Self-Sup:230: train_loss = 9.069395729989717
+2024-01-10 11:04:40,047:INFO:BaseTask_Self-Sup:230: train_lr = 0.00024540963070093243
+2024-01-10 11:04:40,047:INFO:BaseTask_Self-Sup:230: train_wd = 0.049699365423243505
+2024-01-10 11:04:40,047:INFO:BaseTask_Self-Sup:230: epoch = 52
+2024-01-10 11:04:40,050:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 11:04:44,208:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 11:04:47,668:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 11:04:51,704:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 63.21%
+2024-01-10 11:04:51,860:INFO:BaseTask_Self-Sup:260: The best test accuracy was 68.39% at epoch 26
+2024-01-10 11:04:51,862:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 11:04:51,862:INFO:BaseTask_Self-Sup:266: The training took 46 minutes and 14 seconds from the beginning!
+2024-01-10 11:04:51,862:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 6 hours, 30 minutes, and 0 seconds
+2024-01-10 11:04:51,862:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 27/30
+2024-01-10 11:04:51,862:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 11:05:31,582:INFO:BaseTask_Self-Sup:230: train_loss = 9.030238527240176
+2024-01-10 11:05:31,583:INFO:BaseTask_Self-Sup:230: train_lr = 0.0002451924209660372
+2024-01-10 11:05:31,583:INFO:BaseTask_Self-Sup:230: train_wd = 0.05006896410445686
+2024-01-10 11:05:31,584:INFO:BaseTask_Self-Sup:230: epoch = 53
+2024-01-10 11:05:31,587:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 11:05:35,772:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 11:05:39,267:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 11:05:43,282:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 64.36%
+2024-01-10 11:05:43,428:INFO:BaseTask_Self-Sup:260: The best test accuracy was 68.39% at epoch 26
+2024-01-10 11:05:43,430:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 11:05:43,430:INFO:BaseTask_Self-Sup:266: The training took 47 minutes and 6 seconds from the beginning!
+2024-01-10 11:05:43,430:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 6 hours, 29 minutes, and 1 second
+2024-01-10 11:05:43,430:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 28/30
+2024-01-10 11:05:43,430:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 11:06:23,289:INFO:BaseTask_Self-Sup:230: train_loss = 9.007083863923043
+2024-01-10 11:06:23,291:INFO:BaseTask_Self-Sup:230: train_lr = 0.00024497029114451904
+2024-01-10 11:06:23,291:INFO:BaseTask_Self-Sup:230: train_wd = 0.050445271371998834
+2024-01-10 11:06:23,291:INFO:BaseTask_Self-Sup:230: epoch = 54
+2024-01-10 11:06:23,294:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 11:06:27,462:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 11:06:30,929:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 11:06:34,950:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 62.20%
+2024-01-10 11:06:35,116:INFO:BaseTask_Self-Sup:260: The best test accuracy was 68.39% at epoch 26
+2024-01-10 11:06:35,119:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 11:06:35,119:INFO:BaseTask_Self-Sup:266: The training took 47 minutes and 57 seconds from the beginning!
+2024-01-10 11:06:35,119:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 6 hours, 28 minutes, and 4 seconds
+2024-01-10 11:06:35,119:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 29/30
+2024-01-10 11:06:35,119:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 11:07:14,869:INFO:BaseTask_Self-Sup:230: train_loss = 8.964328130086264
+2024-01-10 11:07:14,869:INFO:BaseTask_Self-Sup:230: train_lr = 0.00024474325036726507
+2024-01-10 11:07:14,869:INFO:BaseTask_Self-Sup:230: train_wd = 0.05082827236990281
+2024-01-10 11:07:14,869:INFO:BaseTask_Self-Sup:230: epoch = 55
+2024-01-10 11:07:14,873:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 11:07:19,020:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 11:07:22,500:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 11:07:26,463:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 62.56%
+2024-01-10 11:07:26,613:INFO:BaseTask_Self-Sup:260: The best test accuracy was 68.39% at epoch 26
+2024-01-10 11:07:26,615:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 11:07:26,615:INFO:BaseTask_Self-Sup:266: The training took 48 minutes and 49 seconds from the beginning!
+2024-01-10 11:07:26,615:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 6 hours, 27 minutes, and 5 seconds
+2024-01-10 11:07:26,615:INFO:BaseTask_Self-Sup:276: Number of epochs with no-progress = 30/30
+2024-01-10 11:07:26,615:INFO:BaseTask_Self-Sup:277: --------------------------------------------------
+2024-01-10 11:08:06,465:INFO:BaseTask_Self-Sup:230: train_loss = 8.908879886973988
+2024-01-10 11:08:06,466:INFO:BaseTask_Self-Sup:230: train_lr = 0.0002445113079670324
+2024-01-10 11:08:06,466:INFO:BaseTask_Self-Sup:230: train_wd = 0.05121795197794526
+2024-01-10 11:08:06,466:INFO:BaseTask_Self-Sup:230: epoch = 56
+2024-01-10 11:08:06,470:INFO:BaseTask_Self-Sup:533: Fine-tuning ...
+2024-01-10 11:08:10,632:INFO:BaseTask_Self-Sup:575: We obtianed the features from the frozen model.
+2024-01-10 11:08:14,083:INFO:BaseTask_Self-Sup:640: Final evaluation ...
+2024-01-10 11:08:18,162:INFO:BaseTask_Self-Sup:763: -> test acc. of task 0: 62.20%
+2024-01-10 11:08:18,320:INFO:BaseTask_Self-Sup:260: The best test accuracy was 68.39% at epoch 26
+2024-01-10 11:08:18,323:INFO:BaseTask_Self-Sup:265: This epoch took 51 seconds!
+2024-01-10 11:08:18,323:INFO:BaseTask_Self-Sup:266: The training took 49 minutes and 41 seconds from the beginning!
+2024-01-10 11:08:18,323:INFO:BaseTask_Self-Sup:557: Estimated remaining time: 6 hours, 26 minutes, and 8 seconds
+2024-01-10 11:08:18,323:INFO:BaseTask_Self-Sup:273: The training is stopped due to the lack of progress!
+2024-01-10 11:08:19,244:INFO:BaseTask_Self-Sup:493: 
+The last model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51-Last.pt"! <--------
+2024-01-10 11:08:20,126:INFO:BaseTask_Self-Sup:497: 
+The model is saved in "/scratch/gx83/np9254/ROBUSTA-Saves/CUB-200/Phase_1,50_classes/P0P1,start_time=Date_2024-01-10,Time_10-18-32,seed=51,Task-ID=0-Last.pt"! <--------
+2024-01-10 11:08:20,129:INFO:BaseTask_Self-Sup:280: The latest model is saved.
+2024-01-10 11:08:20,129:INFO:BaseTask_Self-Sup:281: The best test accuracy was 68.39% at epoch 26
+2024-01-10 11:08:20,129:INFO:BaseTask_Self-Sup:283: Training on the base task took 49 minutes and 42 seconds.

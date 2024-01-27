@@ -1,0 +1,93 @@
+experiment_description = "Phase 1,DINO,base task,20 classes,CCT-14_7x2"
+phase = "self_supervised_learning"
+device = "cuda:0"
+seed = 21
+batch_size_base = 45
+batch_size_test = 45
+batch_size_new = 0
+batch_size_fine_tuning = 100
+image_size = 224
+in_channels = 3
+tqdm_enabled = false
+resume = false
+
+
+[configs_arch]
+  model_type = 'CCT-21/7x2'
+  use_BatchNorm = true
+  use_BatchNorm_for_patch_embeddings = true
+  use_BatchNorm_for_patch_embeddings_for_local_patches = true
+  PositionalEmbeddingType = 'Learnable'   # Learnable, SinCos
+  number_of_the_first_layers_to_be_frozen = 0
+
+
+[configs_dataset]
+  dataroot = "/scratch/gx83/np9254/Datasets/FSCIL/CEC/"
+  dataset_name = 'cifar100'               # 'mini_imagenet', 'cifar100', or 'cub200'
+  num_workers = 12
+  total_classes = 100
+  num_base_classes = 20
+  num_tasks = 9
+  num_shots = 5
+  drop_last_base = true
+
+
+[configs_FSCIL]
+  start_from_task = 0
+  randomize_selected_classes = false      # We conform to the S3C and F2M implementations.
+
+
+[configs_dino]
+  num_epochs = 500
+  num_epochs_no_progress_detection = 30
+  lr_head = 2.5e-4
+  lr_backbone = 2.5e-4
+  coef_loss_dino = 1.0
+  coef_loss_ce = 0.0
+  min_lr = 1e-6
+  weight_decay = 0.04
+  weight_decay_end = 0.4
+  warmup_epochs_head = 10
+  warmup_epochs_backbone = 10
+  fine_tuning_and_evaluation_freq = 1
+  out_dim = 65536
+  local_crops_number = 8
+  local_patch_size = 96
+  local_crops_scale = [0.05, 0.4]
+  global_crops_scale = [0.4, 1.0]
+  warmup_teacher_temp = 0.04
+  teacher_temp = 0.07
+  warmup_teacher_temp_epochs = 30
+  momentum_teacher = 0.996
+  clip_grad = 0
+  num_epochs_freeze_last_layer = 1
+  use_BatchNorm_in_dino_head = false
+  display_freq = 1
+  freeze_backbone_for_fine_tuning = true
+  enable_normalize_transform = false
+
+
+# For supervised learning (cross-entropy loss)
+[configs_train]
+  num_epochs = 200
+  lr = 0.001
+  momentum = 0.9
+  momentum2 = 0.999   # For Adam
+  weight_decay = 0
+  nesterov = true
+  display_freq = 100  # For fine-tuning
+
+
+[configs_logger]
+  display_interval = 30.0
+  display_freq = 1
+  moving_average_capacity = 200
+
+
+[configs_save]
+  save_freq_epoch = 50
+  save_freq_iter = 2000
+  time_interval_to_save = 60
+  root = "/scratch/gx83/np9254/ROBUSTA-Saves/CIFAR-100/Phase_1,20_classes"
+  input_file = ""
+  output_file = "P1"
